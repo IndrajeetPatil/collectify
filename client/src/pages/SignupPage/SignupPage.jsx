@@ -51,7 +51,12 @@ function SignupPage() {
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleEmail}
+        />
 
         <label>Password:</label>
         <input
@@ -62,7 +67,12 @@ function SignupPage() {
         />
 
         <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleName}
+        />
 
         <button type="submit">Sign Up</button>
       </form>
