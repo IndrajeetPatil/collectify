@@ -34,14 +34,11 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
-      <div className="container d-flex">
-        <div className="row flex-grow-1 justify-content-center align-items-center">
-          <div className="col col-sm-8 col-lg-4">
-            <Card
-              style={{ width: "24rem" }}
-              className="mb-0"
-            >
+    <div className="container d-flex ">
+      <div className="row flex-grow-1 justify-content-center align-items-center">
+        <div className="col col-sm-8 col-lg-4">
+          <div className="LoginPage">
+            <Card className="mb-0">
               <Card.Body>
                 <Card.Text>
                   <Form
@@ -55,6 +52,9 @@ function LoginPage() {
                       <Form.Control
                         type="email"
                         placeholder="Email address"
+                        name="email"
+                        id="email"
+                        aria-label="Email address"
                         value={email}
                         required
                         onChange={handleEmail}
@@ -68,6 +68,9 @@ function LoginPage() {
                       <Form.Control
                         type="password"
                         placeholder="Password"
+                        name="pass"
+                        id="pass"
+                        aria-label="Password"
                         value={password}
                         required
                         onChange={handlePassword}
