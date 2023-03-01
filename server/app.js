@@ -5,10 +5,10 @@ const app = express();
 
 require("./config")(app);
 
-const indexRoutes = require("./routes/index.routes");
+const indexRoutes = require("./routes");
 app.use("/api", indexRoutes);
 
-const authRoutes = require("./routes/auth.routes");
+const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
 require("./error-handling")(app);
