@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/auth.context";
-import authService from "../../services/auth.service";
+import { AuthContext } from "../context/auth.context";
+import authService from "../services/auth.service";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -34,7 +34,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="container d-flex ">
+    <div className="container d-flex text-center">
       <div className="row flex-grow-1 justify-content-center align-items-center">
         <div className="col col-sm-8 col-lg-4">
           <div className="LoginPage">
