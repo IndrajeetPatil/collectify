@@ -18,17 +18,9 @@ class AuthService {
     });
   }
 
-  login = (requestBody) => {
-    return this.api.post("/auth/login", requestBody);
-  };
-
-  signup = (requestBody) => {
-    return this.api.post("/auth/signup", requestBody);
-  };
-
-  verify = () => {
-    return this.api.get("/auth/verify");
-  };
+  login = (requestBody) => this.api.post("/auth/login", requestBody);
+  signup = (requestBody) => this.api.post("/auth/signup", requestBody);
+  verify = () => this.api.get("/auth/verify");
 }
 
 const authService = new AuthService();
