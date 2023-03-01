@@ -34,7 +34,6 @@ function SignupPage() {
         <label>Email:</label>
         <input
           type="email"
-          name="email"
           value={email}
           required
           onChange={handleEmail}
@@ -43,7 +42,6 @@ function SignupPage() {
         <label>Password:</label>
         <input
           type="password"
-          name="password"
           value={password}
           required
           onChange={handlePassword}
@@ -52,7 +50,6 @@ function SignupPage() {
         <label>Name:</label>
         <input
           type="text"
-          name="name"
           value={name}
           required
           onChange={handleName}
