@@ -22,13 +22,8 @@ function SignupPage() {
 
     authService
       .signup(requestBody)
-      .then((response) => {
-        navigate("/login");
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
-      });
+      .then((response) => navigate("/login"))
+      .catch((error) => setErrorMessage(error.response.data.message));
   };
 
   return (
