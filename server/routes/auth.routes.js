@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { isAuthenticated } = require("../middleware/jwt.middleware.js");
 
-const User = require("../models/User.model");
+const User = require("../models/User.js");
 
 const saltRounds = 10;
 

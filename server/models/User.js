@@ -17,16 +17,16 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Name is required."],
     },
-    movies: [
+    collections: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Movie",
+        ref: "Collection",
       },
     ],
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const User = model("User", userSchema);
