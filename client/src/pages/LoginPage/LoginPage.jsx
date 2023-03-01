@@ -35,15 +35,14 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <div class="container d-flex">
-        <div class="row flex-grow-1 justify-content-center align-items-center">
-          <div class="col col-sm-8 col-lg-4">
+      <div className="container d-flex">
+        <div className="row flex-grow-1 justify-content-center align-items-center">
+          <div className="col col-sm-8 col-lg-4">
             <Card
-              style={{ width: "18rem" }}
-              className="mb-2"
+              style={{ width: "24rem" }}
+              className="mb-0"
             >
               <Card.Body>
-                <Card.Title>Login </Card.Title>
                 <Card.Text>
                   <Form
                     className="mb-3"
@@ -53,10 +52,9 @@ function LoginPage() {
                       className="mb-3"
                       controlId="formBasicEmail"
                     >
-                      <Form.Label>Email address</Form.Label>
                       <Form.Control
                         type="email"
-                        placeholder="Enter email"
+                        placeholder="Email address"
                         value={email}
                         required
                         onChange={handleEmail}
@@ -67,7 +65,6 @@ function LoginPage() {
                       className="mb-3"
                       controlId="formBasicPassword"
                     >
-                      <Form.Label>Password</Form.Label>
                       <Form.Control
                         type="password"
                         placeholder="Password"
@@ -88,7 +85,7 @@ function LoginPage() {
                     </Form.Group> */}
 
                     <Button
-                      className="mb-3"
+                      className="mb-0"
                       variant="primary"
                       type="submit"
                     >
@@ -96,13 +93,41 @@ function LoginPage() {
                     </Button>
                   </Form>
 
-                  <p>Don't have an account yet?</p>
-                  <Link to={"/signup"}> Sign Up</Link>
+                  <Link to={"/forgot-password"}>
+                    <Button
+                      className="mb-0"
+                      variant="link"
+                      type="submit"
+                    >
+                      Forgot password?
+                    </Button>
+                  </Link>
+
+                  <hr />
+
+                  <Link to={"/signup"}>
+                    <Button
+                      className="mb-0"
+                      variant="success"
+                      type="submit"
+                    >
+                      Create new account
+                    </Button>
+                  </Link>
                 </Card.Text>
               </Card.Body>
-            </Card>
 
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+              {errorMessage && (
+                <Card.Footer className="text-muted text-center mb-0">
+                  <div
+                    className="alert alert-danger"
+                    role="alert"
+                  >
+                    {errorMessage}
+                  </div>
+                </Card.Footer>
+              )}
+            </Card>
           </div>
         </div>
       </div>
