@@ -1,3 +1,7 @@
-.App {
-  text-align: center;
+a:hover,
+a:active,
+a:visited,
+a:link {
+  color: #676565;
+  text-decoration: none;
 }

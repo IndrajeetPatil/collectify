@@ -1,50 +1,54 @@
-import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 
-function Navbar() {
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+
+function NavBar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
+    <Navbar
+      bg="light"
+      expand="lg"
+    >
+      <Container fluid>
+        <Navbar.Brand href="#">Collectify</Navbar.Brand>
+        <Navbar.Collapse>
+          <Nav>
+            <Nav.Link>
+              <Link to="/">Home</Link>
+            </Nav.Link>
+          </Nav>
 
-      {isLoggedIn && (
-        <>
-          <button onClick={logOutUser}>Logout</button>
+          {isLoggedIn && (
+            <Nav>
+              <NavDropdown title="Collections"></NavDropdown>
 
-          <Link to="/profile">
-            <button>Profile</button>
-            {
-              <img
-                src="https://picsum.photos/id/402/200/300"
-                style={{ width: 50, height: 50, borderRadius: 25 }}
-                alt="profile"
-              />
-            }
-          </Link>
+              <Nav.Link>
+                <Link to="/profile">
+                  <span>{user && user.name}</span>
+                </Link>
+              </Nav.Link>
 
-          <span>{user && user.name}</span>
-        </>
-      )}
+              <Nav.Link>
+                <Link onClick={logOutUser}>Logout</Link>
+              </Nav.Link>
+            </Nav>
+          )}
 
-      {!isLoggedIn && (
-        <>
-          <Link to="/signup">
-            {" "}
-            <button>Sign Up</button>{" "}
-          </Link>
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
-        </>
-      )}
-    </nav>
+          {!isLoggedIn && (
+            <>
+              <Link to="/login">Login</Link>
+            </>
+          )}
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default NavBar;
