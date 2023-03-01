@@ -53,7 +53,6 @@ function LoginPage() {
                         type="email"
                         placeholder="Email address"
                         name="email"
-                        id="email"
                         aria-label="Email address"
                         value={email}
                         required
@@ -69,7 +68,6 @@ function LoginPage() {
                         type="password"
                         placeholder="Password"
                         name="pass"
-                        id="pass"
                         aria-label="Password"
                         value={password}
                         required
