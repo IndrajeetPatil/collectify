@@ -17,29 +17,15 @@ function SignupPage() {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    // Create an object representing the request body
+
     const requestBody = { email, password, name };
 
-    // Send a request to the server using axios
-    /* 
-    const authToken = localStorage.getItem("authToken");
-    axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/auth/signup`, 
-      requestBody, 
-      { headers: { Authorization: `Bearer ${authToken}` },
-    })
-    .then((response) => {})
-    */
-
-    // Or using a service
     authService
       .signup(requestBody)
       .then((response) => {
-        // If the POST request is successful redirect to the login page
         navigate("/login");
       })
       .catch((error) => {
-        // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
@@ -55,6 +41,7 @@ function SignupPage() {
           type="email"
           name="email"
           value={email}
+          required
           onChange={handleEmail}
         />
 
@@ -63,6 +50,7 @@ function SignupPage() {
           type="password"
           name="password"
           value={password}
+          required
           onChange={handlePassword}
         />
 
@@ -71,6 +59,7 @@ function SignupPage() {
           type="text"
           name="name"
           value={name}
+          required
           onChange={handleName}
         />
 

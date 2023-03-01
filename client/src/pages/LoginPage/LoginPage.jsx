@@ -73,6 +73,7 @@ function LoginPage() {
                         name="email"
                         placeholder="Enter email"
                         value={email}
+                        required
                         onChange={handleEmail}
                       />
                     </Form.Group>
@@ -87,11 +88,12 @@ function LoginPage() {
                         placeholder="Password"
                         name="password"
                         value={password}
+                        required
                         onChange={handlePassword}
                       />
                     </Form.Group>
 
-                    <Form.Group
+                    {/* <Form.Group
                       className="mb-3 d-flex justify-content-center"
                       controlId="formBasicCheckbox"
                     >
@@ -99,7 +101,7 @@ function LoginPage() {
                         type="checkbox"
                         label="Show password"
                       />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Button
                       className="mb-3"
