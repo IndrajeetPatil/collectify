@@ -30,7 +30,6 @@ function Collection() {
     apiService
       .getCollections()
       .then((response) => {
-        console.log("response", response);
         setCollections(response.data[0]);
         setLoading(false);
       })

@@ -10,36 +10,24 @@ router.get("/collections", (req, res) => {
   const userId = req.payload._id;
 
   Collection.find({ user: userId })
-    // .populate("books")
-    // .populate("movies")
-    // .populate("paintings")
-    // .populate("photos")
-    // .populate("places")
-    // .populate("songs")
+    //.populate("books")
+    //.populate("movies")
+    //.populate("paintings")
+    //.populate("photos")
+    //.populate("places")
+    //.populate("songs")
     .then((collections) => {
-      console.log(collections);
       res.status(200).json(collections);
-    })
-    .catch((err) => res.status(404).json({ nocollectionsfound: "Problem finding collection." }));
+    });
+  //.catch((err) => res.status(404).json({ nocollectionsfound: err }));
 });
 
-// @route   POST api/collections
-// @desc    Create a collection
-// @access  Public
-router.post("/collections", (req, res) => {
-  const newCollection = new Collection({
-    name: req.body.name,
-  });
-
-  newCollection.save().then((collection) => res.json(collection));
-});
-
-// @route   DELETE api/collections/:id
+// @route   DELETE api/collections/delete
 // @desc    Delete a collection
 // @access  Public
 router.delete("/collections/:id", (req, res) => {
-  Collection.findById(req.params.id)
-    .then((collection) => collection.remove().then(() => res.json({ success: true })))
+  Collection.findByIdAndDelete(req.params.id)
+    .then((deletedCollection) => res.json({ success: true }))
     .catch((err) => res.status(404).json({ success: false }));
 });
 
