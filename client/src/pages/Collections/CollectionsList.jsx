@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-
-import { Link } from "react-router-dom";
+import apiService from "../../services/api.service";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/esm/Col";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/esm/Button";
 import Image from "react-bootstrap/Image";
 
 import * as Icon from "react-bootstrap-icons";
@@ -19,7 +15,7 @@ import placesImg from "../../assets/images/places.jpeg";
 import songsImg from "../../assets/images/songs.jpeg";
 import photosImg from "../../assets/images/photos.jpeg";
 
-import apiService from "../../services/api.service";
+import CollectionCard from "./CollectionCard";
 
 function CollectionsList() {
   const [collections, setCollections] = useState(null);
@@ -68,143 +64,53 @@ function CollectionsList() {
       </Row>
 
       <Row>
-        {/* Books */}
-        <Col className="g-5 m-5">
-          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
-            <Card.Img
-              variant="top"
-              src={booksImg}
-              style={{ height: "15rem" }}
-            />
-            <Card.Body>
-              <Card.Title>
-                <Icon.Book /> Books
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{collections.books.length} Items</Card.Subtitle>
-              <Card.Text>
-                <hr></hr>
-              </Card.Text>
-              <Link to="/collections/books">
-                <Button variant="success">To the books!</Button>{" "}
-              </Link>
-            </Card.Body>
-          </Card>
-        </Col>
+        {/* books */}
+        <CollectionCard
+          title="books"
+          image={booksImg}
+          length={collections.books.length}
+          icon={<Icon.Book />}
+        />
 
-        {/* Movies */}
-        <Col className="g-5 m-5">
-          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
-            <Card.Img
-              variant="top"
-              src={moviesImg}
-              style={{ height: "15rem" }}
-            />
-            <Card.Body>
-              <Card.Title>
-                <Icon.Film /> Movies
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{collections.movies.length} Items</Card.Subtitle>
-              <Card.Text>
-                <hr></hr>
-              </Card.Text>
-              <Link to="/collections/movies">
-                <Button variant="success">To the movies!</Button>{" "}
-              </Link>
-            </Card.Body>
-          </Card>
-        </Col>
+        {/* movies */}
+        <CollectionCard
+          title="movies"
+          image={moviesImg}
+          length={collections.movies.length}
+          icon={<Icon.Film />}
+        />
 
-        {/* Paintings */}
-        <Col className="g-5 m-5">
-          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
-            <Card.Img
-              variant="top"
-              src={paintingsImg}
-              style={{ height: "15rem" }}
-            />
-            <Card.Body>
-              <Card.Title>
-                <Icon.PaintBucket /> Paintings
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{collections.paintings.length} Items</Card.Subtitle>
-              <Card.Text>
-                <hr></hr>
-              </Card.Text>
-              <Link to="/collections/paintings">
-                <Button variant="success">To the paintings!</Button>{" "}
-              </Link>
-            </Card.Body>
-          </Card>
-        </Col>
+        {/* paintings */}
+        <CollectionCard
+          title="paintings"
+          image={paintingsImg}
+          length={collections.paintings.length}
+          icon={<Icon.PaintBucket />}
+        />
 
-        {/* Places */}
-        <Col className="g-5 m-5">
-          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
-            <Card.Img
-              variant="top"
-              src={placesImg}
-              style={{ height: "15rem" }}
-            />
-            <Card.Body>
-              <Card.Title>
-                <Icon.GeoAltFill /> Places
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{collections.places.length} Items</Card.Subtitle>
-              <Card.Text>
-                <hr></hr>
-              </Card.Text>
-              <Link to="/collections/places">
-                <Button variant="success">To the places!</Button>{" "}
-              </Link>
-            </Card.Body>
-          </Card>
-        </Col>
+        {/* places */}
+        <CollectionCard
+          title="places"
+          image={placesImg}
+          length={collections.places.length}
+          icon={<Icon.GeoAltFill />}
+        />
 
         {/* songs */}
-        <Col className="g-5 m-5">
-          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
-            <Card.Img
-              variant="top"
-              src={songsImg}
-              style={{ height: "15rem" }}
-            />
-            <Card.Body>
-              <Card.Title>
-                <Icon.MusicNoteList /> Songs
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{collections.songs.length} Items</Card.Subtitle>
-              <Card.Text>
-                <hr></hr>
-              </Card.Text>
-              <Link to="/collections/songs">
-                <Button variant="success">To the songs!</Button>{" "}
-              </Link>
-            </Card.Body>
-          </Card>
-        </Col>
+        <CollectionCard
+          title="songs"
+          image={songsImg}
+          length={collections.songs.length}
+          icon={<Icon.MusicNoteList />}
+        />
 
         {/* photos */}
-        <Col className="g-5 m-5">
-          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
-            <Card.Img
-              variant="top"
-              src={photosImg}
-              style={{ height: "15rem" }}
-            />
-            <Card.Body>
-              <Card.Title>
-                <Icon.CameraFill /> Photos
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{collections.photos.length} Items</Card.Subtitle>
-              <Card.Text>
-                <hr></hr>
-              </Card.Text>
-              <Link to="/collections/photos">
-                <Button variant="success">To the photos!</Button>{" "}
-              </Link>
-            </Card.Body>
-          </Card>
-        </Col>
+        <CollectionCard
+          title="photos"
+          image={photosImg}
+          length={collections.photos.length}
+          icon={<Icon.CameraFill />}
+        />
       </Row>
     </Container>
   );
