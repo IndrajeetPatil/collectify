@@ -46,3 +46,7 @@ const paintingSchema = new Schema(
     timestamps: true,
   },
 );
+
+const Painting = model("Painting", paintingSchema);
+
+module.exports = Painting;

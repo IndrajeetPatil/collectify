@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -21,34 +20,36 @@ import placesImg from "../../assets/images/places.jpeg";
 import songsImg from "../../assets/images/songs.jpeg";
 import photosImg from "../../assets/images/photos.jpeg";
 
+import apiService from "../../services/api.service";
+
+const API_URL = process.env.REACT_APP_SERVER_URL;
+
 function Collection() {
-  //   const { id } = useParams();
-  //   const [collection, setCollection] = useState(null);
-  //   const [loading, setLoading] = useState(true);
-  //   const [error, setError] = useState(null);
+  const [collections, setCollections] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  //   useEffect(() => {
-  //     async function fetchCollection() {
-  //       try {
-  //         const { data } = await axios.get(`/api/collections/${id}`);
-  //         setCollection(data);
-  //       } catch (err) {
-  //         setError(err);
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     }
-  //     fetchCollection();
-  //   }, [id]);
+  const fetchCollection = () => {
+    apiService
+      .getCollections()
+      .then((response) => {
+        console.log("response", response);
+        setCollections(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log("error", err);
+        setError(err);
+        setLoading(false);
+      });
+  };
 
-  //   if (loading) return <p>Loading...</p>;
-  //   if (error) return <p>Something went wrong</p>;
-  //   return (
-  //     <div>
-  //       <h1>{collection.name}</h1>
-  //       <p>{collection.description}</p>
-  //     </div>
-  //   );
+  useEffect(() => {
+    fetchCollection();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Something went wrong</p>;
 
   return (
     <Container
@@ -83,7 +84,7 @@ function Collection() {
               <Card.Title>
                 <Icon.Film /> Movies
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">Number Items</Card.Subtitle>
               <Card.Text>
                 <hr></hr>
               </Card.Text>

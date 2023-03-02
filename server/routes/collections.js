@@ -1,16 +1,23 @@
 const express = require("express");
 const router = express.Router();
 
-const { Collection } = require("../models/Collection");
+const Collection = require("../models/Collection");
 
 // @route   GET api/collections
 // @desc    Get all collections
 // @access  Public
 router.get("/collections", (req, res) => {
-  res.status(200).json({ message: "Welcome to the collection" });
-  //   Collection.find()
-  //     .sort({ date: -1 })
-  //     .then((collections) => res.json(collections));
+  const userId = req.payload._id;
+  return (
+    Collection.find({ user: userId })
+      // .populate("books")
+      // .populate("movies")
+      // .populate("paintings")
+      // .populate("photos")
+      // .populate("places")
+      // .populate("songs")
+      .then((collections) => res.status(200).json(collections))
+  );
 });
 
 // @route   POST api/collections
@@ -32,3 +39,5 @@ router.delete("/collections/:id", (req, res) => {
     .then((collection) => collection.remove().then(() => res.json({ success: true })))
     .catch((err) => res.status(404).json({ success: false }));
 });
+
+module.exports = router;

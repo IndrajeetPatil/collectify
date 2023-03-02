@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const Painting = require("../models/Painting");
+const Place = require("../models/Place");
 
 module.exports = router;

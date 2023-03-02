@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const Painting = require("../models/Painting");
+const Song = require("../models/Song");
 
 module.exports = router;
