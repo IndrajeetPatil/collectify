@@ -11,7 +11,7 @@ import NavBar from "./components/NavBar";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
-import Collections from "./pages/Collections/Collections";
+import CollectionsList from "./pages/Collections/CollectionsList";
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
           path="/collections"
           element={
             <IsPrivate>
-              <Collections />
+              <CollectionsList />
             </IsPrivate>
           }
         />
