@@ -21,7 +21,7 @@ function SongsList() {
       </Row>
 
       <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collections of Your Songs!</h1>
+        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collection of Your Songs!</h1>
       </Row>
 
       <Row>

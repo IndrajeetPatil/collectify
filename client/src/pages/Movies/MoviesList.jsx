@@ -21,7 +21,7 @@ function MoviesList() {
       </Row>
 
       <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collections of Your Movies!</h1>
+        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collection of Your Movies!</h1>
       </Row>
 
       <Row>

@@ -21,7 +21,7 @@ function BooksList() {
       </Row>
 
       <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collections of Your Books!</h1>
+        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collection of Your Books!</h1>
       </Row>
 
       <Row>
