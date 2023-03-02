@@ -8,16 +8,19 @@ const Collection = require("../models/Collection");
 // @access  Public
 router.get("/collections", (req, res) => {
   const userId = req.payload._id;
-  return (
-    Collection.find({ user: userId })
-      // .populate("books")
-      // .populate("movies")
-      // .populate("paintings")
-      // .populate("photos")
-      // .populate("places")
-      // .populate("songs")
-      .then((collections) => res.status(200).json(collections))
-  );
+
+  Collection.find({ user: userId })
+    // .populate("books")
+    // .populate("movies")
+    // .populate("paintings")
+    // .populate("photos")
+    // .populate("places")
+    // .populate("songs")
+    .then((collections) => {
+      console.log(collections);
+      res.status(200).json(collections);
+    })
+    .catch((err) => res.status(404).json({ nocollectionsfound: "Problem finding collection." }));
 });
 
 // @route   POST api/collections

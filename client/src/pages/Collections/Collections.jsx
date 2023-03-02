@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 import { Link } from "react-router-dom";
 
@@ -22,8 +21,6 @@ import photosImg from "../../assets/images/photos.jpeg";
 
 import apiService from "../../services/api.service";
 
-const API_URL = process.env.REACT_APP_SERVER_URL;
-
 function Collection() {
   const [collections, setCollections] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -34,7 +31,7 @@ function Collection() {
       .getCollections()
       .then((response) => {
         console.log("response", response);
-        setCollections(response.data);
+        setCollections(response.data[0]);
         setLoading(false);
       })
       .catch((err) => {
@@ -72,29 +69,6 @@ function Collection() {
       </Row>
 
       <Row>
-        {/* Movies */}
-        <Col className="g-5 m-5">
-          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
-            <Card.Img
-              variant="top"
-              src={moviesImg}
-              style={{ height: "15rem" }}
-            />
-            <Card.Body>
-              <Card.Title>
-                <Icon.Film /> Movies
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Number Items</Card.Subtitle>
-              <Card.Text>
-                <hr></hr>
-              </Card.Text>
-              <Link to="/collections/movies">
-                <Button variant="success">To the movies!</Button>{" "}
-              </Link>
-            </Card.Body>
-          </Card>
-        </Col>
-
         {/* Books */}
         <Col className="g-5 m-5">
           <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
@@ -107,12 +81,35 @@ function Collection() {
               <Card.Title>
                 <Icon.Book /> Books
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{collections.books.length} Items</Card.Subtitle>
               <Card.Text>
                 <hr></hr>
               </Card.Text>
               <Link to="/collections/books">
                 <Button variant="success">To the books!</Button>{" "}
+              </Link>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* Movies */}
+        <Col className="g-5 m-5">
+          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
+            <Card.Img
+              variant="top"
+              src={moviesImg}
+              style={{ height: "15rem" }}
+            />
+            <Card.Body>
+              <Card.Title>
+                <Icon.Film /> Movies
+              </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">{collections.movies.length} Items</Card.Subtitle>
+              <Card.Text>
+                <hr></hr>
+              </Card.Text>
+              <Link to="/collections/movies">
+                <Button variant="success">To the movies!</Button>{" "}
               </Link>
             </Card.Body>
           </Card>
@@ -130,7 +127,7 @@ function Collection() {
               <Card.Title>
                 <Icon.PaintBucket /> Paintings
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{collections.paintings.length} Items</Card.Subtitle>
               <Card.Text>
                 <hr></hr>
               </Card.Text>
@@ -153,7 +150,7 @@ function Collection() {
               <Card.Title>
                 <Icon.GeoAltFill /> Places
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{collections.places.length} Items</Card.Subtitle>
               <Card.Text>
                 <hr></hr>
               </Card.Text>
@@ -176,7 +173,7 @@ function Collection() {
               <Card.Title>
                 <Icon.MusicNoteList /> Songs
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{collections.songs.length} Items</Card.Subtitle>
               <Card.Text>
                 <hr></hr>
               </Card.Text>
@@ -199,7 +196,7 @@ function Collection() {
               <Card.Title>
                 <Icon.CameraFill /> Photos
               </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Subtitle className="mb-2 text-muted">{collections.photos.length} Items</Card.Subtitle>
               <Card.Text>
                 <hr></hr>
               </Card.Text>
