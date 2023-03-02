@@ -8,5 +8,7 @@
   
 - `paintings.jpeg` Photo by <a href="https://unsplash.com/@birminghammuseumstrust?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Birmingham Museums Trust</a> on <a href="https://unsplash.com/photos/HEEvYhNzpEo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
+- `places.jpeg` Photo by <a href="https://unsplash.com/@andrewtneel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andrew Neel</a> on <a href="https://unsplash.com/photos/1-29wyvvLJA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
 - `songs.jpeg` Photo by <a href="https://unsplash.com/@namroud?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Namroud Gorguis</a> on <a href="https://unsplash.com/photos/FZWivbri0Xk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   

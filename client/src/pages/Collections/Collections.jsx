@@ -17,6 +17,7 @@ import booksImg from "../../assets/images/books.jpeg";
 import collectionsImg from "../../assets/images/collections.jpeg";
 import moviesImg from "../../assets/images/movies.jpeg";
 import paintingsImg from "../../assets/images/paintings.jpeg";
+import placesImg from "../../assets/images/places.jpeg";
 
 function Collection() {
   //   const { id } = useParams();
@@ -49,24 +50,25 @@ function Collection() {
 
   return (
     <Container
+      fluid
       className="text-center align-items-cente justify-content-between"
       style={{ width: "100vw" }}
     >
       <Row>
         <Image
           src={collectionsImg}
-          style={{ height: "25rem" }}
+          style={{ width: "100vw", height: "30rem", margin: "0rem", padding: "0rem" }}
         />
       </Row>
 
       <Row className="mb-5 mt-5">
-        <h1>🌟 Collections of Your Favourites! 🌟</h1>
+        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collections of Your Favourites!</h1>
       </Row>
 
       <Row className="mb-5 mt-5">
         {/* Movies */}
         <Col>
-          <Card style={{ width: "20rem", height: "25rem" }}>
+          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
             <Card.Img
               variant="top"
               src={moviesImg}
@@ -89,7 +91,7 @@ function Collection() {
 
         {/* Books */}
         <Col>
-          <Card style={{ width: "20rem", height: "25rem" }}>
+          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
             <Card.Img
               variant="top"
               src={booksImg}
@@ -111,10 +113,10 @@ function Collection() {
         </Col>
       </Row>
 
-      <Row className="mb-5 mt-5">
+      <Row className="mt-5">
+        {/* Paintings */}
         <Col>
-          {/* Paintings */}
-          <Card style={{ width: "20rem", height: "25rem" }}>
+          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
             <Card.Img
               variant="top"
               src={paintingsImg}
@@ -130,6 +132,29 @@ function Collection() {
               </Card.Text>
               <Link to="/collections/paintings">
                 <Button variant="success">To the paintings!</Button>{" "}
+              </Link>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* Places */}
+        <Col>
+          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
+            <Card.Img
+              variant="top"
+              src={placesImg}
+              style={{ height: "15rem" }}
+            />
+            <Card.Body>
+              <Card.Title>
+                <Icon.GeoAltFill /> Places
+              </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Text>
+                <hr></hr>
+              </Card.Text>
+              <Link to="/collections/places">
+                <Button variant="success">To the places!</Button>{" "}
               </Link>
             </Card.Body>
           </Card>

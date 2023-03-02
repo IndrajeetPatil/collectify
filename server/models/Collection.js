@@ -20,6 +20,12 @@ const collectionSchema = new Schema(
         ref: "Painting",
       },
     ],
+    places: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Place",
+      },
+    ],
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
