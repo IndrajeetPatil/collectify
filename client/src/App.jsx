@@ -11,6 +11,8 @@ import NavBar from "./components/NavBar";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
+import Collections from "./pages/Collections/Collections";
+
 function App() {
   return (
     <div className="App">
@@ -27,6 +29,15 @@ function App() {
           element={
             <IsPrivate>
               <ProfilePage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections"
+          element={
+            <IsPrivate>
+              <Collections />
             </IsPrivate>
           }
         />

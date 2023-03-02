@@ -16,7 +16,7 @@ function NavBar() {
       expand="lg"
     >
       <Container fluid>
-        <Navbar.Brand href="#">Collectify</Navbar.Brand>
+        <Navbar.Brand href="/">Collectify</Navbar.Brand>
         <Navbar.Collapse>
           <Nav>
             <Nav.Link>
