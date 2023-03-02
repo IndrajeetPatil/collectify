@@ -5,9 +5,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 
-import moviesImg from "../../assets/images/movies.jpeg";
+import placesImg from "../../assets/images/places.jpeg";
 
-function MoviesList() {
+function PlacesList() {
   return (
     <Container
       fluid
@@ -15,13 +15,13 @@ function MoviesList() {
     >
       <Row>
         <Image
-          src={moviesImg}
+          src={placesImg}
           style={{ height: "30rem", padding: "0rem" }}
         />
       </Row>
 
       <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collections of Your Movies!</h1>
+        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collections of Your Places!</h1>
       </Row>
 
       <Row>
@@ -31,4 +31,4 @@ function MoviesList() {
   );
 }
 
-export default MoviesList;
+export default PlacesList;

@@ -26,7 +26,37 @@ function NavBar() {
 
           {isLoggedIn && (
             <Nav>
-              <NavDropdown title="Collections"></NavDropdown>
+              <NavDropdown title="Collections">
+                <NavDropdown.Item>
+                  <Link to="/collections">All Collections</Link>
+                </NavDropdown.Item>
+
+                <hr></hr>
+
+                <NavDropdown.Item>
+                  <Link to="/collections/books">Books</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link to="/collections/movies">Movies</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link to="/collections/paintings">Paintings</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link to="/collections/photos">Photos</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link to="/collections/places">Places</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link to="/collections/songs">Songs</Link>
+                </NavDropdown.Item>
+              </NavDropdown>
 
               <Nav.Link>
                 <Link to="/profile">
