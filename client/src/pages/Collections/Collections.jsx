@@ -51,13 +51,12 @@ function Collection() {
   return (
     <Container
       fluid
-      className="text-center align-items-cente justify-content-between"
-      style={{ width: "100vw" }}
+      className="text-center"
     >
       <Row>
         <Image
           src={collectionsImg}
-          style={{ width: "100vw", height: "30rem", margin: "0rem", padding: "0rem" }}
+          style={{ height: "30rem", padding: "0rem" }}
         />
       </Row>
 
