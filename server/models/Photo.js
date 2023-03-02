@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const movieSchema = new Schema(
+const photoSchema = new Schema(
   {
     title: {
       type: String,
@@ -8,27 +8,30 @@ const movieSchema = new Schema(
       unique: true,
       trim: true,
     },
+    photographer: {
+      type: String,
+      required: [true, "Photographer is required."],
+      trim: true,
+    },
     year: {
       type: Number,
       required: [true, "Year is required."],
     },
-    director: {
-      type: String,
-      required: false,
-    },
     genre: {
       type: String,
       enum: [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Drama",
-        "Fantasy",
-        "Horror",
-        "Mystery",
-        "Romance",
-        "Thriller",
-        "Western",
+        "Abstract",
+        "Baroque",
+        "Cubism",
+        "Expressionism",
+        "Fauvism",
+        "Impressionism",
+        "Minimalism",
+        "Modernism",
+        "Pop Art",
+        "Renaissance",
+        "Romanticism",
+        "Surrealism",
       ],
       required: false,
     },
@@ -44,6 +47,6 @@ const movieSchema = new Schema(
   },
 );
 
-const Movie = model("Movie", movieSchema);
+const Photo = model("Photo", photoSchema);
 
-module.exports = Movie;
+module.exports = Photo;

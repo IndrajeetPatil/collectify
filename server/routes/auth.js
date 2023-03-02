@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const { isAuthenticated } = require("../middleware/jwt.middleware.js");
 
 const User = require("../models/User.js");
+const Collection = require("../models/Collection.js");
 
 const saltRounds = 10;
 
@@ -47,6 +48,15 @@ router.post("/signup", (req, res, next) => {
       const { email, name, _id } = createdUser;
       const user = { email, name, _id };
       res.status(201).json({ user: user });
+      return createdUser;
+    })
+    .then((createdUser) => {
+      return Collection.create({ user: createdUser._id });
+    })
+    .then((createdCollection) => {
+      return User.findByIdAndUpdate(createdCollection.user, {
+        collections: createdCollection._id,
+      });
     })
     .catch((err) => next(err));
 });
@@ -55,8 +65,6 @@ router.post("/signup", (req, res, next) => {
 router.post("/login", (req, res, next) => {
   const { email, password } = req.body;
 
-  // Check the users collection if a user with the same email exists
-  // If it is, create a new token
   User.findOne({ email })
     .then((foundUser) => {
       if (!foundUser) {
@@ -82,6 +90,8 @@ router.post("/login", (req, res, next) => {
 });
 
 // Verify token stored on the client
-router.get("/verify", isAuthenticated, (req, res) => res.status(200).json(req.payload));
+router.get("/verify", isAuthenticated, (req, res) => {
+  res.status(200).json(req.payload);
+});
 
 module.exports = router;

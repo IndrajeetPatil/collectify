@@ -17,12 +17,10 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Name is required."],
     },
-    collections: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Collection",
-      },
-    ],
+    collections: {
+      type: Schema.Types.ObjectId,
+      ref: "Collection",
+    },
   },
   {
     timestamps: true,
