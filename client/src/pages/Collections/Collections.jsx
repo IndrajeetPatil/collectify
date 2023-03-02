@@ -18,6 +18,8 @@ import collectionsImg from "../../assets/images/collections.jpeg";
 import moviesImg from "../../assets/images/movies.jpeg";
 import paintingsImg from "../../assets/images/paintings.jpeg";
 import placesImg from "../../assets/images/places.jpeg";
+import songsImg from "../../assets/images/songs.jpeg";
+import photosImg from "../../assets/images/photos.jpeg";
 
 function Collection() {
   //   const { id } = useParams();
@@ -60,13 +62,17 @@ function Collection() {
         />
       </Row>
 
-      <Row className="mb-5 mt-5">
+      <Row className="mt-5">
         <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collections of Your Favourites!</h1>
       </Row>
 
-      <Row className="mb-5 mt-5">
+      <Row>
+        <hr></hr>
+      </Row>
+
+      <Row>
         {/* Movies */}
-        <Col>
+        <Col className="g-5 m-5">
           <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
             <Card.Img
               variant="top"
@@ -89,7 +95,7 @@ function Collection() {
         </Col>
 
         {/* Books */}
-        <Col>
+        <Col className="g-5 m-5">
           <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
             <Card.Img
               variant="top"
@@ -110,11 +116,9 @@ function Collection() {
             </Card.Body>
           </Card>
         </Col>
-      </Row>
 
-      <Row className="mt-5">
         {/* Paintings */}
-        <Col>
+        <Col className="g-5 m-5">
           <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
             <Card.Img
               variant="top"
@@ -137,7 +141,7 @@ function Collection() {
         </Col>
 
         {/* Places */}
-        <Col>
+        <Col className="g-5 m-5">
           <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
             <Card.Img
               variant="top"
@@ -154,6 +158,52 @@ function Collection() {
               </Card.Text>
               <Link to="/collections/places">
                 <Button variant="success">To the places!</Button>{" "}
+              </Link>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* songs */}
+        <Col className="g-5 m-5">
+          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
+            <Card.Img
+              variant="top"
+              src={songsImg}
+              style={{ height: "15rem" }}
+            />
+            <Card.Body>
+              <Card.Title>
+                <Icon.MusicNoteList /> Songs
+              </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Text>
+                <hr></hr>
+              </Card.Text>
+              <Link to="/collections/songs">
+                <Button variant="success">To the songs!</Button>{" "}
+              </Link>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* photos */}
+        <Col className="g-5 m-5">
+          <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
+            <Card.Img
+              variant="top"
+              src={photosImg}
+              style={{ height: "15rem" }}
+            />
+            <Card.Body>
+              <Card.Title>
+                <Icon.CameraFill /> Photos
+              </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
+              <Card.Text>
+                <hr></hr>
+              </Card.Text>
+              <Link to="/collections/photos">
+                <Button variant="success">To the photos!</Button>{" "}
               </Link>
             </Card.Body>
           </Card>
