@@ -42,6 +42,11 @@ const songSchema = new Schema(
       ],
       required: false,
     },
+    url: {
+      type: String,
+      required: false,
+      trim: true,
+    },
     collections: [
       {
         type: Schema.Types.ObjectId,

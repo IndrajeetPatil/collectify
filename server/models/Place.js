@@ -16,6 +16,11 @@ const placeSchema = new Schema(
       type: String,
       required: false,
     },
+    url: {
+      type: String,
+      required: false,
+      trim: true,
+    },
     collections: [
       {
         type: Schema.Types.ObjectId,
