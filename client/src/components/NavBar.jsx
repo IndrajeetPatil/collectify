@@ -11,10 +11,7 @@ function NavBar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <Navbar
-      bg="light"
-      expand="lg"
-    >
+    <Navbar bg="light">
       <Container fluid>
         <Navbar.Brand href="/">Collectify</Navbar.Brand>
         <Navbar.Collapse>
