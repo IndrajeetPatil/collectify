@@ -13,7 +13,7 @@ import Image from "react-bootstrap/Image";
 
 import * as Icon from "react-bootstrap-icons";
 
-import booksImg from "../../assets/images/books.jpg";
+import booksImg from "../../assets/images/books.jpeg";
 import collectionsImg from "../../assets/images/collections.jpeg";
 import moviesImg from "../../assets/images/movies.jpeg";
 import paintingsImg from "../../assets/images/paintings.jpeg";
@@ -50,33 +50,36 @@ function Collection() {
   return (
     <Container
       className="text-center align-items-cente justify-content-between"
-      width="100vw"
+      style={{ width: "100vw" }}
     >
       <Row>
         <Image
           src={collectionsImg}
-          style={{ width: "100vw" }}
+          style={{ height: "25rem" }}
         />
       </Row>
 
       <Row className="mb-5 mt-5">
-        <h1>Your Collections!</h1>
+        <h1>🌟 Collections of Your Favourites! 🌟</h1>
       </Row>
 
       <Row className="mb-5 mt-5">
         {/* Movies */}
         <Col>
-          <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "20rem", height: "25rem" }}>
             <Card.Img
               variant="top"
               src={moviesImg}
+              style={{ height: "15rem" }}
             />
             <Card.Body>
               <Card.Title>
                 <Icon.Film /> Movies
               </Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
-              <Card.Text>Collection of your favourite movies</Card.Text>
+              <Card.Text>
+                <hr></hr>
+              </Card.Text>
               <Link to="/collections/movies">
                 <Button variant="success">To the movies!</Button>{" "}
               </Link>
@@ -86,17 +89,20 @@ function Collection() {
 
         {/* Books */}
         <Col>
-          <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "20rem", height: "25rem" }}>
             <Card.Img
               variant="top"
               src={booksImg}
+              style={{ height: "15rem" }}
             />
             <Card.Body>
               <Card.Title>
                 <Icon.Book /> Books
               </Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
-              <Card.Text>Collection of your favourite books</Card.Text>
+              <Card.Text>
+                <hr></hr>
+              </Card.Text>
               <Link to="/collections/books">
                 <Button variant="success">To the books!</Button>{" "}
               </Link>
@@ -108,17 +114,20 @@ function Collection() {
       <Row className="mb-5 mt-5">
         <Col>
           {/* Paintings */}
-          <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "20rem", height: "25rem" }}>
             <Card.Img
               variant="top"
               src={paintingsImg}
+              style={{ height: "15rem" }}
             />
             <Card.Body>
               <Card.Title>
                 <Icon.PaintBucket /> Paintings
               </Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Number of Items</Card.Subtitle>
-              <Card.Text>Collection of your favourite paintings</Card.Text>
+              <Card.Text>
+                <hr></hr>
+              </Card.Text>
               <Link to="/collections/paintings">
                 <Button variant="success">To the paintings!</Button>{" "}
               </Link>
