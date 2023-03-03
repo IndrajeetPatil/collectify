@@ -34,7 +34,7 @@ function HomePage() {
           {!isLoggedIn && (
             <p className="lead">
               <Link to="/login">
-                <Button variant="success">Create an acccount!</Button>
+                <Button variant="success">Join Us</Button>
               </Link>
             </p>
           )}
