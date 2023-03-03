@@ -88,6 +88,14 @@ function CollectionsList() {
           icon={<Icon.PaintBucket />}
         />
 
+        {/* photos */}
+        <CollectionCard
+          title="photos"
+          image={photosImg}
+          length={collections.photos.length}
+          icon={<Icon.CameraFill />}
+        />
+
         {/* places */}
         <CollectionCard
           title="places"
@@ -102,14 +110,6 @@ function CollectionsList() {
           image={songsImg}
           length={collections.songs.length}
           icon={<Icon.MusicNoteList />}
-        />
-
-        {/* photos */}
-        <CollectionCard
-          title="photos"
-          image={photosImg}
-          length={collections.photos.length}
-          icon={<Icon.CameraFill />}
         />
       </Row>
     </Container>
