@@ -25,7 +25,6 @@ function SignupPage() {
     e.preventDefault();
 
     const requestBody = { email, password, name };
-
     authService
       .signup(requestBody)
       .then((response) => navigate("/login"))

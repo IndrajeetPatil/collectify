@@ -24,14 +24,14 @@ function LoginPage() {
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password };
 
+    const requestBody = { email, password };
     authService
       .login(requestBody)
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/");
+        navigate("/collections");
       })
       .catch((error) => setErrorMessage(error.response.data.message));
   };

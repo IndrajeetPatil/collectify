@@ -14,8 +14,7 @@ function MovieDelete() {
     e.preventDefault();
 
     movieService
-
-      .delete()
+      .deleteMovie()
       .then((response) => {
         console.log(response);
       })

@@ -27,9 +27,8 @@ function MovieCreate() {
     e.preventDefault();
 
     const requestBody = { title, year, genre };
-
     movieService
-      .create(requestBody)
+      .createMovie(requestBody)
       .then((response) => {
         console.log(response);
       })
