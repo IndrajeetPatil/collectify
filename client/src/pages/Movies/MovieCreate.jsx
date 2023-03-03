@@ -26,15 +26,13 @@ function MovieCreate() {
   const handleCreateMovieSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, year, genre };
+    const requestBody = { title, year, genre, director, plot, url };
     movieService
       .createMovie(requestBody)
       .then((response) => {
-        console.log(response);
+        console.log("create movie response", response);
       })
       .catch((error) => console.log(error));
-
-    console.log(requestBody);
   };
 
   return (

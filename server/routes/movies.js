@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Movie = require("../models/Movie");
+const Collection = require("../models/Collection");
 
 // @route   GET api/collections/movies
 // @desc    Get all movies
@@ -15,21 +16,26 @@ router.get("/collections/movies", (req, res) => {
 // @access  Public
 router.post("/collections/movies", (req, res) => {
   const userId = req.payload._id;
-  const { title, year, director, plot, cast, genre, url } = req.body;
+  const { title, year, genre, director, plot, url } = req.body;
 
-  const newMovie = new Movie({
+  Movie.create({
     title,
     year,
+    genre,
     director,
     plot,
-    cast,
-    genre,
     url,
-  });
-
-  newMovie
-    .save()
-    .then((movie) => res.json(movie))
+  })
+    .then((newMovie) => {
+      res.json(newMovie);
+      return newMovie;
+    })
+    .then((newMovie) => {
+      return Collection.findOneAndUpdate({ user: userId }, { $push: { movies: newMovie._id } }, { new: true });
+    })
+    .then((updatedCollection) => {
+      return res.json(updatedCollection);
+    })
     .catch((err) => res.status(400).json({ success: false }));
 });
 
