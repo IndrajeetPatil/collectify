@@ -20,9 +20,6 @@ function HomeCarousel() {
           src={booksImg}
           alt="Books"
         />
-        <Carousel.Caption>
-          <h3>Reading</h3>
-        </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
@@ -32,9 +29,6 @@ function HomeCarousel() {
           src={moviesImg}
           alt="Movies"
         />
-        <Carousel.Caption>
-          <h3>Cinema</h3>
-        </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
@@ -44,9 +38,6 @@ function HomeCarousel() {
           src={paintingsImg}
           alt="Paintings"
         />
-        <Carousel.Caption>
-          <h3>Art</h3>
-        </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
@@ -56,9 +47,6 @@ function HomeCarousel() {
           src={photosImg}
           alt="Photos"
         />
-        <Carousel.Caption>
-          <h3>Photography</h3>
-        </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
@@ -68,9 +56,6 @@ function HomeCarousel() {
           src={placesImg}
           alt="Places"
         />
-        <Carousel.Caption>
-          <h3>Travel</h3>
-        </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
@@ -80,9 +65,6 @@ function HomeCarousel() {
           src={songsImg}
           alt="Songs"
         />
-        <Carousel.Caption>
-          <h3>Music</h3>
-        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );

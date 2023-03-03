@@ -27,7 +27,7 @@ function HomePage() {
           <h1>About Collectify</h1>
           <p className="lead">
             <em>Collectify</em> is platform for individuals to create a personalized collection of their favorite
-            things, including movies, books, photos, and more,{" "}
+            things, including books, movies, photos, and more,{" "}
             <strong>in one place and without the fear of judgment</strong>.
           </p>
 
