@@ -55,7 +55,7 @@ function MovieCreate() {
               <Form onSubmit={handleCreateMovieSubmit}>
                 {/* title */}
                 <Form.Group className="mb-3">
-                  <Form.Label>Title</Form.Label>
+                  <Form.Label>Title*</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Enter title"
@@ -68,7 +68,7 @@ function MovieCreate() {
 
                 {/* year */}
                 <Form.Group className="mb-3">
-                  <Form.Label>Year</Form.Label>
+                  <Form.Label>Year*</Form.Label>
                   <Form.Control
                     type="number"
                     min="1888"
@@ -80,12 +80,6 @@ function MovieCreate() {
                     required
                     onChange={handleYear}
                   />
-                </Form.Group>
-
-                <hr></hr>
-
-                <Form.Group className="mb-3">
-                  <strong>Optional</strong>
                 </Form.Group>
 
                 {/* genre */}
@@ -153,6 +147,9 @@ function MovieCreate() {
                 </Button>
               </Form>
             </Card.Body>
+            <Card.Footer>
+              <small className="text-muted">*Required fields</small>
+            </Card.Footer>
           </Card>
         </Col>
       </Row>
