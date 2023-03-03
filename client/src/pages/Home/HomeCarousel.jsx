@@ -16,78 +16,72 @@ function HomeCarousel() {
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
-          style={{ height: "25rem" }}
+          style={{ height: "30rem" }}
           src={booksImg}
           alt="Books"
         />
         <Carousel.Caption>
           <h3>Reading</h3>
-          <p>Collect your favourite books!</p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
-          style={{ height: "25rem" }}
+          style={{ height: "30rem" }}
           src={moviesImg}
           alt="Movies"
         />
         <Carousel.Caption>
           <h3>Cinema</h3>
-          <p>Collect your favourite movies!</p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
-          style={{ height: "25rem" }}
+          style={{ height: "30rem" }}
           src={paintingsImg}
           alt="Paintings"
         />
         <Carousel.Caption>
           <h3>Art</h3>
-          <p>Collect your favourite paintings!</p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
-          style={{ height: "25rem" }}
+          style={{ height: "30rem" }}
           src={photosImg}
           alt="Photos"
         />
         <Carousel.Caption>
           <h3>Photography</h3>
-          <p>Collect your favourite photos!</p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
-          style={{ height: "25rem" }}
+          style={{ height: "30rem" }}
           src={placesImg}
           alt="Places"
         />
         <Carousel.Caption>
           <h3>Travel</h3>
-          <p>Collect your favourite locations!</p>
         </Carousel.Caption>
       </Carousel.Item>
 
       <Carousel.Item interval={1000}>
         <img
           className="d-block w-100"
-          style={{ height: "25rem" }}
+          style={{ height: "30rem" }}
           src={songsImg}
           alt="Songs"
         />
         <Carousel.Caption>
           <h3>Music</h3>
-          <p>Collect your favourite songs!</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
