@@ -15,6 +15,7 @@ function MovieCreate() {
   const [director, setDirector] = useState("");
   const [plot, setPlot] = useState("");
   const [url, setUrl] = useState("");
+  const [poster, setPoster] = useState("");
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleYear = (e) => setYear(e.target.value);
@@ -22,11 +23,12 @@ function MovieCreate() {
   const handleDirector = (e) => setDirector(e.target.value);
   const handlePlot = (e) => setPlot(e.target.value);
   const handleUrl = (e) => setUrl(e.target.value);
+  const handlePoster = (e) => setPoster(e.target.value);
 
   const handleCreateMovieSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, year, genre, director, plot, url };
+    const requestBody = { title, year, genre, director, plot, url, poster };
     movieService
       .createMovie(requestBody)
       .then((response) => {
@@ -54,7 +56,7 @@ function MovieCreate() {
             <Card.Body>
               <Form onSubmit={handleCreateMovieSubmit}>
                 {/* title */}
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-2">
                   <Form.Label>Title*</Form.Label>
                   <Form.Control
                     type="text"
@@ -67,7 +69,7 @@ function MovieCreate() {
                 </Form.Group>
 
                 {/* year */}
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-2">
                   <Form.Label>Year*</Form.Label>
                   <Form.Control
                     type="number"
@@ -83,9 +85,12 @@ function MovieCreate() {
                 </Form.Group>
 
                 {/* genre */}
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-2">
                   <Form.Label>Genre</Form.Label>
-                  <Form.Select onSelect={handleGenre}>
+                  <Form.Select
+                    value={genre}
+                    onChange={handleGenre}
+                  >
                     <option>Unknown</option>
                     <option>Action</option>
                     <option>Adventure</option>
@@ -103,7 +108,7 @@ function MovieCreate() {
                 </Form.Group>
 
                 {/* director */}
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-2">
                   <Form.Label>Director(s)</Form.Label>
                   <Form.Control
                     type="text"
@@ -115,7 +120,7 @@ function MovieCreate() {
                 </Form.Group>
 
                 {/* plot */}
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-2">
                   <Form.Label>Plot</Form.Label>
                   <Form.Control
                     type="text"
@@ -127,7 +132,7 @@ function MovieCreate() {
                 </Form.Group>
 
                 {/* url */}
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-2">
                   <Form.Label>URL</Form.Label>
                   <Form.Control
                     type="url"
@@ -138,6 +143,28 @@ function MovieCreate() {
                   />
                 </Form.Group>
 
+                {/* poster */}
+                <Form.Group className="mb-2">
+                  <Form.Label>Poster URL</Form.Label>
+                  <Form.Control
+                    type="url"
+                    value={poster}
+                    name="poster"
+                    onChange={handlePoster}
+                    placeholder="Enter URL for poster"
+                  />
+                </Form.Group>
+                {/* TODO: Figure out how to use cloudinary */}
+                {/* <Form.Group className="mb-2">
+                  <Form.Label>Poster</Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="poster"
+                    htmlFor="movie-poster"
+                    accept="image/*"
+                    onChange={handlePoster}
+                  />
+                </Form.Group> */}
                 <Button
                   variant="primary"
                   type="submit"

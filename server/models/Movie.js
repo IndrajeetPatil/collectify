@@ -48,6 +48,12 @@ const movieSchema = new Schema(
       required: false,
       trim: true,
     },
+    poster: {
+      type: String,
+      required: false,
+      default: "",
+      trim: true,
+    },
     collections: [
       {
         type: Schema.Types.ObjectId,
