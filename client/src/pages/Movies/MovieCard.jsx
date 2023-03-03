@@ -13,7 +13,10 @@ function MovieCard(props) {
       key={props.movie._id}
       className="m-5"
     >
-      <Card style={{ width: "20rem", height: "30rem", backgroundColor: "#ECF2FF" }}>
+      <Card
+        border="dark"
+        style={{ width: "20rem", height: "30rem", backgroundColor: "#ECF2FF" }}
+      >
         <Card.Img
           variant="top"
           style={{ height: "15rem" }}
@@ -22,19 +25,21 @@ function MovieCard(props) {
         />
 
         <Card.Body>
-          <Card.Title>{props.movie.title}</Card.Title>
-          <Card.Text>Year: {props.movie.year}</Card.Text>
+          <Card.Title>
+            {props.movie.title} ({props.movie.year})
+          </Card.Title>
+          <Card.Text>{props.movie.genre}</Card.Text>
 
           <Button
-            variant="primary"
+            variant="outline-primary"
             as={Link}
             to={`/collections/movies/${props.movie._id}`}
           >
-            Details
+            <Icon.List /> Details
           </Button>
 
           <Button
-            variant="warning"
+            variant="outline-warning"
             as={Link}
             to={`/collections/movies/${props.movie._id}/edit`}
           >
@@ -42,17 +47,13 @@ function MovieCard(props) {
           </Button>
 
           <Button
-            variant="danger"
+            variant="outline-danger"
             as={Link}
             to={`/collections/movies/${props.movie._id}/edit`}
           >
             <Icon.Trash /> Delete
           </Button>
         </Card.Body>
-
-        <Card.Footer>
-          <small className="text-muted">{props.movie.genre}</small>
-        </Card.Footer>
       </Card>
     </Col>
   );

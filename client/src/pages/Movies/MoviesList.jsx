@@ -3,7 +3,6 @@ import movieService from "../../services/movie";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 
 import moviesImg from "../../assets/images/movies.jpeg";
