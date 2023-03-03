@@ -15,7 +15,7 @@ function HomePage() {
   return (
     <Container fluid>
       <Row
-        className="text-center justify-content-center align-content-center"
+        className="text-center justify-content-center align-content-center mt-5"
         style={{ width: "100vw", height: "90vh" }}
       >
         <Col
@@ -31,7 +31,7 @@ function HomePage() {
 
           {!isLoggedIn && (
             <p className="lead">
-              <Link to="/login">
+              <Link to="/signup">
                 <Button variant="success">Join Us</Button>
               </Link>
             </p>
