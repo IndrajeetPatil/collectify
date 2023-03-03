@@ -13,15 +13,13 @@ function HomePage() {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
-    <Container
-      fluid
-      style={{ width: "100%", height: "100%" }}
-      className="mt-5"
-    >
-      <Row>
+    <Container fluid>
+      <Row
+        className="text-center justify-content-center align-content-center"
+        style={{ width: "100vw", height: "90vh" }}
+      >
         <Col
-          xs="auto"
-          className="text-center mt-5 d-block"
+          className="mt-auto mb-auto"
           sm={4}
         >
           <h1>About Collectify</h1>
@@ -40,10 +38,7 @@ function HomePage() {
           )}
         </Col>
 
-        <Col
-          className="homeCarousel mt-5"
-          sm={8}
-        >
+        <Col sm={8}>
           <HomeCarousel />
         </Col>
       </Row>
