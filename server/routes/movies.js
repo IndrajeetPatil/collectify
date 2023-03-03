@@ -9,6 +9,11 @@ const Collection = require("../models/Collection");
 // @access  Public
 router.get("/collections/movies", (req, res) => {
   const userId = req.payload._id;
+
+  Collection.findOne({ user: userId })
+    .populate("movies")
+    .then((collection) => res.json(collection.movies))
+    .catch((err) => res.status(404).json({ success: false }));
 });
 
 // @route   POST api/collections/movies

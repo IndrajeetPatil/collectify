@@ -11,7 +11,7 @@ import movieService from "../../services/movie";
 function MovieCreate() {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
-  const [genre, setGenre] = useState("Unknown");
+  const [genre, setGenre] = useState("");
   const [director, setDirector] = useState("");
   const [plot, setPlot] = useState("");
   const [url, setUrl] = useState("");
@@ -32,7 +32,13 @@ function MovieCreate() {
     movieService
       .createMovie(requestBody)
       .then((response) => {
-        console.log("create movie response", response);
+        setTitle("");
+        setYear("");
+        setGenre("");
+        setDirector("");
+        setPlot("");
+        setUrl("");
+        setPoster("");
       })
       .catch((error) => console.log(error));
   };
@@ -86,12 +92,13 @@ function MovieCreate() {
 
                 {/* genre */}
                 <Form.Group className="mb-2">
-                  <Form.Label>Genre</Form.Label>
+                  <Form.Label>Genre*</Form.Label>
                   <Form.Select
                     value={genre}
+                    name="genre"
+                    required
                     onChange={handleGenre}
                   >
-                    <option>Unknown</option>
                     <option>Action</option>
                     <option>Adventure</option>
                     <option>Animation</option>

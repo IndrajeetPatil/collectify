@@ -21,7 +21,7 @@ function PlacesList() {
       </Row>
 
       <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collection of Your Places!</h1>
+        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Your Favourite Places!</h1>
       </Row>
 
       <Row>

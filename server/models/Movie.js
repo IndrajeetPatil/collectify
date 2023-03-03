@@ -14,9 +14,7 @@ const movieSchema = new Schema(
     },
     genre: {
       type: String,
-      default: "Unknown",
       enum: [
-        "Unknown",
         "Action",
         "Adventure",
         "Animation",
@@ -30,7 +28,7 @@ const movieSchema = new Schema(
         "Sci-Fi",
         "Western",
       ],
-      required: false,
+      required: true,
     },
     director: {
       type: Array,

@@ -9,7 +9,9 @@
 - `paintings.jpeg` Photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Steve Johnson</a> on <a href="https://unsplash.com/photos/QlBdxJK2-nU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 - `photos.jpeg` Photo by <a href="https://unsplash.com/@dariuszsankowski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dariusz Sankowski</a> on <a href="https://unsplash.com/photos/mj2NwYH3wBA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+
+- `poster-placeholder.jpg` from <http://lexingtonvenue.com/media/poster-placeholder.jpg>
+
 - `places.jpeg` Photo by <a href="https://unsplash.com/@andrewtneel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Andrew Neel</a> on <a href="https://unsplash.com/photos/1-29wyvvLJA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 - `songs.jpeg` Photo by <a href="https://unsplash.com/@marius?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marius Masalar</a> on <a href="https://unsplash.com/photos/rPOmLGwai2w?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

@@ -21,7 +21,7 @@ function PaintingsList() {
       </Row>
 
       <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collection of Your Paintings!</h1>
+        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Your Favourite Paintings!</h1>
       </Row>
 
       <Row>

@@ -21,7 +21,7 @@ function PhotosList() {
       </Row>
 
       <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Collection of Your Photos!</h1>
+        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Your Favourite Photos!</h1>
       </Row>
 
       <Row>
