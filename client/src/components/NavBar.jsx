@@ -13,14 +13,11 @@ function NavBar() {
   return (
     <Navbar bg="light">
       <Container fluid>
-        <Navbar.Brand href="/">Collectify</Navbar.Brand>
-        <Navbar.Collapse>
-          <Nav>
-            <Nav.Link>
-              <Link to="/">Home</Link>
-            </Nav.Link>
-          </Nav>
+        <Navbar.Brand>
+          <Link to="/">Collectify</Link>
+        </Navbar.Brand>
 
+        <Navbar.Collapse>
           {isLoggedIn && (
             <Nav>
               <NavDropdown title="Collections">
@@ -55,15 +52,27 @@ function NavBar() {
                 </NavDropdown.Item>
               </NavDropdown>
 
-              <Nav.Link>
-                <Link to="/profile">
-                  <span>{user && user.name}</span>
-                </Link>
-              </Nav.Link>
+              <NavDropdown title={user && user.name}>
+                <NavDropdown.Item>
+                  <Link to="/profile">Profile</Link>
+                </NavDropdown.Item>
 
-              <Nav.Link>
-                <Link onClick={logOutUser}>Logout</Link>
-              </Nav.Link>
+                <NavDropdown.Item>
+                  <Link to="/profile/edit">Edit Profile</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link to="/profile/settings">Settings</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link to="/profile/delete">Delete Account</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link onClick={logOutUser}>Logout</Link>
+                </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           )}
 
