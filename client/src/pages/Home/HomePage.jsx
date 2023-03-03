@@ -14,6 +14,7 @@ function HomePage() {
 
   return (
     <Container fluid>
+      {/* FIXME: mt-5 here vertically de-aligns this content, but removing it causes problems for the mobile view  */}
       <Row
         className="text-center justify-content-center align-content-center mt-5"
         style={{ width: "100vw", height: "90vh" }}

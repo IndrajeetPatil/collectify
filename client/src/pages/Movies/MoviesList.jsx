@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import apiService from "../../services/api.service";
+import apiService from "../../services/api";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

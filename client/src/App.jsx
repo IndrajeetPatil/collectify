@@ -14,7 +14,12 @@ import IsAnon from "./components/IsAnon";
 import CollectionsList from "./pages/Collections/CollectionsList";
 
 import BooksList from "./pages/Books/BooksList";
+
 import MoviesList from "./pages/Movies/MoviesList";
+import MovieCreate from "./pages/Movies/MovieCreate";
+import MovieEdit from "./pages/Movies/MovieEdit";
+import MovieDelete from "./pages/Movies/MovieDelete";
+
 import PaintingList from "./pages/Paintings/PaintingsList";
 import PhotosList from "./pages/Photos/PhotosList";
 import PlacesList from "./pages/Places/PlacesList";
@@ -41,7 +46,7 @@ function App() {
           }
         />
 
-        {/* Protected routes: collections  */}
+        {/* Protected routes: collections */}
         <Route
           path="/collections"
           element={
@@ -101,6 +106,32 @@ function App() {
           element={
             <IsPrivate>
               <SongsList />
+            </IsPrivate>
+          }
+        />
+
+        {/* Protected routes: collections/movies */}
+        <Route
+          path="/collections/movies/create"
+          element={
+            <IsPrivate>
+              <MovieCreate />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/collections/movies/edit"
+          element={
+            <IsPrivate>
+              <MovieEdit />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/collections/movies/delete"
+          element={
+            <IsPrivate>
+              <MovieDelete />
             </IsPrivate>
           }
         />
