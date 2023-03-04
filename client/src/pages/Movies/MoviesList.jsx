@@ -3,6 +3,7 @@ import movieService from "../../services/movie";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/esm/Col";
 import Image from "react-bootstrap/Image";
 
 import moviesImg from "../../assets/images/movies.jpeg";
@@ -40,7 +41,14 @@ function MoviesList() {
 
       <Row className="mt-5">
         {movies.map((movie) => {
-          return <MovieCard movie={movie} />;
+          return (
+            <Col
+              key={movie._id}
+              className="m-5"
+            >
+              <MovieCard movie={movie} />
+            </Col>
+          );
         })}
       </Row>
     </Container>
