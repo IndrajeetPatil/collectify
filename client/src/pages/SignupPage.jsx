@@ -45,57 +45,56 @@ function SignupPage() {
         >
           <Card className="mb-0">
             <Card.Body>
-              <Card.Text>
-                <Form
+              <Form
+                className="mb-3"
+                onSubmit={handleSignupSubmit}
+              >
+                <Form.Group
                   className="mb-3"
-                  onSubmit={handleSignupSubmit}
+                  controlId="formBasicName"
                 >
-                  <Form.Group
-                    className="mb-3"
-                    controlId="formBasicName"
-                  >
-                    <Form.Control
-                      type="name"
-                      placeholder="Username"
-                      name="name"
-                      aria-label="Email address"
-                      value={name}
-                      required
-                      onChange={handleName}
-                    />
-                  </Form.Group>
+                  <Form.Control
+                    type="name"
+                    placeholder="Username"
+                    name="name"
+                    aria-label="Email address"
+                    value={name}
+                    required
+                    onChange={handleName}
+                  />
+                </Form.Group>
 
-                  <Form.Group
-                    className="mb-3"
-                    controlId="formBasicEmail"
-                  >
-                    <Form.Control
-                      type="email"
-                      placeholder="Email address"
-                      name="email"
-                      aria-label="Email address"
-                      value={email}
-                      required
-                      onChange={handleEmail}
-                    />
-                  </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="formBasicEmail"
+                >
+                  <Form.Control
+                    type="email"
+                    placeholder="Email address"
+                    name="email"
+                    aria-label="Email address"
+                    value={email}
+                    required
+                    onChange={handleEmail}
+                  />
+                </Form.Group>
 
-                  <Form.Group
-                    className="mb-3"
-                    controlId="formBasicPassword"
-                  >
-                    <Form.Control
-                      type="password"
-                      placeholder="Password"
-                      name="pass"
-                      aria-label="Password"
-                      value={password}
-                      required
-                      onChange={handlePassword}
-                    />
-                  </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="formBasicPassword"
+                >
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    name="pass"
+                    aria-label="Password"
+                    value={password}
+                    required
+                    onChange={handlePassword}
+                  />
+                </Form.Group>
 
-                  {/* <Form.Group
+                {/* <Form.Group
                       className="mb-3 d-flex justify-content-center"
                       controlId="formBasicCheckbox"
                     >
@@ -105,29 +104,28 @@ function SignupPage() {
                       />
                     </Form.Group> */}
 
-                  <Button
-                    className="mb-0"
-                    variant="success"
-                    type="submit"
-                  >
-                    Register
-                  </Button>
-                </Form>
+                <Button
+                  className="mb-0"
+                  variant="success"
+                  type="submit"
+                >
+                  Register
+                </Button>
+              </Form>
 
-                <hr />
+              <hr />
 
-                <Card.Text>Have an account?</Card.Text>
+              <Card.Text>Have an account?</Card.Text>
 
-                <Link to={"/login"}>
-                  <Button
-                    className="mb-0"
-                    variant="primary"
-                    type="submit"
-                  >
-                    Login
-                  </Button>
-                </Link>
-              </Card.Text>
+              <Link to={"/login"}>
+                <Button
+                  className="mb-0"
+                  variant="primary"
+                  type="submit"
+                >
+                  Login
+                </Button>
+              </Link>
             </Card.Body>
 
             {errorMessage && (

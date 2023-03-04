@@ -50,42 +50,41 @@ function LoginPage() {
         >
           <Card className="mb-0">
             <Card.Body>
-              <Card.Text>
-                <Form
+              <Form
+                className="mb-3"
+                onSubmit={handleLoginSubmit}
+              >
+                <Form.Group
                   className="mb-3"
-                  onSubmit={handleLoginSubmit}
+                  controlId="formBasicEmail"
                 >
-                  <Form.Group
-                    className="mb-3"
-                    controlId="formBasicEmail"
-                  >
-                    <Form.Control
-                      type="email"
-                      placeholder="Email address"
-                      name="email"
-                      aria-label="Email address"
-                      value={email}
-                      required
-                      onChange={handleEmail}
-                    />
-                  </Form.Group>
+                  <Form.Control
+                    type="email"
+                    placeholder="Email address"
+                    name="email"
+                    aria-label="Email address"
+                    value={email}
+                    required
+                    onChange={handleEmail}
+                  />
+                </Form.Group>
 
-                  <Form.Group
-                    className="mb-3"
-                    controlId="formBasicPassword"
-                  >
-                    <Form.Control
-                      type="password"
-                      placeholder="Password"
-                      name="pass"
-                      aria-label="Password"
-                      value={password}
-                      required
-                      onChange={handlePassword}
-                    />
-                  </Form.Group>
+                <Form.Group
+                  className="mb-3"
+                  controlId="formBasicPassword"
+                >
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    name="pass"
+                    aria-label="Password"
+                    value={password}
+                    required
+                    onChange={handlePassword}
+                  />
+                </Form.Group>
 
-                  {/* <Form.Group
+                {/* <Form.Group
                       className="mb-3 d-flex justify-content-center"
                       controlId="formBasicCheckbox"
                     >
@@ -95,37 +94,36 @@ function LoginPage() {
                       />
                     </Form.Group> */}
 
-                  <Button
-                    className="mb-0"
-                    variant="primary"
-                    type="submit"
-                  >
-                    Login
-                  </Button>
-                </Form>
+                <Button
+                  className="mb-0"
+                  variant="primary"
+                  type="submit"
+                >
+                  Login
+                </Button>
+              </Form>
 
-                <Link to={"/forgot-password"}>
-                  <Button
-                    className="mb-0"
-                    variant="link"
-                    type="submit"
-                  >
-                    Forgot password?
-                  </Button>
-                </Link>
+              <Link to={"/forgot-password"}>
+                <Button
+                  className="mb-0"
+                  variant="link"
+                  type="submit"
+                >
+                  Forgot password?
+                </Button>
+              </Link>
 
-                <hr />
+              <hr />
 
-                <Link to={"/signup"}>
-                  <Button
-                    className="mb-0"
-                    variant="success"
-                    type="submit"
-                  >
-                    Create new account
-                  </Button>
-                </Link>
-              </Card.Text>
+              <Link to={"/signup"}>
+                <Button
+                  className="mb-0"
+                  variant="success"
+                  type="submit"
+                >
+                  Create new account
+                </Button>
+              </Link>
             </Card.Body>
 
             {errorMessage && (
