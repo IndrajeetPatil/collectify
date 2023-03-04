@@ -13,12 +13,13 @@ function HomePage() {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
-    <Container fluid>
+    <Container
+      fluid
+      className="text-center d-flex flex-column"
+      style={{ width: "100vw", height: "90vh" }}
+    >
       {/* FIXME: mt-5 here vertically de-aligns this content, but removing it causes problems for the mobile view  */}
-      <Row
-        className="text-center justify-content-center align-content-center mt-5"
-        style={{ width: "100vw", height: "90vh" }}
-      >
+      <Row className="mt-auto mb-auto">
         <Col
           className="mt-auto mb-auto"
           sm={4}
@@ -31,11 +32,9 @@ function HomePage() {
           </p>
 
           {!isLoggedIn && (
-            <p className="lead">
-              <Link to="/signup">
-                <Button variant="success">Join Us</Button>
-              </Link>
-            </p>
+            <Link to="/signup">
+              <Button variant="success">Join Us</Button>
+            </Link>
           )}
         </Col>
 
