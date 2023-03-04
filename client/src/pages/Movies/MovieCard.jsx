@@ -11,6 +11,7 @@ function MovieCard(props) {
   return (
     <Card
       border="dark"
+      className="text-center"
       style={{ width: "20rem", height: "30rem" }}
     >
       <Card.Img
