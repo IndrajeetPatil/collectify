@@ -37,7 +37,7 @@ function MovieCard(props) {
         <Button
           variant="outline-warning"
           as={Link}
-          to={`/collections/movies/${props.movie._id}/edit`}
+          to={`/collections/movies/edit/${props.movie._id}`}
         >
           <Icon.Pencil /> Edit
         </Button>
@@ -45,7 +45,7 @@ function MovieCard(props) {
         <Button
           variant="outline-danger"
           as={Link}
-          to={`/collections/movies/${props.movie._id}/edit`}
+          to={`/collections/movies/delete/${props.movie._id}`}
         >
           <Icon.Trash /> Delete
         </Button>

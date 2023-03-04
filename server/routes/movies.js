@@ -17,7 +17,7 @@ router.get("/collections/movies", (req, res) => {
 });
 
 // @route   POST api/collections/movies
-// @desc    Create a movie
+// @desc    Create a movie and update collection
 // @access  Public
 router.post("/collections/movies", (req, res) => {
   const userId = req.payload._id;
@@ -57,12 +57,16 @@ router.put("/collections/movies/:id", (req, res) => {
 });
 
 // @route   DELETE api/collections/movies/delete
-// @desc    Delete a movie
+// @desc    Delete a movie and update collection
 // @access  Public
 router.delete("/collections/movies/:id", (req, res) => {
-  Movie.findByIdAndDelete(req.params.id)
+  const movieId = req.params.id;
+  const userId = req.payload._id;
 
-    .then((deletedMovie) => res.json({ success: true }))
+  Movie.findByIdAndDelete(movieId)
+    .then((deletedMovie) => {
+      return Collection.findOneAndUpdate({ user: userId }, { $pull: { movies: movieId } }, { new: true });
+    })
     .catch((err) => res.status(404).json({ success: false }));
 });
 

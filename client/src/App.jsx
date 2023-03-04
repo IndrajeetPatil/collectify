@@ -120,7 +120,7 @@ function App() {
           }
         />
         <Route
-          path="/collections/movies/edit"
+          path="/collections/movies/edit/:movieId"
           element={
             <IsPrivate>
               <MovieEdit />
@@ -128,7 +128,7 @@ function App() {
           }
         />
         <Route
-          path="/collections/movies/delete"
+          path="/collections/movies/delete/:movieId"
           element={
             <IsPrivate>
               <MovieDelete />
