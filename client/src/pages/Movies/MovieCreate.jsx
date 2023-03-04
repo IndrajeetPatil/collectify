@@ -6,6 +6,7 @@ import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import movieService from "../../services/movie";
 
 function MovieCreate() {
@@ -16,6 +17,8 @@ function MovieCreate() {
   const [plot, setPlot] = useState("");
   const [url, setUrl] = useState("");
   const [poster, setPoster] = useState("");
+
+  const navigate = useNavigate();
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleYear = (e) => setYear(e.target.value);
@@ -31,15 +34,7 @@ function MovieCreate() {
     const requestBody = { title, year, genre, director, plot, url, poster };
     movieService
       .createMovie(requestBody)
-      .then((response) => {
-        setTitle("");
-        setYear("");
-        setGenre("");
-        setDirector("");
-        setPlot("");
-        setUrl("");
-        setPoster("");
-      })
+      .then((response) => navigate("/collections/movies"))
       .catch((error) => console.log(error));
   };
 
