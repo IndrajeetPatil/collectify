@@ -13,60 +13,90 @@ function NavBar() {
   return (
     <Navbar bg="light">
       <Container fluid>
-        <Navbar.Brand>
-          <Link to="/">Collectify</Link>
+        {/* Brand */}
+        <Navbar.Brand
+          as={Link}
+          to="/"
+        >
+          Collectify
         </Navbar.Brand>
 
         <Navbar.Collapse>
           {isLoggedIn && (
             <Nav>
+              {/* Dropdown for collections */}
               <NavDropdown title="Collections">
-                <NavDropdown.Item>
-                  <Link to="/collections">All Collections</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/collections"
+                >
+                  All Collections
                 </NavDropdown.Item>
-
-                <hr></hr>
-
-                <NavDropdown.Item>
-                  <Link to="/collections/books">Books</Link>
+                <NavDropdown.Divider />
+                <NavDropdown.Item
+                  as={Link}
+                  to="/collections/books"
+                >
+                  Books
                 </NavDropdown.Item>
-
-                <NavDropdown.Item>
-                  <Link to="/collections/movies">Movies</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/collections/movies"
+                >
+                  Movies
                 </NavDropdown.Item>
-
-                <NavDropdown.Item>
-                  <Link to="/collections/paintings">Paintings</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/collections/paintings"
+                >
+                  Paintings
                 </NavDropdown.Item>
-
-                <NavDropdown.Item>
-                  <Link to="/collections/photos">Photos</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/collections/photos"
+                >
+                  Photos
                 </NavDropdown.Item>
-
-                <NavDropdown.Item>
-                  <Link to="/collections/places">Places</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/collections/places"
+                >
+                  Places
                 </NavDropdown.Item>
-
-                <NavDropdown.Item>
-                  <Link to="/collections/songs">Songs</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/collections/songs"
+                >
+                  Songs
                 </NavDropdown.Item>
               </NavDropdown>
 
+              {/* Dropdown for user */}
               <NavDropdown title={user && user.name}>
-                <NavDropdown.Item>
-                  <Link to="/profile">Profile</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/profile"
+                >
+                  Profile
                 </NavDropdown.Item>
-
-                <NavDropdown.Item>
-                  <Link to="/profile/edit">Edit Profile</Link>
+                <NavDropdown.Divider />
+                <NavDropdown.Item
+                  as={Link}
+                  to="/profile/edit"
+                >
+                  Edit Profile
                 </NavDropdown.Item>
-
-                <NavDropdown.Item>
-                  <Link to="/profile/settings">Settings</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/profile/settings"
+                >
+                  Edit Settings
                 </NavDropdown.Item>
-
-                <NavDropdown.Item>
-                  <Link to="/profile/delete">Delete Account</Link>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/profile/delete"
+                >
+                  Delete Account
                 </NavDropdown.Item>
 
                 <NavDropdown.Item>
@@ -76,6 +106,7 @@ function NavBar() {
             </Nav>
           )}
 
+          {/* Login */}
           {!isLoggedIn && (
             <>
               <Link to="/login">Login</Link>

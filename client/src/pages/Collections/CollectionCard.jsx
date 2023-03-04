@@ -20,9 +20,9 @@ function CollectionCard(props) {
             {props.icon} {capitalizeFirstLetter(props.title)}
           </Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{props.length} Items</Card.Subtitle>
-          <Card.Text>
-            <hr></hr>
-          </Card.Text>
+
+          <hr></hr>
+
           <Link to={`/collections/${props.title}`}>
             <Button variant="success">To the {props.title}!</Button>{" "}
           </Link>
