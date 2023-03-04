@@ -43,7 +43,7 @@ function MoviesList() {
         <hr></hr>
       </Row>
 
-      <Row className="ms-auto me-auto">
+      <Row className="ms-auto me-auto mt-5">
         <Col>
           <Card style={{ width: "50vw" }}>
             <Card.Header>Collection: Cinema</Card.Header>
