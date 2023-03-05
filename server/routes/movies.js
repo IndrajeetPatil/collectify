@@ -42,7 +42,9 @@ router.post("/collections/movies", (req, res) => {
 // @desc    Get a movie
 // @access  Public
 router.get("/collections/movies/:id", (req, res) => {
-  Movie.findById(req.params.id)
+  const movieId = req.params.id;
+
+  Movie.findById(movieId)
     .then((movie) => res.json(movie))
     .catch((err) => res.status(404).json({ success: false }));
 });
@@ -51,8 +53,10 @@ router.get("/collections/movies/:id", (req, res) => {
 // @desc    Update a movie
 // @access  Public
 router.put("/collections/movies/:id", (req, res) => {
-  Movie.findByIdAndUpdate(req.params.id)
-    .then((movie) => res.json(movie))
+  const movieId = req.params.id;
+
+  Movie.findByIdAndUpdate(movieId, { ...req.body })
+    .then((updatedMovie) => res.json(updatedMovie))
     .catch((err) => res.status(404).json({ success: false }));
 });
 
@@ -67,6 +71,7 @@ router.delete("/collections/movies/:id", (req, res) => {
     .then((deletedMovie) => {
       return Collection.findOneAndUpdate({ user: userId }, { $pull: { movies: movieId } }, { new: true });
     })
+    .then((updatedCollection) => res.json(updatedCollection))
     .catch((err) => res.status(404).json({ success: false }));
 });
 

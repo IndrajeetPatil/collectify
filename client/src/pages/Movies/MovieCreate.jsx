@@ -94,6 +94,7 @@ function MovieCreate() {
                     required
                     onChange={handleGenre}
                   >
+                    <option></option>
                     <option>Action</option>
                     <option>Adventure</option>
                     <option>Animation</option>

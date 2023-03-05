@@ -33,7 +33,7 @@ function MovieCard(props) {
           className="d-flex flex-row align-content-center justify-content-around fs-4"
         >
           <Link to={`/collections/movies/${props.movie._id}`}>
-            <Icon.EyeFill style={{ color: "blue" }} />
+            <Icon.EyeFill style={{ color: "#0d6efd" }} />
           </Link>
 
           <Link to={`/collections/movies/edit/${props.movie._id}`}>
