@@ -43,15 +43,21 @@ function MovieDetails() {
           <Card style={{ width: "50vw", height: "70vh" }}>
             <Card.Body>
               <Card.Title className="fs-2 text-center">{movie.title}</Card.Title>
-              <Card.Text>
-                <p>
-                  <strong>Year</strong>: {movie.year}
-                </p>
-                <p>Genre: {movie.genre}</p>
-                <p>Director: {movie.director}</p>
-                <p>Plot: {movie.plot}</p>
-                <p>URL: {movie.url}</p>
-              </Card.Text>
+              <p>
+                <strong>Year</strong>: {movie.year}
+              </p>
+              <p>
+                <strong>Genre</strong>: {movie.genre}
+              </p>
+              <p>
+                <strong>Director</strong>: {movie.director}
+              </p>
+              <p>
+                <strong>Plot</strong>: {movie.plot}
+              </p>
+              <p>
+                <strong>URL</strong>: {movie.url}
+              </p>
             </Card.Body>
 
             <Card.Footer>
