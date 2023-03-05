@@ -1,4 +1,6 @@
 import Card from "react-bootstrap/Card";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 import { Link } from "react-router-dom";
 
@@ -33,15 +35,30 @@ function MovieCard(props) {
           className="d-flex flex-row align-content-center justify-content-around fs-4"
         >
           <Link to={`/collections/movies/${props.movie._id}`}>
-            <Icon.EyeFill style={{ color: "#0d6efd" }} />
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip id="tooltip-top">See more details</Tooltip>}
+            >
+              <Icon.EyeFill style={{ color: "#0d6efd" }} />
+            </OverlayTrigger>
           </Link>
 
           <Link to={`/collections/movies/edit/${props.movie._id}`}>
-            <Icon.Pencil style={{ color: "green" }} />
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
+            >
+              <Icon.Pencil style={{ color: "green" }} />
+            </OverlayTrigger>
           </Link>
 
           <Link to={`/collections/movies/delete/${props.movie._id}`}>
-            <Icon.Trash style={{ color: "red" }} />
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip id="tooltip-top">Delete this item</Tooltip>}
+            >
+              <Icon.Trash style={{ color: "red" }} />
+            </OverlayTrigger>
           </Link>
         </Container>
       </Card.Footer>
