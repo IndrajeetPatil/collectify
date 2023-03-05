@@ -18,23 +18,28 @@ import Fuse from "fuse.js";
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
+  const [moviesCopy, setMoviesCopy] = useState([]);
 
   useEffect(() => {
     movieService
       .getMovies()
-      .then((response) => setMovies(response.data))
+      .then((response) => {
+        setMovies(response.data);
+        return response;
+      })
+      .then((response) => setMoviesCopy(response.data))
       .catch((error) => console.log(error));
   }, []);
 
   const filterMovies = (str) => {
-    const fuse = new Fuse(movies, {
+    const fuse = new Fuse(moviesCopy, {
       keys: ["title"],
       isCaseSensitive: false,
       ignoreLocation: true,
       threshold: 0.0,
     });
 
-    const filteredMovies = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : movies;
+    const filteredMovies = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : moviesCopy;
 
     setMovies(filteredMovies);
   };
