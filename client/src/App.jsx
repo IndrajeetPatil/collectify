@@ -17,6 +17,7 @@ import BooksList from "./pages/Books/BooksList";
 
 import MoviesList from "./pages/Movies/MoviesList";
 import MovieCreate from "./pages/Movies/MovieCreate";
+import MovieDetails from "./pages/Movies/MovieDetails";
 import MovieEdit from "./pages/Movies/MovieEdit";
 import MovieDelete from "./pages/Movies/MovieDelete";
 
@@ -66,15 +67,6 @@ function App() {
         />
 
         <Route
-          path="/collections/movies"
-          element={
-            <IsPrivate>
-              <MoviesList />
-            </IsPrivate>
-          }
-        />
-
-        <Route
           path="/collections/paintings"
           element={
             <IsPrivate>
@@ -112,6 +104,15 @@ function App() {
 
         {/* Protected routes: collections/movies */}
         <Route
+          path="/collections/movies"
+          element={
+            <IsPrivate>
+              <MoviesList />
+            </IsPrivate>
+          }
+        />
+
+        <Route
           path="/collections/movies/create"
           element={
             <IsPrivate>
@@ -119,6 +120,16 @@ function App() {
             </IsPrivate>
           }
         />
+
+        <Route
+          path="/collections/movies/:movieId"
+          element={
+            <IsPrivate>
+              <MovieDetails />
+            </IsPrivate>
+          }
+        />
+
         <Route
           path="/collections/movies/edit/:movieId"
           element={
@@ -127,6 +138,7 @@ function App() {
             </IsPrivate>
           }
         />
+
         <Route
           path="/collections/movies/delete/:movieId"
           element={
