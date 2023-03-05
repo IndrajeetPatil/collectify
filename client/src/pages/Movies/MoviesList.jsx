@@ -9,9 +9,12 @@ import Col from "react-bootstrap/esm/Col";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 import moviesImg from "../../assets/images/movies.jpeg";
 import MovieCard from "./MovieCard";
+
+import Fuse from "fuse.js";
 
 function MoviesList() {
   const [movies, setMovies] = useState([]);
@@ -22,6 +25,21 @@ function MoviesList() {
       .then((response) => setMovies(response.data))
       .catch((error) => console.log(error));
   }, []);
+
+  const filterMovies = (str) => {
+    const fuse = new Fuse(movies, {
+      keys: ["title"],
+      isCaseSensitive: false,
+      ignoreLocation: true,
+      threshold: 0.0,
+    });
+
+    const filteredMovies = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : movies;
+
+    setMovies(filteredMovies);
+  };
+
+  const handleSearch = (e) => filterMovies(e.target.value);
 
   return (
     <Container
@@ -56,6 +74,23 @@ function MoviesList() {
               </Link>
             </Card.Body>
           </Card>
+        </Col>
+      </Row>
+
+      <Row className="mt-5">
+        <Col>
+          <Form
+            style={{ width: "50vw" }}
+            className="d-flex text-center"
+          >
+            <Form.Control
+              type="search"
+              placeholder="Search by movie title"
+              className="me-2"
+              aria-label="Search"
+              onChange={handleSearch}
+            />
+          </Form>
         </Col>
       </Row>
 
