@@ -26,12 +26,13 @@ function MoviesList() {
   return (
     <Container
       fluid
-      className="d-flex flex-column"
+      style={{ width: "100vw" }}
+      className="d-flex flex-column justify-content-center align-items-center"
     >
       <Row>
         <Image
           src={moviesImg}
-          style={{ height: "30rem", padding: "0rem" }}
+          style={{ width: "100vw", height: "30rem", padding: "0rem" }}
         />
       </Row>
 
@@ -40,10 +41,10 @@ function MoviesList() {
       </Row>
 
       <Row>
-        <hr></hr>
+        <hr style={{ width: "50vw" }}></hr>
       </Row>
 
-      <Row className="ms-auto me-auto mt-5">
+      <Row className="mt-5">
         <Col>
           <Card style={{ width: "50vw" }}>
             <Card.Header>Collection: Cinema</Card.Header>
