@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class MovieService {
+class Service {
   constructor() {
     this.api = axios.create({
       baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005",
@@ -17,14 +17,6 @@ class MovieService {
       return config;
     });
   }
-
-  getMovies = () => this.api.get("/api/collections/movies");
-  getMovie = (id) => this.api.get(`/api/collections/movies/${id}`);
-  createMovie = (movie) => this.api.post("/api/collections/movies", movie);
-  updateMovie = (id, movie) => this.api.put(`/api/collections/movies/${id}`, movie);
-  deleteMovie = (id) => this.api.delete(`/api/collections/movies/${id}`);
 }
 
-const movieService = new MovieService();
-
-export default movieService;
+export default Service;

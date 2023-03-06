@@ -9,7 +9,7 @@ import { useState } from "react";
 // import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import movieService from "../../services/movie";
+import itemService from "../../services/api";
 
 function MovieEdit() {
   const navigate = useNavigate();
@@ -25,9 +25,9 @@ function MovieEdit() {
   const [poster, setPoster] = useState("");
 
   //   useEffect(() => {
-  //     movieService
-  //       .getMovie(movieId)
-  //       .then((response) => setMovie(response.data))
+  //     itemService
+  //       .readItem(movieId, "movies")
+  //       .then((response) => setItem(response.data))
   //       .then((movie) => {
   //         setTitle(movie.title);
   //         setYear(movie.year);
@@ -52,8 +52,8 @@ function MovieEdit() {
     e.preventDefault();
 
     const requestBody = { title, year, genre, director, plot, url, poster };
-    movieService
-      .updateMovie(movieId, requestBody)
+    itemService
+      .updateItem(movieId, requestBody, "movies")
       .then((response) => navigate("/collections/movies"))
       .catch((error) => console.log(error));
   };

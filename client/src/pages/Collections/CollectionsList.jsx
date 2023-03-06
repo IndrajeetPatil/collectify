@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import apiService from "../../services/collections";
+import collectionService from "../../services/collections";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -23,8 +23,8 @@ function CollectionsList() {
   const [error, setError] = useState(null);
 
   const fetchCollection = () => {
-    apiService
-      .getCollections()
+    collectionService
+      .readCollections()
       .then((response) => {
         setCollections(response.data[0]);
         setLoading(false);

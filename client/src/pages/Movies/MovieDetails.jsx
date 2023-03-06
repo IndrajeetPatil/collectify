@@ -8,7 +8,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import movieService from "../../services/movie";
+import itemService from "../../services/api";
 
 import * as Icon from "react-bootstrap-icons";
 import placeholderPosterImg from "../../assets/images/poster-placeholder.jpg";
@@ -19,8 +19,8 @@ function MovieDetails() {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    movieService
-      .getMovie(movieId)
+    itemService
+      .readItem(movieId, "movies")
       .then((response) => setMovie(response.data))
       .catch((error) => console.log(error));
   }, [movieId]);

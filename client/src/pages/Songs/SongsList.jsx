@@ -1,6 +1,3 @@
-import React, { useState, useEffect } from "react";
-import apiService from "../../services/collections";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";

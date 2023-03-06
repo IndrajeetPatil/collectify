@@ -7,7 +7,7 @@ import Col from "react-bootstrap/esm/Col";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import movieService from "../../services/movie";
+import itemService from "../../services/api";
 
 function MovieCreate() {
   const [title, setTitle] = useState("");
@@ -32,8 +32,8 @@ function MovieCreate() {
     e.preventDefault();
 
     const requestBody = { title, year, genre, director, plot, url, poster };
-    movieService
-      .createMovie(requestBody)
+    itemService
+      .createItem(requestBody, "movies")
       .then((response) => navigate("/collections/movies"))
       .catch((error) => console.log(error));
   };

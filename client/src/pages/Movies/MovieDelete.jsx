@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-import movieService from "../../services/movie";
+import itemService from "../../services/api";
 
 function MovieDelete() {
   const navigate = useNavigate();
@@ -14,8 +14,8 @@ function MovieDelete() {
   const handleDeleteMovieSubmit = (e) => {
     e.preventDefault();
 
-    movieService
-      .deleteMovie(movieId)
+    itemService
+      .deleteItem(movieId, "movies")
       .then((response) => navigate("/collections/movies"))
       .catch((error) => console.log(error));
   };
