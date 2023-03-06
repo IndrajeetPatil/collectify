@@ -23,15 +23,16 @@ function MovieCard(props) {
       />
 
       <Card.Body>
-        <Card.Title>
-          {props.movie.title} ({props.movie.year})
-        </Card.Title>
+        <Card.Title>{props.movie.title}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{props.movie.year}</Card.Subtitle>
+
         <Card.Text>{props.movie.genre}</Card.Text>
       </Card.Body>
+
       <Card.Footer>
         <Container
           fluid
-          className="d-flex flex-row align-content-center justify-content-around fs-4"
+          className="d-flex flex-row align-content-center justify-content-around fs-5"
         >
           <Link to={`/collections/movies/${props.movie._id}`}>
             <OverlayTrigger
