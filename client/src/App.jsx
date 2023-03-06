@@ -21,9 +21,12 @@ import MovieDetails from "./pages/Movies/MovieDetails";
 import MovieEdit from "./pages/Movies/MovieEdit";
 import MovieDelete from "./pages/Movies/MovieDelete";
 
+import PlacesList from "./pages/Places/PlacesList";
+import PlaceCreate from "./pages/Places/PlaceCreate";
+
 import PaintingList from "./pages/Paintings/PaintingsList";
 import PhotosList from "./pages/Photos/PhotosList";
-import PlacesList from "./pages/Places/PlacesList";
+
 import SongsList from "./pages/Songs/SongsList";
 
 function App() {
@@ -147,6 +150,52 @@ function App() {
             </IsPrivate>
           }
         />
+
+        {/* Protected routes: collections/places */}
+        <Route
+          path="/collections/places"
+          element={
+            <IsPrivate>
+              <PlacesList />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/places/create"
+          element={
+            <IsPrivate>
+              <PlaceCreate />
+            </IsPrivate>
+          }
+        />
+
+        {/* <Route
+          path="/collections/places/:placeId"
+          element={
+            <IsPrivate>
+              <PlaceDetails />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/places/edit/:placeId"
+          element={
+            <IsPrivate>
+              <PlaceEdit />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/places/delete/:placeId"
+          element={
+            <IsPrivate>
+              <PlaceDelete />
+            </IsPrivate>
+          }
+        /> */}
 
         {/* Auth routes  */}
         <Route

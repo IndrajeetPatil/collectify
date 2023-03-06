@@ -11,6 +11,7 @@
     "react-bootstrap": "^2.7.2",
     "react-bootstrap-icons": "^1.10.2",
     "react-dom": "^18.2.0",
+    "react-google-autocomplete": "^2.7.3",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1"
   },

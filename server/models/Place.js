@@ -2,24 +2,38 @@ const { Schema, model } = require("mongoose");
 
 const placeSchema = new Schema(
   {
-    city: {
+    name: {
       type: String,
       required: [true, "Name is required."],
       unique: true,
       trim: true,
     },
-    country: {
-      type: String,
-      required: [true, "Country is required."],
+    location: {
+      type: Object,
+      required: [true, "Location is required."],
+      unique: true,
+    },
+    latitude: {
+      type: Number,
+      required: [true, "Latitude is required."],
+    },
+    longitude: {
+      type: Number,
+      required: [true, "Longitude is required."],
+    },
+    visited: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
     description: {
       type: String,
       required: false,
+      trim: true,
     },
-    url: {
+    image: {
       type: String,
       required: false,
-      trim: true,
     },
     collections: [
       {
