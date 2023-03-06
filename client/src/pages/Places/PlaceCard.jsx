@@ -45,6 +45,8 @@ function PlaceCard(props) {
               bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
               defaultCenter={defaultProps.center}
               defaultZoom={defaultProps.zoom}
+              yesIWantToUseGoogleMapApiInternals
+              onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
             ></GoogleMapReact>
           </div>
 
