@@ -61,7 +61,7 @@ function CollectionsList() {
       </Row>
 
       <Row>
-        <hr></hr>
+        <hr style={{ width: "50vw" }}></hr>
       </Row>
 
       <Row>
