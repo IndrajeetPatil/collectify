@@ -1,5 +1,13 @@
-import Accordion from "react-bootstrap/Accordion";
 import GoogleMapReact from "google-map-react";
+import { Link } from "react-router-dom";
+
+import Accordion from "react-bootstrap/Accordion";
+import Container from "react-bootstrap/esm/Container";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+
+import * as Icon from "react-bootstrap-icons";
+
+import Tooltip from "react-bootstrap/Tooltip";
 
 function PlaceCard(props) {
   const defaultProps = {
@@ -43,6 +51,32 @@ function PlaceCard(props) {
           <div className="p-1 rounded">
             <p>{props.place.description}</p>
           </div>
+
+          <Container
+            fluid
+            className="d-flex flex-row align-content-center justify-content-end fs-5"
+          >
+            <Link to={`/collections/places/edit/${props.place._id}`}>
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
+              >
+                <Icon.Pencil
+                  className="me-3"
+                  style={{ color: "green" }}
+                />
+              </OverlayTrigger>
+            </Link>
+
+            <Link to={`/collections/places/delete/${props.place._id}`}>
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip id="tooltip-top">Delete this item</Tooltip>}
+              >
+                <Icon.Trash style={{ color: "red" }} />
+              </OverlayTrigger>
+            </Link>
+          </Container>
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
