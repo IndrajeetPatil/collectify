@@ -22,15 +22,17 @@ function PlaceCard(props) {
     let marker = new maps.Marker({
       position: { lat: props.place.latitude, lng: props.place.longitude },
       map,
-      title: "Hello World!",
+      draggable: false,
+      animation: maps.Animation.DROP,
+      background: props.place.visited ? "green" : "red",
+      text: props.place.visited ? "I have visited this place!" : "I would love to visit this place!",
     });
+
     return marker;
   };
 
   return (
     <Accordion
-      defaultActiveKey={["0"]}
-      alwaysOpen={true}
       style={{ width: "90vw" }}
       className="shadow"
     >
