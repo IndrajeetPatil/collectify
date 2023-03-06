@@ -17,8 +17,23 @@ app.use("/auth", authRoutes);
 const collectionRoutes = require("./routes/collections");
 app.use("/api", isAuthenticated, collectionRoutes);
 
+const bookRoutes = require("./routes/books");
+app.use("/api", isAuthenticated, bookRoutes);
+
 const movieRoutes = require("./routes/movies");
 app.use("/api", isAuthenticated, movieRoutes);
+
+const paintingRoutes = require("./routes/paintings");
+app.use("/api", isAuthenticated, paintingRoutes);
+
+const photoRoutes = require("./routes/photos");
+app.use("/api", isAuthenticated, photoRoutes);
+
+const placeRoutes = require("./routes/places");
+app.use("/api", isAuthenticated, placeRoutes);
+
+const songRoutes = require("./routes/songs");
+app.use("/api", isAuthenticated, songRoutes);
 
 require("./error-handling")(app);
 

@@ -134,6 +134,7 @@ function PlaceCreate() {
                 </Button>
               </Form>
             </Card.Body>
+
             <Card.Footer>
               <small className="text-muted">*Required fields</small>
             </Card.Footer>
