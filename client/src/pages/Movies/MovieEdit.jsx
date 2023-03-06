@@ -6,7 +6,7 @@ import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 
 import { useState } from "react";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import itemService from "../../services/api";
@@ -14,7 +14,6 @@ import itemService from "../../services/api";
 function MovieEdit() {
   const navigate = useNavigate();
   const { movieId } = useParams();
-  //   const [movie, setMovie] = useState([]);
 
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
@@ -24,21 +23,23 @@ function MovieEdit() {
   const [url, setUrl] = useState("");
   const [poster, setPoster] = useState("");
 
-  //   useEffect(() => {
-  //     itemService
-  //       .readItem(movieId, "movies")
-  //       .then((response) => setItem(response.data))
-  //       .then((movie) => {
-  //         setTitle(movie.title);
-  //         setYear(movie.year);
-  //         setGenre(movie.genre);
-  //         setDirector(movie.director);
-  //         setPlot(movie.plot);
-  //         setUrl(movie.url);
-  //         setPoster(movie.poster);
-  //       })
-  //       .catch((error) => console.log(error));
-  //   }, [movieId]);
+  useEffect(() => {
+    itemService
+      .readItem(movieId, "movies")
+      .then((response) => {
+        return response.data;
+      })
+      .then((movie) => {
+        setTitle(movie.title);
+        setYear(movie.year);
+        setGenre(movie.genre);
+        setDirector(movie.director);
+        setPlot(movie.plot);
+        setUrl(movie.url);
+        setPoster(movie.poster);
+      })
+      .catch((error) => console.log(error));
+  }, [movieId]);
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleYear = (e) => setYear(e.target.value);
@@ -147,6 +148,7 @@ function MovieEdit() {
                   <Form.Label>Plot</Form.Label>
                   <Form.Control
                     type="text"
+                    as="textarea"
                     value={plot}
                     name="plot"
                     onChange={handlePlot}
@@ -177,17 +179,7 @@ function MovieEdit() {
                     placeholder="Enter URL for poster"
                   />
                 </Form.Group>
-                {/* TODO: Figure out how to use cloudinary */}
-                {/* <Form.Group className="mb-2">
-                  <Form.Label>Poster</Form.Label>
-                  <Form.Control
-                    type="file"
-                    name="poster"
-                    htmlFor="movie-poster"
-                    accept="image/*"
-                    onChange={handlePoster}
-                  />
-                </Form.Group> */}
+
                 <Button
                   variant="primary"
                   type="submit"
