@@ -46,12 +46,13 @@ function CollectionsList() {
   return (
     <Container
       fluid
-      className="text-center"
+      style={{ width: "100vw" }}
+      className="d-flex flex-column justify-content-center align-items-center"
     >
       <Row>
         <Image
           src={collectionsImg}
-          style={{ height: "30rem", padding: "0rem" }}
+          style={{ width: "100vw", height: "30rem", padding: "0rem" }}
         />
       </Row>
 

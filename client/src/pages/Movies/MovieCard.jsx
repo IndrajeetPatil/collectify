@@ -12,8 +12,7 @@ import Container from "react-bootstrap/esm/Container";
 function MovieCard(props) {
   return (
     <Card
-      border="dark"
-      className="text-center"
+      className="text-center shadow"
       style={{ width: "19rem", height: "25rem" }} // Golden ratio: 1.61
     >
       <Card.Img

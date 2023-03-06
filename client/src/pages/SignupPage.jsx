@@ -43,7 +43,7 @@ function SignupPage() {
           md={6}
           lg={4}
         >
-          <Card className="mb-0">
+          <Card className="mb-0 shadow">
             <Card.Body>
               <Form
                 className="mb-3"

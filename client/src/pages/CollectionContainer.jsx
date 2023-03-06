@@ -37,7 +37,10 @@ function CollectionContainer(props) {
 
       <Row className="mt-5">
         <Col>
-          <Card style={{ width: "50vw" }}>
+          <Card
+            style={{ width: "50vw" }}
+            className="shadow"
+          >
             <Card.Header>Collection: {props.category}</Card.Header>
             <Card.Body>
               <Card.Title>{props.quote}</Card.Title>

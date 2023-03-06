@@ -40,7 +40,10 @@ function MovieDetails() {
           ></img>
         </Col>
         <Col>
-          <Card style={{ width: "50vw", height: "70vh" }}>
+          <Card
+            className="shadow"
+            style={{ width: "50vw", height: "70vh" }}
+          >
             <Card.Body>
               <Card.Title className="fs-2 text-center">{movie.title}</Card.Title>
               <p>

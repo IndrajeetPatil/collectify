@@ -8,8 +8,11 @@ import Button from "react-bootstrap/esm/Button";
 
 function CollectionCard(props) {
   return (
-    <Col className="m-5">
-      <Card style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}>
+    <Col className="m-5 text-center">
+      <Card
+        className="shadow"
+        style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}
+      >
         <Card.Img
           variant="top"
           src={props.image}
