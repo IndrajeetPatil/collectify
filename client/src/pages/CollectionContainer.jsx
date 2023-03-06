@@ -42,9 +42,13 @@ function CollectionContainer(props) {
             className="shadow"
           >
             <Card.Header>Collection: {props.category}</Card.Header>
-            <Card.Body>
-              <Card.Title>{props.quote}</Card.Title>
+
+            <Card.Body className="text-center">
+              <Card.Title>
+                <i>"{props.quote}"</i>
+              </Card.Title>
               <Card.Text>- {props.quoteAuthor}</Card.Text>
+
               <Link to={`/collections/${props.collection}/create`}>
                 <Button variant="primary">Add a {pluralToSingular(props.collection)}</Button>
               </Link>
@@ -61,7 +65,7 @@ function CollectionContainer(props) {
           >
             <Form.Control
               type="search"
-              placeholder={`Search by ${pluralToSingular(props.collection)} title`}
+              placeholder={props.searchbarPlaceholder}
               className="me-2"
               aria-label="Search"
               onChange={props.searchHandler}

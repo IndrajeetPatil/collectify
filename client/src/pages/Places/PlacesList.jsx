@@ -1,30 +1,67 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
+import React, { useState, useEffect } from "react";
+import itemService from "../../services/api";
+
+import Col from "react-bootstrap/esm/Col";
 
 import placesImg from "../../assets/images/places.jpeg";
+import PlaceCard from "./PlaceCard";
+import CollectionContainer from "../CollectionContainer";
+
+import Fuse from "fuse.js";
 
 function PlacesList() {
+  const [places, setPlaces] = useState([]);
+  const [placesCopy, setPlacesCopy] = useState([]);
+
+  useEffect(() => {
+    itemService
+      .readItems("places")
+      .then((response) => {
+        setPlaces(response.data);
+        return response;
+      })
+      .then((response) => setPlacesCopy(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const filterPlaces = (str) => {
+    const fuse = new Fuse(placesCopy, {
+      keys: ["name", "description"],
+      isCaseSensitive: false,
+      ignoreLocation: true,
+      threshold: 0.0,
+    });
+
+    const filteredPlaces = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : placesCopy;
+
+    setPlaces(filteredPlaces);
+  };
+
+  const handleSearch = (e) => filterPlaces(e.target.value);
+
+  const collectionItems = places.map((place, index) => {
+    return (
+      <Col
+        key={place._id}
+        index={index}
+        className="m-5"
+      >
+        <PlaceCard place={place} />
+      </Col>
+    );
+  });
+
   return (
-    <Container
-      fluid
-      className="text-center"
-    >
-      <Row>
-        <Image
-          src={placesImg}
-          style={{ height: "30rem", padding: "0rem" }}
-        />
-      </Row>
-
-      <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Your Favourite Places!</h1>
-      </Row>
-
-      <Row>
-        <hr></hr>
-      </Row>
-    </Container>
+    <CollectionContainer
+      image={placesImg}
+      collection="places"
+      category="Travel"
+      quote="Not all those who wander are lost."
+      quoteAuthor="J.R.R. Tolkien"
+      searchbarPlaceholder="Search by place name or description"
+      searchHandler={handleSearch}
+      collectionItems={collectionItems}
+    ></CollectionContainer>
   );
 }
 
