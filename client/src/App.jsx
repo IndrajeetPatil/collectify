@@ -23,6 +23,8 @@ import MovieDelete from "./pages/Movies/MovieDelete";
 
 import PlacesList from "./pages/Places/PlacesList";
 import PlaceCreate from "./pages/Places/PlaceCreate";
+import PlaceDelete from "./pages/Places/PlaceDelete";
+import PlaceEdit from "./pages/Places/PlaceEdit";
 
 import PaintingList from "./pages/Paintings/PaintingsList";
 import PhotosList from "./pages/Photos/PhotosList";
@@ -177,7 +179,7 @@ function App() {
               <PlaceDetails />
             </IsPrivate>
           }
-        />
+        />*/}
 
         <Route
           path="/collections/places/edit/:placeId"
@@ -195,7 +197,7 @@ function App() {
               <PlaceDelete />
             </IsPrivate>
           }
-        /> */}
+        />
 
         {/* Auth routes  */}
         <Route

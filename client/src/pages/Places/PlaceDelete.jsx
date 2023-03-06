@@ -5,17 +5,17 @@ import Button from "react-bootstrap/Button";
 
 import itemService from "../../services/api";
 
-function MovieDelete() {
+function PlaceDelete() {
   const navigate = useNavigate();
-  const { movieId } = useParams();
+  const { placeId } = useParams();
 
-  const handleCancelDeleteMovie = () => navigate("/collections/movies");
-  const handleDeleteMovieSubmit = (e) => {
+  const handleCancelDeletePlace = () => navigate("/collections/places");
+  const handleDeletePlaceSubmit = (e) => {
     e.preventDefault();
 
     itemService
-      .deleteItem(movieId, "movies")
-      .then((response) => navigate("/collections/movies"))
+      .deleteItem(placeId, "places")
+      .then((response) => navigate("/collections/places"))
       .catch((error) => console.log(error));
   };
 
@@ -26,23 +26,23 @@ function MovieDelete() {
     >
       <Modal.Dialog>
         <Modal.Header>
-          <Modal.Title>Deleting a movie</Modal.Title>
+          <Modal.Title>Deleting a place</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <p>Are you sure you would like to delete this movie?</p>
+          <p>Are you sure you would like to delete this place?</p>
         </Modal.Body>
 
         <Modal.Footer className="justify-content-evenly">
           <Button
             variant="secondary"
-            onClick={handleCancelDeleteMovie}
+            onClick={handleCancelDeletePlace}
           >
             Close
           </Button>
           <Button
             variant="danger"
-            onClick={handleDeleteMovieSubmit}
+            onClick={handleDeletePlaceSubmit}
           >
             Delete
           </Button>
@@ -52,4 +52,4 @@ function MovieDelete() {
   );
 }
 
-export default MovieDelete;
+export default PlaceDelete;
