@@ -56,6 +56,13 @@ function PlaceCard(props) {
             <p>{props.place.description}</p>
           </div>
 
+          <div className="d-flex row justify-content-center align-content-center mb-3">
+            <img
+              src={props.place.image}
+              alt="A memory from this place"
+            />
+          </div>
+
           <Container
             fluid
             className="d-flex flex-row align-content-center justify-content-end fs-5"

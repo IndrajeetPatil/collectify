@@ -4,6 +4,8 @@ const router = express.Router();
 const Place = require("../models/Place");
 const Collection = require("../models/Collection");
 
+const uploader = require("../config/cloudinary");
+
 // @route   GET api/collections/places
 // @desc    Get all places
 // @access  Public
@@ -73,6 +75,14 @@ router.delete("/collections/places/:id", (req, res) => {
     })
     .then((updatedCollection) => res.json(updatedCollection))
     .catch((err) => res.status(404).json({ success: false }));
+});
+
+router.post("/upload", uploader.single("image"), (req, res, next) => {
+  if (!req.file) {
+    return next(new Error("No file uploaded!"));
+  }
+
+  res.json({ fileUrl: req.file.path, fileName: req.file.originalname });
 });
 
 module.exports = router;

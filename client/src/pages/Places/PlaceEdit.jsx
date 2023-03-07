@@ -17,9 +17,11 @@ function PlaceEdit() {
 
   const [name, setName] = useState("");
   const [location, setLocation] = useState({});
+  const [locationPlaceholder, setLocationPlaceholder] = useState("");
   const [description, setDescription] = useState("");
   const [visited, setVisited] = useState(false);
   const [image, setImage] = useState("");
+  const [imageName, setImageName] = useState("");
 
   useEffect(() => {
     itemService
@@ -30,6 +32,7 @@ function PlaceEdit() {
       .then((place) => {
         setName(place.name);
         setLocation(place.location);
+        setLocationPlaceholder(place.location.formatted_address);
         setDescription(place.description);
         setVisited(place.visited);
         setImage(place.image);
@@ -41,7 +44,19 @@ function PlaceEdit() {
   const handleLocation = (e) => setLocation(e);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleVisited = (e) => setVisited(e.target.checked);
-  const handleImage = (e) => setImage(e.target.value);
+  const handleImage = (e) => {
+    const uploadData = new FormData();
+
+    uploadData.append("image", e.target.files[0]);
+
+    itemService
+      .uploadImage(uploadData)
+      .then((response) => {
+        setImage(response.data.fileUrl);
+        setImageName(response.data.fileName);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
 
   const handleCreatePlaceSubmit = (e) => {
     e.preventDefault();
@@ -87,7 +102,6 @@ function PlaceEdit() {
                     placeholder="Enter name of the place"
                     value={name}
                     name="name"
-                    required
                     onChange={handleName}
                   />
                 </Form.Group>
@@ -99,7 +113,7 @@ function PlaceEdit() {
                     apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
                     style={{ width: "100%" }}
                     className="form-control pac-target-input"
-                    placeholder="Enter location"
+                    placeholder={locationPlaceholder}
                     name="location"
                     required
                     onPlaceSelected={handleLocation}
@@ -108,12 +122,11 @@ function PlaceEdit() {
 
                 {/* visited yet? */}
                 <Form.Group className="mb-2 d-flex flex-row justify-content-evenly">
-                  <Form.Label>Have you visited this place?*</Form.Label>
+                  <Form.Label>Have you visited this place?</Form.Label>
                   <Form.Check
                     type="checkbox"
                     name="visited"
                     value={visited}
-                    required
                     onChange={handleVisited}
                   />
                 </Form.Group>
@@ -131,13 +144,12 @@ function PlaceEdit() {
                   />
                 </Form.Group>
 
-                {/* imageURL */}
+                {/* upload image */}
                 <Form.Group className="mb-2">
-                  <Form.Label>Image URL</Form.Label>
+                  <Form.Label>Upload image</Form.Label>
                   <Form.Control
-                    type="text"
-                    placeholder="Enter image URL"
-                    value={image}
+                    type="file"
+                    placeholder={imageName}
                     name="image"
                     onChange={handleImage}
                   />

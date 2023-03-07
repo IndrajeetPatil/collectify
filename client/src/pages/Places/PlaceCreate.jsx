@@ -16,6 +16,7 @@ function PlaceCreate() {
   const [description, setDescription] = useState("");
   const [visited, setVisited] = useState(false);
   const [image, setImage] = useState("");
+  const [imageName, setImageName] = useState("");
 
   const navigate = useNavigate();
 
@@ -23,7 +24,20 @@ function PlaceCreate() {
   const handleLocation = (e) => setLocation(e);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleVisited = (e) => setVisited(e.target.checked);
-  const handleImage = (e) => setImage(e.target.value);
+
+  const handleImage = (e) => {
+    const uploadData = new FormData();
+
+    uploadData.append("image", e.target.files[0]);
+
+    itemService
+      .uploadImage(uploadData)
+      .then((response) => {
+        setImage(response.data.fileUrl);
+        setImageName(response.data.fileName);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
 
   const handleCreatePlaceSubmit = (e) => {
     e.preventDefault();
@@ -90,12 +104,11 @@ function PlaceCreate() {
 
                 {/* visited yet? */}
                 <Form.Group className="mb-2 d-flex flex-row justify-content-evenly">
-                  <Form.Label>Have you visited this place?*</Form.Label>
+                  <Form.Label>Have you visited this place?</Form.Label>
                   <Form.Check
                     type="checkbox"
                     name="visited"
                     value={visited}
-                    required
                     onChange={handleVisited}
                   />
                 </Form.Group>
@@ -113,13 +126,12 @@ function PlaceCreate() {
                   />
                 </Form.Group>
 
-                {/* imageURL */}
+                {/* upload image */}
                 <Form.Group className="mb-2">
-                  <Form.Label>Image URL</Form.Label>
+                  <Form.Label>Upload image</Form.Label>
                   <Form.Control
-                    type="text"
-                    placeholder="Enter image URL"
-                    value={image}
+                    type="file"
+                    placeholder={imageName}
                     name="image"
                     onChange={handleImage}
                   />
@@ -130,7 +142,7 @@ function PlaceCreate() {
                   type="submit"
                   className="mb-0"
                 >
-                  Submit
+                  Save changes
                 </Button>
               </Form>
             </Card.Body>
