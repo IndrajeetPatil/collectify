@@ -157,7 +157,8 @@ function BookEdit() {
                 <Form.Group className="mb-2">
                   <Form.Label>Description</Form.Label>
                   <Form.Control
-                    type="text"
+                    as="textarea"
+                    rows={2}
                     value={description}
                     name="description"
                     onChange={handleDescription}
