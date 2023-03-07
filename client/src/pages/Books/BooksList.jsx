@@ -50,6 +50,7 @@ function BooksList() {
   const collectionItems = (
     <MDBTable
       align="middle"
+      className="ms-auto me-auto mb-5 mt-5"
       style={{ width: "80vw" }}
     >
       <MDBTableHead>
@@ -67,16 +68,19 @@ function BooksList() {
   );
 
   return (
-    <CollectionContainer
-      image={booksImg}
-      collection="books"
-      category="Reading"
-      quote="Books are a uniquely portable magic."
-      quoteAuthor="Stephen King"
-      searchbarPlaceholder="Search by book title or description"
-      searchHandler={handleSearch}
-      collectionItems={collectionItems}
-    ></CollectionContainer>
+    <>
+      <CollectionContainer
+        image={booksImg}
+        collection="books"
+        category="Reading"
+        quote="Books are a uniquely portable magic."
+        quoteAuthor="Stephen King"
+        searchbarPlaceholder="Search by book title or description"
+        searchHandler={handleSearch}
+      ></CollectionContainer>
+
+      {collectionItems}
+    </>
   );
 }
 

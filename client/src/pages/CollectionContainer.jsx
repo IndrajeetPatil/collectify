@@ -74,7 +74,7 @@ function CollectionContainer(props) {
         </Col>
       </Row>
 
-      <Row className="mt-5">{props.collectionItems}</Row>
+      {props.collectionItems && <Row className="mt-5">{props.collectionItems}</Row>}
     </Container>
   );
 }
