@@ -52,9 +52,11 @@ function PlaceCard(props) {
             ></GoogleMapReact>
           </div>
 
-          <div className="p-1 rounded">
-            <p>{props.place.description}</p>
-          </div>
+          {props.place.description && (
+            <div className="p-1 rounded">
+              <p>{props.place.description}</p>
+            </div>
+          )}
 
           {props.place.image && (
             <div className="d-flex row justify-content-center align-content-center mb-3">
