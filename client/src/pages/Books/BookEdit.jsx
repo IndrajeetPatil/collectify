@@ -73,7 +73,7 @@ function BookEdit() {
           md={6}
           lg={4}
         >
-          <Card className="mt-5 mb-0">
+          <Card className="mt-5 mb-0 shadow">
             <Card.Body>
               <Form onSubmit={handleCreateBookSubmit}>
                 {/* title */}

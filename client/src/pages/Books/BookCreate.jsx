@@ -63,7 +63,7 @@ function BookCreate() {
           md={6}
           lg={4}
         >
-          <Card className="mb-0">
+          <Card className="mb-0 shadow">
             <Card.Body>
               <Form onSubmit={handleCreateBookSubmit}>
                 {/* title */}
