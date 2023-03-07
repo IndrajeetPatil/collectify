@@ -11,7 +11,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import itemService from "../../services/api";
 
 import * as Icon from "react-bootstrap-icons";
-import placeholderPosterImg from "../../assets/images/poster-placeholder.jpg";
+import placeholderPosterImg from "../../assets/images/movie-poster-placeholder.jpg";
 
 function MovieDetails() {
   const navigate = useNavigate();

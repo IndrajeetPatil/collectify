@@ -11,32 +11,43 @@ import itemService from "../../services/api";
 
 import extractCommaSeparatedItems from "../../utils/extractCommaSeparatedItems";
 
-function MovieCreate() {
+function BookCreate() {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [genre, setGenre] = useState("");
-  const [director, setDirector] = useState("");
-  const [plot, setPlot] = useState("");
+  const [status, setStatus] = useState("");
+  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
-  const [poster, setPoster] = useState("");
+  const [cover, setCover] = useState("");
 
   const navigate = useNavigate();
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleYear = (e) => setYear(e.target.value);
   const handleGenre = (e) => setGenre(e.target.value);
-  const handleDirector = (e) => setDirector(e.target.value);
-  const handlePlot = (e) => setPlot(e.target.value);
+  const handleStatus = (e) => setStatus(e.target.value);
+  const handleAuthor = (e) => setAuthor(e.target.value);
+  const handleDescription = (e) => setDescription(e.target.value);
   const handleUrl = (e) => setUrl(e.target.value);
-  const handlePoster = (e) => setPoster(e.target.value);
+  const handleCover = (e) => setCover(e.target.value);
 
-  const handleCreateMovieSubmit = (e) => {
+  const handleCreateBookSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, year, genre, director: extractCommaSeparatedItems(director), plot, url, poster };
+    const requestBody = {
+      title,
+      year,
+      author: extractCommaSeparatedItems(author),
+      genre,
+      status,
+      description,
+      url,
+      cover,
+    };
     itemService
-      .createItem(requestBody, "movies")
-      .then((response) => navigate("/collections/movies"))
+      .createItem(requestBody, "books")
+      .then((response) => navigate("/collections/books"))
       .catch((error) => console.log(error));
   };
 
@@ -57,7 +68,7 @@ function MovieCreate() {
         >
           <Card className="mb-0">
             <Card.Body>
-              <Form onSubmit={handleCreateMovieSubmit}>
+              <Form onSubmit={handleCreateBookSubmit}>
                 {/* title */}
                 <Form.Group className="mb-2">
                   <Form.Label>Title*</Form.Label>
@@ -76,13 +87,25 @@ function MovieCreate() {
                   <Form.Label>Year*</Form.Label>
                   <Form.Control
                     type="number"
-                    min="1888"
-                    max="3000"
                     placeholder="Enter year"
                     value={year}
                     name="year"
                     required
                     onChange={handleYear}
+                  />
+                </Form.Group>
+
+                {/* author */}
+                <Form.Group className="mb-2">
+                  <Form.Label>Author(s)*</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    rows={1}
+                    value={author}
+                    name="author"
+                    onChange={handleAuthor}
+                    required
+                    placeholder="Enter author(s) separated by commas"
                   />
                 </Form.Group>
 
@@ -111,28 +134,31 @@ function MovieCreate() {
                   </Form.Select>
                 </Form.Group>
 
-                {/* director */}
+                {/* status */}
                 <Form.Group className="mb-2">
-                  <Form.Label>Director(s)</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={1}
-                    value={director}
-                    name="director"
-                    onChange={handleDirector}
-                    placeholder="Enter director(s) separated by commas"
-                  />
+                  <Form.Label>Status*</Form.Label>
+                  <Form.Select
+                    value={status}
+                    name="status"
+                    required
+                    onChange={handleStatus}
+                  >
+                    <option></option>
+                    <option>Read</option>
+                    <option>Reading</option>
+                    <option>To Read</option>
+                  </Form.Select>
                 </Form.Group>
 
-                {/* plot */}
+                {/* description */}
                 <Form.Group className="mb-2">
-                  <Form.Label>Plot</Form.Label>
+                  <Form.Label>Description</Form.Label>
                   <Form.Control
                     type="text"
-                    value={plot}
-                    name="plot"
-                    onChange={handlePlot}
-                    placeholder="Enter plot"
+                    value={description}
+                    name="description"
+                    onChange={handleDescription}
+                    placeholder="Enter description"
                   />
                 </Form.Group>
 
@@ -148,15 +174,15 @@ function MovieCreate() {
                   />
                 </Form.Group>
 
-                {/* poster */}
+                {/* cover */}
                 <Form.Group className="mb-2">
-                  <Form.Label>Poster URL</Form.Label>
+                  <Form.Label>Cover URL</Form.Label>
                   <Form.Control
                     type="url"
-                    value={poster}
-                    name="poster"
-                    onChange={handlePoster}
-                    placeholder="Enter URL for poster image"
+                    value={cover}
+                    name="cover"
+                    onChange={handleCover}
+                    placeholder="Enter URL for cover image"
                   />
                 </Form.Group>
 
@@ -179,4 +205,4 @@ function MovieCreate() {
   );
 }
 
-export default MovieCreate;
+export default BookCreate;

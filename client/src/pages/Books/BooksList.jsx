@@ -1,30 +1,82 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
+import React, { useState, useEffect } from "react";
+import itemService from "../../services/api";
 
+import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
+
+import BookTableRow from "./BookTableRow";
 import booksImg from "../../assets/images/books.jpeg";
+import CollectionContainer from "../CollectionContainer";
+
+import Fuse from "fuse.js";
 
 function BooksList() {
-  return (
-    <Container
-      fluid
-      className="text-center"
+  const [books, setBooks] = useState([]);
+  const [booksCopy, setBooksCopy] = useState([]);
+
+  useEffect(() => {
+    itemService
+      .readItems("books")
+      .then((response) => {
+        setBooks(response.data);
+        return response;
+      })
+      .then((response) => setBooksCopy(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const filterBooks = (str) => {
+    const fuse = new Fuse(booksCopy, {
+      keys: ["title", "description"],
+      isCaseSensitive: false,
+      ignoreLocation: true,
+      threshold: 0.0,
+    });
+
+    const filteredBooks = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : booksCopy;
+
+    setBooks(filteredBooks);
+  };
+
+  const handleSearch = (e) => filterBooks(e.target.value);
+
+  const collectionItemRows = books.map((book) => {
+    return (
+      <tr key={book._id}>
+        <BookTableRow book={book} />
+      </tr>
+    );
+  });
+
+  const collectionItems = (
+    <MDBTable
+      align="middle"
+      style={{ width: "80vw" }}
     >
-      <Row>
-        <Image
-          src={booksImg}
-          style={{ height: "30rem", padding: "0rem" }}
-        />
-      </Row>
+      <MDBTableHead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Author(s)</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </MDBTableHead>
 
-      <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Your Favourite Books!</h1>
-      </Row>
+      <MDBTableBody>{collectionItemRows}</MDBTableBody>
+    </MDBTable>
+  );
 
-      <Row>
-        <hr></hr>
-      </Row>
-    </Container>
+  return (
+    <CollectionContainer
+      image={booksImg}
+      collection="books"
+      category="Reading"
+      quote="Books are a uniquely portable magic."
+      quoteAuthor="Stephen King"
+      searchbarPlaceholder="Search by book title or description"
+      searchHandler={handleSearch}
+      collectionItems={collectionItems}
+    ></CollectionContainer>
   );
 }
 

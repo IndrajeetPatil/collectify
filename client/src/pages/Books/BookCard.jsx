@@ -1,4 +1,5 @@
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/esm/Container";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
@@ -6,10 +7,9 @@ import { Link } from "react-router-dom";
 
 import * as Icon from "react-bootstrap-icons";
 
-import placeholderPosterImg from "../../assets/images/movie-poster-placeholder.jpg";
-import Container from "react-bootstrap/esm/Container";
+import placeholderCoverImg from "../../assets/images/book-cover-placeholder.png";
 
-function MovieCard(props) {
+function BookCard(props) {
   return (
     <Card
       className="text-center shadow"
@@ -18,15 +18,15 @@ function MovieCard(props) {
       <Card.Img
         variant="top"
         style={{ height: "15rem" }}
-        src={props.movie.poster || placeholderPosterImg}
-        alt="Movie Poster"
+        src={props.book.cover || placeholderCoverImg}
+        alt="Book Cover"
       />
 
       <Card.Body>
-        <Card.Title>{props.movie.title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{props.movie.year}</Card.Subtitle>
+        <Card.Title>{props.book.title}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{props.book.year}</Card.Subtitle>
 
-        <Card.Text>{props.movie.genre}</Card.Text>
+        <Card.Text>{props.book.genre}</Card.Text>
       </Card.Body>
 
       <Card.Footer>
@@ -34,7 +34,7 @@ function MovieCard(props) {
           fluid
           className="d-flex flex-row align-content-center justify-content-around fs-5"
         >
-          <Link to={`/collections/movies/${props.movie._id}`}>
+          <Link to={`/collections/books/${props.book._id}`}>
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="tooltip-top">See more details</Tooltip>}
@@ -43,7 +43,7 @@ function MovieCard(props) {
             </OverlayTrigger>
           </Link>
 
-          <Link to={`/collections/movies/edit/${props.movie._id}`}>
+          <Link to={`/collections/books/edit/${props.book._id}`}>
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
@@ -52,7 +52,7 @@ function MovieCard(props) {
             </OverlayTrigger>
           </Link>
 
-          <Link to={`/collections/movies/delete/${props.movie._id}`}>
+          <Link to={`/collections/books/delete/${props.book._id}`}>
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="tooltip-top">Delete this item</Tooltip>}
@@ -66,4 +66,4 @@ function MovieCard(props) {
   );
 }
 
-export default MovieCard;
+export default BookCard;

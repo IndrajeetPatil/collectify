@@ -8,9 +8,14 @@ const bookSchema = new Schema(
       unique: true,
       trim: true,
     },
+    year: {
+      type: Number,
+      required: [true, "Year is required."],
+    },
     author: {
-      type: String,
+      type: [],
       required: [true, "Author is required."],
+      default: [],
       trim: true,
     },
     genre: {
@@ -18,20 +23,37 @@ const bookSchema = new Schema(
       enum: [
         "Action",
         "Adventure",
+        "Animation",
         "Comedy",
+        "Documentary",
         "Drama",
         "Fantasy",
         "Horror",
-        "Mystery",
+        "Mystery/Thriller",
         "Romance",
-        "Thriller",
+        "Sci-Fi",
         "Western",
       ],
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ["Read", "Reading", "To Read"],
+      required: true,
+    },
+    description: {
+      type: String,
       required: false,
     },
     url: {
       type: String,
       required: false,
+      trim: true,
+    },
+    cover: {
+      type: String,
+      required: false,
+      default: "",
       trim: true,
     },
     collections: [
