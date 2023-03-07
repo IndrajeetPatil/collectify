@@ -18,7 +18,6 @@ function BookCreate() {
   const [status, setStatus] = useState("");
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
-  const [url, setUrl] = useState("");
   const [cover, setCover] = useState("");
 
   const navigate = useNavigate();
@@ -29,7 +28,6 @@ function BookCreate() {
   const handleStatus = (e) => setStatus(e.target.value);
   const handleAuthor = (e) => setAuthor(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
-  const handleUrl = (e) => setUrl(e.target.value);
   const handleCover = (e) => setCover(e.target.value);
 
   const handleCreateBookSubmit = (e) => {
@@ -42,7 +40,6 @@ function BookCreate() {
       genre,
       status,
       description,
-      url,
       cover,
     };
     itemService
@@ -131,6 +128,7 @@ function BookCreate() {
                     <option>Romance</option>
                     <option>Sci-Fi</option>
                     <option>Western</option>
+                    <option>Other</option>
                   </Form.Select>
                 </Form.Group>
 
@@ -159,18 +157,6 @@ function BookCreate() {
                     name="description"
                     onChange={handleDescription}
                     placeholder="Enter description"
-                  />
-                </Form.Group>
-
-                {/* url */}
-                <Form.Group className="mb-2">
-                  <Form.Label>URL</Form.Label>
-                  <Form.Control
-                    type="url"
-                    value={url}
-                    name="url"
-                    onChange={handleUrl}
-                    placeholder="Enter URL for more information"
                   />
                 </Form.Group>
 

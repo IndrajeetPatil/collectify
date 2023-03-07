@@ -108,6 +108,7 @@ function MovieCreate() {
                     <option>Romance</option>
                     <option>Sci-Fi</option>
                     <option>Western</option>
+                    <option>Other</option>
                   </Form.Select>
                 </Form.Group>
 

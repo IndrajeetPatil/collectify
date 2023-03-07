@@ -33,6 +33,7 @@ const bookSchema = new Schema(
         "Romance",
         "Sci-Fi",
         "Western",
+        "Other",
       ],
       required: true,
     },
@@ -43,12 +44,8 @@ const bookSchema = new Schema(
     },
     description: {
       type: String,
+      default: "",
       required: false,
-    },
-    url: {
-      type: String,
-      required: false,
-      trim: true,
     },
     cover: {
       type: String,

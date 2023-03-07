@@ -36,10 +36,15 @@ function BookTableRow({ book }) {
             style={{ width: "45px", height: "45px" }}
             className="rounded-circle"
           />
-          <div className="ms-3">
-            <p className="fw-bold mb-1">{book.title}</p>
-            <p className="text-muted mb-0">{book.year}</p>
-          </div>
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip id="tooltip-top">{book.description || "No book description available."}</Tooltip>}
+          >
+            <div className="ms-3">
+              <p className="fw-bold mb-1">{book.title}</p>
+              <p className="text-muted mb-0">{book.year}</p>
+            </div>
+          </OverlayTrigger>
         </div>
       </td>
 

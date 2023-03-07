@@ -27,6 +27,7 @@ const movieSchema = new Schema(
         "Romance",
         "Sci-Fi",
         "Western",
+        "Other",
       ],
       required: true,
     },
