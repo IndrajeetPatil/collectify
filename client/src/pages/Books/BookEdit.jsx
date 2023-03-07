@@ -1,5 +1,4 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
@@ -9,6 +8,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import itemService from "../../services/api";
+import EditSubmission from "../../components/EditSubmission";
 
 function BookEdit() {
   const navigate = useNavigate();
@@ -177,13 +177,7 @@ function BookEdit() {
                   />
                 </Form.Group>
 
-                <Button
-                  variant="primary"
-                  type="submit"
-                  className="mb-0"
-                >
-                  Submit
-                </Button>
+                <EditSubmission collection="books" />
               </Form>
             </Card.Body>
             <Card.Footer>

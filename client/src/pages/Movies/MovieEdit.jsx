@@ -1,16 +1,14 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 
-import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import itemService from "../../services/api";
+import EditSubmission from "../../components/EditSubmission";
 
 function MovieEdit() {
   const navigate = useNavigate();
@@ -180,27 +178,7 @@ function MovieEdit() {
                   />
                 </Form.Group>
 
-                <Container
-                  fluid
-                  className="d-flex flex-row align-content-center justify-content-around fs-5"
-                >
-                  <Link to="/collections/movies">
-                    <Button
-                      variant="secondary"
-                      className="mb-0"
-                    >
-                      Cancel
-                    </Button>
-                  </Link>
-
-                  <Button
-                    variant="primary"
-                    type="submit"
-                    className="mb-0"
-                  >
-                    Save Changes
-                  </Button>
-                </Container>
+                <EditSubmission collection="movies" />
               </Form>
             </Card.Body>
             <Card.Footer>

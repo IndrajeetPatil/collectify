@@ -1,5 +1,4 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
@@ -10,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Autocomplete from "react-google-autocomplete";
 
 import itemService from "../../services/api";
+import EditSubmission from "../../components/EditSubmission";
 
 function PlaceEdit() {
   const navigate = useNavigate();
@@ -145,7 +145,7 @@ function PlaceEdit() {
                 </Form.Group>
 
                 {/* upload image */}
-                <Form.Group className="mb-2">
+                <Form.Group className="mb-3">
                   <Form.Label>Upload image</Form.Label>
                   <Form.Control
                     type="file"
@@ -156,13 +156,7 @@ function PlaceEdit() {
                 </Form.Group>
 
                 {/* submit button */}
-                <Button
-                  variant="primary"
-                  type="submit"
-                  className="w-100"
-                >
-                  Submit
-                </Button>
+                <EditSubmission collection="places" />
               </Form>
             </Card.Body>
           </Card>
