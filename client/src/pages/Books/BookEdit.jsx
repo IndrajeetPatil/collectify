@@ -5,14 +5,14 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import itemService from "../../services/api";
 
-import extractCommaSeparatedItems from "../../utils/extractCommaSeparatedItems";
-
-function BookCreate() {
+function BookEdit() {
   const navigate = useNavigate();
+  const { bookId } = useParams();
 
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
@@ -30,20 +30,30 @@ function BookCreate() {
   const handleDescription = (e) => setDescription(e.target.value);
   const handleCover = (e) => setCover(e.target.value);
 
+  useEffect(() => {
+    itemService
+      .readItem(bookId, "books")
+      .then((response) => {
+        return response.data;
+      })
+      .then((book) => {
+        setTitle(book.title);
+        setYear(book.year);
+        setGenre(book.genre);
+        setStatus(book.status);
+        setAuthor(book.author);
+        setDescription(book.description);
+        setCover(book.cover);
+      })
+      .catch((error) => console.log(error));
+  }, [bookId]);
+
   const handleCreateBookSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = {
-      title,
-      year,
-      author: extractCommaSeparatedItems(author),
-      genre,
-      status,
-      description,
-      cover,
-    };
+    const requestBody = { title, year, genre, status, author, description, cover };
     itemService
-      .createItem(requestBody, "books")
+      .updateItem(bookId, requestBody, "books")
       .then((response) => navigate("/collections/books"))
       .catch((error) => console.log(error));
   };
@@ -74,7 +84,6 @@ function BookCreate() {
                     placeholder="Enter title"
                     value={title}
                     name="title"
-                    required
                     onChange={handleTitle}
                   />
                 </Form.Group>
@@ -87,7 +96,6 @@ function BookCreate() {
                     placeholder="Enter year"
                     value={year}
                     name="year"
-                    required
                     onChange={handleYear}
                   />
                 </Form.Group>
@@ -101,7 +109,6 @@ function BookCreate() {
                     value={author}
                     name="author"
                     onChange={handleAuthor}
-                    required
                     placeholder="Enter author(s) separated by commas"
                   />
                 </Form.Group>
@@ -112,7 +119,6 @@ function BookCreate() {
                   <Form.Select
                     value={genre}
                     name="genre"
-                    required
                     onChange={handleGenre}
                   >
                     <option></option>
@@ -138,7 +144,6 @@ function BookCreate() {
                   <Form.Select
                     value={status}
                     name="status"
-                    required
                     onChange={handleStatus}
                   >
                     <option></option>
@@ -191,4 +196,4 @@ function BookCreate() {
   );
 }
 
-export default BookCreate;
+export default BookEdit;

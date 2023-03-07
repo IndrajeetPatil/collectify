@@ -16,6 +16,7 @@ import CollectionsList from "./pages/Collections/CollectionsList";
 import BooksList from "./pages/Books/BooksList";
 import BookCreate from "./pages/Books/BookCreate";
 import BookDelete from "./pages/Books/BookDelete";
+import BookEdit from "./pages/Books/BookEdit";
 
 import MoviesList from "./pages/Movies/MoviesList";
 import MovieCreate from "./pages/Movies/MovieCreate";
@@ -115,6 +116,15 @@ function App() {
           element={
             <IsPrivate>
               <BookCreate />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/books/edit/:bookId"
+          element={
+            <IsPrivate>
+              <BookEdit />
             </IsPrivate>
           }
         />
