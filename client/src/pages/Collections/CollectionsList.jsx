@@ -68,6 +68,7 @@ function CollectionsList() {
         {/* books */}
         <CollectionCard
           title="books"
+          category="Reading"
           image={booksImg}
           length={collections.books.length}
           icon={<Icon.Book />}
@@ -76,6 +77,7 @@ function CollectionsList() {
         {/* movies */}
         <CollectionCard
           title="movies"
+          category="Cinema"
           image={moviesImg}
           length={collections.movies.length}
           icon={<Icon.Film />}
@@ -84,6 +86,7 @@ function CollectionsList() {
         {/* paintings */}
         <CollectionCard
           title="paintings"
+          category="Art"
           image={paintingsImg}
           length={collections.paintings.length}
           icon={<Icon.PaintBucket />}
@@ -92,6 +95,7 @@ function CollectionsList() {
         {/* photos */}
         <CollectionCard
           title="photos"
+          category="Photography"
           image={photosImg}
           length={collections.photos.length}
           icon={<Icon.CameraFill />}
@@ -100,6 +104,7 @@ function CollectionsList() {
         {/* places */}
         <CollectionCard
           title="places"
+          category="Travel"
           image={placesImg}
           length={collections.places.length}
           icon={<Icon.GeoAltFill />}
@@ -108,6 +113,7 @@ function CollectionsList() {
         {/* songs */}
         <CollectionCard
           title="songs"
+          category="Music"
           image={songsImg}
           length={collections.songs.length}
           icon={<Icon.MusicNoteList />}

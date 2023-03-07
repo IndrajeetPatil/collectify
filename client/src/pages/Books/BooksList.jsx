@@ -49,6 +49,7 @@ function BooksList() {
 
   const collectionItems = (
     <MDBTable
+      hover
       align="middle"
       className="ms-auto me-auto mb-5 mt-5"
       style={{ width: "80vw" }}

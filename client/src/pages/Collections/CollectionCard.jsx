@@ -20,9 +20,12 @@ function CollectionCard(props) {
         />
         <Card.Body>
           <Card.Title>
-            {props.icon} {capitalizeFirstLetter(props.title)}
+            {props.icon} {props.category}
           </Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{props.length} Items</Card.Subtitle>
+
+          <Card.Subtitle className="mb-2 text-muted">
+            {props.length} {capitalizeFirstLetter(props.title)}
+          </Card.Subtitle>
 
           <hr></hr>
 
