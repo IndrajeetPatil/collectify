@@ -56,12 +56,14 @@ function PlaceCard(props) {
             <p>{props.place.description}</p>
           </div>
 
-          <div className="d-flex row justify-content-center align-content-center mb-3">
-            <img
-              src={props.place.image}
-              alt="A memory from this place"
-            />
-          </div>
+          {props.place.image && (
+            <div className="d-flex row justify-content-center align-content-center mb-3">
+              <img
+                src={props.place.image}
+                alt="A memory from this place"
+              />
+            </div>
+          )}
 
           <Container
             fluid
