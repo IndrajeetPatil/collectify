@@ -88,39 +88,41 @@ function NavBar() {
 
           {/* Dropdown for user */}
           {isLoggedIn && (
-            <NavDropdown title={user && user.name}>
-              <NavDropdown.Item
-                as={Link}
-                to="/profile"
-              >
-                Profile
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/profile/edit"
-              >
-                Edit Profile
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/profile/settings"
-              >
-                Edit Settings
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/profile/delete"
-              >
-                Delete Account
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                onClick={logOutUser}
-              >
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav>
+              <NavDropdown title={user && user.name}>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/profile"
+                >
+                  Profile
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/profile/edit"
+                >
+                  Edit Profile
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/profile/settings"
+                >
+                  Edit Settings
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={Link}
+                  to="/profile/delete"
+                >
+                  Delete Account
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item
+                  as={Link}
+                  onClick={logOutUser}
+                >
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
           )}
         </Navbar.Collapse>
       </Container>
