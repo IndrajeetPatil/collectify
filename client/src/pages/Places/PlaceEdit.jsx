@@ -136,7 +136,7 @@ function PlaceEdit() {
                   <Form.Label>Description</Form.Label>
                   <Form.Control
                     as="textarea"
-                    rows={3}
+                    rows={2}
                     placeholder="Enter description (Why you want to visit this place? How was your visit? What did you do there?)"
                     value={description}
                     name="description"

@@ -5,6 +5,8 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 
+import { Link } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -73,7 +75,7 @@ function MovieEdit() {
           md={6}
           lg={4}
         >
-          <Card className="mb-0">
+          <Card className="mt-5 mb-0">
             <Card.Body>
               <Form onSubmit={handleCreateMovieSubmit}>
                 {/* title */}
@@ -96,7 +98,6 @@ function MovieEdit() {
                     type="number"
                     min="1888"
                     max="3000"
-                    step="1"
                     placeholder="Enter year"
                     value={year}
                     name="year"
@@ -179,13 +180,27 @@ function MovieEdit() {
                   />
                 </Form.Group>
 
-                <Button
-                  variant="primary"
-                  type="submit"
-                  className="mb-0"
+                <Container
+                  fluid
+                  className="d-flex flex-row align-content-center justify-content-around fs-5"
                 >
-                  Save Changes
-                </Button>
+                  <Link to="/collections/movies">
+                    <Button
+                      variant="secondary"
+                      className="mb-0"
+                    >
+                      Cancel
+                    </Button>
+                  </Link>
+
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    className="mb-0"
+                  >
+                    Save Changes
+                  </Button>
+                </Container>
               </Form>
             </Card.Body>
             <Card.Footer>
