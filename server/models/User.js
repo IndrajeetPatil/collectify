@@ -17,6 +17,11 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Name is required."],
     },
+    image: {
+      type: String,
+      default: "",
+      required: false,
+    },
     collections: {
       type: Schema.Types.ObjectId,
       ref: "Collection",

@@ -8,11 +8,14 @@ const { isAuthenticated } = require("./middleware/jwt.middleware");
 
 require("./config")(app);
 
+const authRoutes = require("./routes/auth");
+app.use("/auth", authRoutes);
+
 const indexRoutes = require("./routes");
 app.use("/api", indexRoutes);
 
-const authRoutes = require("./routes/auth");
-app.use("/auth", authRoutes);
+const profileRoutes = require("./routes/profile");
+app.use("/api", isAuthenticated, profileRoutes);
 
 const collectionRoutes = require("./routes/collections");
 app.use("/api", isAuthenticated, collectionRoutes);
