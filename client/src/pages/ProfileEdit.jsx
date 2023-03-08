@@ -42,10 +42,10 @@ function ProfileEdit() {
       .then((response) => {
         return response.data;
       })
-      .then((book) => {
-        setName(book.name);
-        setSex(book.sex);
-        setImage(book.image);
+      .then((profile) => {
+        setName(profile.name);
+        setSex(profile.sex);
+        setImage(profile.image);
       })
       .catch((error) => console.log(error));
   }, []);

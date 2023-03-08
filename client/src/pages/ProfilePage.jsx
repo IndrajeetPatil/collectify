@@ -41,21 +41,21 @@ function ProfilePage() {
               <MDBRow className="g-0">
                 <MDBCol
                   md="4"
-                  className="gradient-custom text-center text-white bg-primary"
+                  className="gradient-custom text-center text-white bg-dark"
                   style={{ borderTopLeftRadius: ".5rem", borderBottomLeftRadius: ".5rem" }}
                 >
                   <MDBCardImage
                     src={profile.image || placeholderAvatar}
                     alt="Avatar"
-                    className="my-5 mb-3"
-                    style={{ width: "80px" }}
+                    className="my-5"
+                    style={{ width: "100px" }}
                     fluid
                   />
                   <MDBTypography tag="h5">{profile.name}</MDBTypography>
 
                   <MDBContainer
                     fluid
-                    className="d-flex flex-row align-content-center justify-content-around fs-5"
+                    className="d-flex flex-row align-content-center justify-content-around mt-5 fs-5"
                   >
                     <Link to={"/profile/edit"}>
                       <Icon.PencilSquare
