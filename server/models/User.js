@@ -17,6 +17,12 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Name is required."],
     },
+    sex: {
+      type: String,
+      enum: ["male", "female", "non-binary"],
+      default: "",
+      required: false,
+    },
     image: {
       type: String,
       default: "",

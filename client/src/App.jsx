@@ -6,6 +6,7 @@ import HomePage from "./pages/Home/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import Feedback from "./pages/Feedback";
 
 import NavBar from "./components/NavBar";
 import IsPrivate from "./components/IsPrivate";
@@ -55,6 +56,15 @@ function App() {
           element={
             <IsPrivate>
               <ProfilePage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/feedback"
+          element={
+            <IsPrivate>
+              <Feedback />
             </IsPrivate>
           }
         />

@@ -1,0 +1,29 @@
+---
+format:
+  revealjs:
+    css: style.css 
+    theme: simple
+    slide-number: true
+    preview-links: auto
+    #footer: "Source code for these slides can be found [on GitHub](https://github.com/IndrajeetPatil/collectify/slides/){target='_blank'}."
+execute:
+  echo: true
+keywords: ["software-engineering", "r-packages", "best-practices", "CRAN"]
+---
+
+##
+
+<!-- Don't render this file manually. Run `renderer.R` script instead. -->
+
+::: {style="text-align: center; font-size: 25px;"}
+
+```{r}
+#| echo: false
+#| out-width: "40%" 
+knitr::include_graphics("media/collectify.png")
+```
+
+Indrajeet Patil
+(IronHack Project)
+
+:::
