@@ -1,30 +1,81 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
+import React, { useState, useEffect } from "react";
+import itemService from "../../services/api";
+
+import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
+
+import Col from "react-bootstrap/esm/Col";
 
 import photosImg from "../../assets/images/photos.jpeg";
+import PhotoCard from "./PhotoCard";
+import CollectionContainer from "../CollectionContainer";
+
+import Fuse from "fuse.js";
 
 function PhotosList() {
-  return (
-    <Container
+  const [photos, setPhotos] = useState([]);
+  const [photosCopy, setPhotosCopy] = useState([]);
+
+  useEffect(() => {
+    itemService
+      .readItems("photos")
+      .then((response) => {
+        setPhotos(response.data);
+        return response;
+      })
+      .then((response) => setPhotosCopy(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const filterPhotos = (str) => {
+    const fuse = new Fuse(photosCopy, {
+      keys: ["title", "description"],
+      isCaseSensitive: false,
+      ignoreLocation: true,
+      threshold: 0.0,
+    });
+
+    const filteredPhotos = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : photosCopy;
+
+    setPhotos(filteredPhotos);
+  };
+
+  const handleSearch = (e) => filterPhotos(e.target.value);
+
+  const collectionItemCols = photos.map((photo) => {
+    return (
+      <Col
+        key={photo._id}
+        className="m-5"
+      >
+        <PhotoCard photo={photo} />
+      </Col>
+    );
+  });
+
+  const collectionItems = (
+    <MDBContainer
       fluid
-      className="text-center"
+      style={{ width: "100vw" }}
+      className="d-flex flex-column justify-content-center align-items-center my-5 mt-5"
     >
-      <Row>
-        <Image
-          src={photosImg}
-          style={{ height: "30rem", padding: "0rem" }}
-        />
-      </Row>
+      <MDBRow>{collectionItemCols}</MDBRow>
+    </MDBContainer>
+  );
 
-      <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Your Favourite Photos!</h1>
-      </Row>
+  return (
+    <>
+      <CollectionContainer
+        image={photosImg}
+        collection="photos"
+        category="Photography"
+        quote="Photography is a love affair with life."
+        quoteAuthor="Burk Uzzle"
+        searchbarPlaceholder="Search by photo title"
+        searchHandler={handleSearch}
+      ></CollectionContainer>
 
-      <Row>
-        <hr></hr>
-      </Row>
-    </Container>
+      {collectionItems}
+    </>
   );
 }
 

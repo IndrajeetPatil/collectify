@@ -14,29 +14,17 @@ const photoSchema = new Schema(
     },
     year: {
       type: Number,
-      required: [true, "Year is required."],
-    },
-    genre: {
-      type: String,
-      enum: [
-        "Abstract",
-        "Baroque",
-        "Cubism",
-        "Expressionism",
-        "Fauvism",
-        "Impressionism",
-        "Minimalism",
-        "Modernism",
-        "Pop Art",
-        "Renaissance",
-        "Romanticism",
-        "Surrealism",
-      ],
       required: false,
     },
-    url: {
+    description: {
       type: String,
       required: false,
+      trim: true,
+    },
+    image: {
+      type: String,
+      required: false,
+      default: "",
       trim: true,
     },
     collections: [

@@ -39,6 +39,9 @@ import PlaceDelete from "./pages/Places/PlaceDelete";
 import PlaceEdit from "./pages/Places/PlaceEdit";
 
 import PhotosList from "./pages/Photos/PhotosList";
+import PhotoCreate from "./pages/Photos/PhotoCreate";
+import PhotoDelete from "./pages/Photos/PhotoDelete";
+//import PhotoEdit from "./pages/Photos/PhotoEdit";
 
 import SongsList from "./pages/Songs/SongsList";
 
@@ -221,6 +224,43 @@ function App() {
           }
         />
 
+        {/* Protected routes: collections/photos */}
+        <Route
+          path="/collections/photos"
+          element={
+            <IsPrivate>
+              <PhotosList />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/photos/create"
+          element={
+            <IsPrivate>
+              <PhotoCreate />
+            </IsPrivate>
+          }
+        />
+
+        {/* <Route
+          path="/collections/photos/edit/:photoId"
+          element={
+            <IsPrivate>
+              <PhotoEdit />
+            </IsPrivate>
+          }
+        /> */}
+
+        <Route
+          path="/collections/photos/delete/:photoId"
+          element={
+            <IsPrivate>
+              <PhotoDelete />
+            </IsPrivate>
+          }
+        />
+
         {/* Protected routes: collections/places */}
         <Route
           path="/collections/places"
@@ -254,16 +294,6 @@ function App() {
           element={
             <IsPrivate>
               <PlaceDelete />
-            </IsPrivate>
-          }
-        />
-
-        {/* Protected routes: collections/photos */}
-        <Route
-          path="/collections/photos"
-          element={
-            <IsPrivate>
-              <PhotosList />
             </IsPrivate>
           }
         />
