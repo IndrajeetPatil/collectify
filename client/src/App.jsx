@@ -3,9 +3,12 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/Home/HomePage";
-import ProfilePage from "./pages/ProfilePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+
+import ProfilePage from "./pages/ProfilePage";
+import ProfileEdit from "./pages/ProfileEdit";
+import ProfileDelete from "./pages/ProfileDelete";
 import Feedback from "./pages/Feedback";
 
 import NavBar from "./components/NavBar";
@@ -51,11 +54,30 @@ function App() {
           element={<HomePage />}
         />
 
+        {/* Protected routes: profile */}
         <Route
           path="/profile"
           element={
             <IsPrivate>
               <ProfilePage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/profile/edit"
+          element={
+            <IsPrivate>
+              <ProfileEdit />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/profile/delete"
+          element={
+            <IsPrivate>
+              <ProfileDelete />
             </IsPrivate>
           }
         />

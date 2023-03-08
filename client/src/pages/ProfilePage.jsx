@@ -10,6 +10,7 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 
+import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
 
 import profileService from "../services/profile";
@@ -46,17 +47,40 @@ function ProfilePage() {
                   <MDBCardImage
                     src={profile.image || placeholderAvatar}
                     alt="Avatar"
-                    className="my-5"
+                    className="my-5 mb-3"
                     style={{ width: "80px" }}
                     fluid
                   />
                   <MDBTypography tag="h5">{profile.name}</MDBTypography>
-                  <MDBCardText>Web Designer</MDBCardText>
 
-                  <Icon.PencilSquare
-                    className="mb-3"
-                    size={20}
-                  />
+                  <MDBContainer
+                    fluid
+                    className="d-flex flex-row align-content-center justify-content-around fs-5"
+                  >
+                    <Link to={"/profile/edit"}>
+                      <Icon.PencilSquare
+                        style={{ color: "white" }}
+                        className="mb-3"
+                        size={20}
+                      />
+                    </Link>
+
+                    <Link to={"/profile/delete"}>
+                      <Icon.Trash
+                        style={{ color: "white" }}
+                        className="mb-3"
+                        size={20}
+                      />
+                    </Link>
+
+                    <Link to={"/feedback"}>
+                      <Icon.ChatLeftTextFill
+                        style={{ color: "white" }}
+                        className="mb-3"
+                        size={20}
+                      />
+                    </Link>
+                  </MDBContainer>
                 </MDBCol>
 
                 <MDBCol md="8">

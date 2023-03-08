@@ -11,7 +11,6 @@ const uploader = require("../config/cloudinary");
 // @access  Public
 router.get("/profile", (req, res) => {
   const userId = req.payload._id;
-  console.log("userId", userId);
 
   User.findOne({ _id: userId })
     .populate("collections")
