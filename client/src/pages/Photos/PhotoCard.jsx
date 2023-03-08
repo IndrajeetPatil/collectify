@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { MDBCol, MDBModal, MDBModalBody, MDBModalFooter, MDBModalDialog, MDBModalContent } from "mdb-react-ui-kit";
+import {
+  MDBCol,
+  MDBModal,
+  MDBModalBody,
+  MDBModalFooter,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBCard,
+  MDBCardImage,
+  MDBCardBody,
+} from "mdb-react-ui-kit";
 
 import { Link } from "react-router-dom";
 
@@ -75,19 +85,28 @@ function PhotoCard({ photo }) {
         <MDBModalDialog>
           <MDBModalContent>
             <MDBModalBody>
-              <img
-                src={photo.image || placeholderPhotoImg}
-                className="mb-3"
-                style={{ width: "100%", height: "100%" }}
-                alt={photo.title}
-              />
+              <MDBCard style={{ width: "100%" }}>
+                <MDBCardImage
+                  src={photo.image || placeholderPhotoImg}
+                  className="mb-3"
+                  style={{ width: "100%", height: "100%" }}
+                  alt={photo.title}
+                />
 
-              <p>
-                <strong>Title: </strong>
-                {photo.title}
-              </p>
+                <MDBCardBody>
+                  <div className="text-center mb-3">
+                    <h3>{photo.title}</h3>
+                    <p>
+                      by <strong>{photo.photographer}</strong>
+                      <span className="small"> ({photo.year})</span>
+                    </p>
+                  </div>
 
-              <p>{photo.description}</p>
+                  <div className="d-flex justify-content-center mb-3">
+                    <p>{photo.description}</p>
+                  </div>
+                </MDBCardBody>
+              </MDBCard>
             </MDBModalBody>
 
             <MDBModalFooter>
