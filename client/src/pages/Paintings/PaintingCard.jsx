@@ -12,7 +12,7 @@ import placeholderPosterImg from "../../assets/images/painting-placeholder.jpeg"
 function PaintingCard({ painting }) {
   return (
     <MDBCol className="mb-4">
-      <MDBCard>
+      <MDBCard style={{ width: "20rem" }}>
         <div className="d-flex justify-content-between p-3">
           <p className="lead mb-0">{painting.title}</p>
           <div

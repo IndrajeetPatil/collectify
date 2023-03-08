@@ -55,7 +55,8 @@ function PaintingsList() {
   const collectionItems = (
     <MDBContainer
       fluid
-      className="my-5 mt-5"
+      style={{ width: "100vw" }}
+      className="d-flex flex-column justify-content-center align-items-center my-5 mt-5"
     >
       <MDBRow>{collectionItemCols}</MDBRow>
     </MDBContainer>

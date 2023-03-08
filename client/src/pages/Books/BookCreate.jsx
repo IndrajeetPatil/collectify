@@ -1,5 +1,4 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
@@ -8,6 +7,8 @@ import Col from "react-bootstrap/esm/Col";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import itemService from "../../services/api";
+
+import CreateSubmission from "../../components/CreateSubmission";
 
 import extractCommaSeparatedItems from "../../utils/extractCommaSeparatedItems";
 
@@ -173,13 +174,8 @@ function BookCreate() {
                   />
                 </Form.Group>
 
-                <Button
-                  variant="primary"
-                  type="submit"
-                  className="mb-0"
-                >
-                  Submit
-                </Button>
+                {/* submit */}
+                <CreateSubmission collection="books" />
               </Form>
             </Card.Body>
             <Card.Footer>

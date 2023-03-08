@@ -1,9 +1,10 @@
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
+
+import CreateSubmission from "../../components/CreateSubmission";
 
 import Autocomplete from "react-google-autocomplete";
 import { useState } from "react";
@@ -137,13 +138,8 @@ function PlaceCreate() {
                   />
                 </Form.Group>
 
-                <Button
-                  variant="primary"
-                  type="submit"
-                  className="mb-0"
-                >
-                  Save changes
-                </Button>
+                {/* submit */}
+                <CreateSubmission collection="places" />
               </Form>
             </Card.Body>
 
