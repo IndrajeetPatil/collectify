@@ -11,32 +11,28 @@ import placeholderPosterImg from "../../assets/images/painting-placeholder.jpeg"
 
 function PaintingCard({ painting }) {
   return (
-    <MDBCol
-      md="12"
-      lg="4"
-      className="mb-4 mb-lg-0"
-    >
+    <MDBCol className="mb-4">
       <MDBCard>
         <div className="d-flex justify-content-between p-3">
           <p className="lead mb-0">{painting.title}</p>
           <div
-            className="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+            className="d-flex align-items-center justify-content-center shadow-1-strong"
             style={{ width: "35px", height: "35px" }}
           >
-            <p className="text-white mb-0 small">
+            <p className="fs-2 mb-0">
               {painting.seenOriginal ? (
                 <OverlayTrigger
                   placement="top"
                   overlay={<Tooltip id="tooltip-top">I've seen the original painting!</Tooltip>}
                 >
-                  <Icon.Check />
+                  <Icon.BookmarkCheck />
                 </OverlayTrigger>
               ) : (
                 <OverlayTrigger
                   placement="top"
                   overlay={<Tooltip id="tooltip-top">I'm yet to see the original painting!</Tooltip>}
                 >
-                  <Icon.X />
+                  <Icon.BookmarkX />
                 </OverlayTrigger>
               )}
             </p>
@@ -59,18 +55,9 @@ function PaintingCard({ painting }) {
             <p>{painting.description}</p>
           </div>
 
-          <div class="d-flex justify-content-between mb-2">
-            <p class="text-muted mb-0">{painting.genre}</p>
-            <div class="ms-auto text-warning">
-              <Link to={`/collections/paintings/${painting._id}`}>
-                <OverlayTrigger
-                  placement="top"
-                  overlay={<Tooltip id="tooltip-top">See more details</Tooltip>}
-                >
-                  <Icon.EyeFill style={{ color: "#0d6efd" }} />
-                </OverlayTrigger>
-              </Link>
-
+          <div className="d-flex justify-content-between mb-2">
+            <p className="text-muted mb-0">{painting.genre}</p>
+            <div className="ms-auto d-flex justify-content-around">
               <Link to={`/collections/paintings/edit/${painting._id}`}>
                 <OverlayTrigger
                   placement="top"

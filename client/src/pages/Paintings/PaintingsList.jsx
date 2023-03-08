@@ -28,7 +28,7 @@ function PaintingsList() {
 
   const filterPaintings = (str) => {
     const fuse = new Fuse(paintingsCopy, {
-      keys: ["title"],
+      keys: ["title", "description"],
       isCaseSensitive: false,
       ignoreLocation: true,
       threshold: 0.0,
@@ -55,7 +55,7 @@ function PaintingsList() {
   const collectionItems = (
     <MDBContainer
       fluid
-      className="my-5"
+      className="my-5 mt-5"
     >
       <MDBRow>{collectionItemCols}</MDBRow>
     </MDBContainer>

@@ -24,7 +24,7 @@ function PaintingCreate() {
   const handleYear = (e) => setYear(e.target.value);
   const handleArtist = (e) => setArtist(e.target.value);
   const handleGenre = (e) => setGenre(e.target.value);
-  const handleSeenOriginal = (e) => setSeenOriginal(e.target.value);
+  const handleSeenOriginal = (e) => setSeenOriginal(e.target.checked);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
 
