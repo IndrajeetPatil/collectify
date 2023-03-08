@@ -102,12 +102,12 @@ function NavBar() {
                 >
                   Edit Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item
+                {/* <NavDropdown.Item
                   as={Link}
                   to="/profile/settings"
                 >
                   Edit Settings
-                </NavDropdown.Item>
+                </NavDropdown.Item> */}
                 <NavDropdown.Item
                   as={Link}
                   to="/profile/delete"
