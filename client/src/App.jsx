@@ -41,7 +41,7 @@ import PlaceEdit from "./pages/Places/PlaceEdit";
 import PhotosList from "./pages/Photos/PhotosList";
 import PhotoCreate from "./pages/Photos/PhotoCreate";
 import PhotoDelete from "./pages/Photos/PhotoDelete";
-//import PhotoEdit from "./pages/Photos/PhotoEdit";
+import PhotoEdit from "./pages/Photos/PhotoEdit";
 
 import SongsList from "./pages/Songs/SongsList";
 
@@ -243,14 +243,14 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/collections/photos/edit/:photoId"
           element={
             <IsPrivate>
               <PhotoEdit />
             </IsPrivate>
           }
-        /> */}
+        />
 
         <Route
           path="/collections/photos/delete/:photoId"

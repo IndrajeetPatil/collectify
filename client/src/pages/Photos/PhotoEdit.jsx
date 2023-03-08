@@ -4,14 +4,15 @@ import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import itemService from "../../services/api";
+import EditSubmission from "../../components/EditSubmission";
 
-import CreateSubmission from "../../components/CreateSubmission";
-
-function PhotoCreate() {
+function PhotoEdit() {
   const navigate = useNavigate();
+  const { photoId } = useParams();
 
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
@@ -25,18 +26,28 @@ function PhotoCreate() {
   const handleDescription = (e) => setDescription(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
 
+  useEffect(() => {
+    itemService
+      .readItem(photoId, "photos")
+      .then((response) => {
+        return response.data;
+      })
+      .then((photo) => {
+        setTitle(photo.title);
+        setYear(photo.year);
+        setPhotographer(photo.photographer);
+        setDescription(photo.description);
+        setImage(photo.cover);
+      })
+      .catch((error) => console.log(error));
+  }, [photoId]);
+
   const handleCreatePhotoSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = {
-      title,
-      year,
-      photographer,
-      description,
-      image,
-    };
+    const requestBody = { title, year, photographer, description, image };
     itemService
-      .createItem(requestBody, "photos")
+      .updateItem(photoId, requestBody, "photos")
       .then((response) => navigate("/collections/photos"))
       .catch((error) => console.log(error));
   };
@@ -125,8 +136,7 @@ function PhotoCreate() {
                   />
                 </Form.Group>
 
-                {/* submit */}
-                <CreateSubmission collection="photos" />
+                <EditSubmission collection="photos" />
               </Form>
             </Card.Body>
             <Card.Footer>
@@ -139,4 +149,4 @@ function PhotoCreate() {
   );
 }
 
-export default PhotoCreate;
+export default PhotoEdit;
