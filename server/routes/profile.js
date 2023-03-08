@@ -9,7 +9,7 @@ const uploader = require("../config/cloudinary");
 // @route   GET api/profile
 // @desc    Get current profile
 // @access  Public
-router.get("/", (req, res) => {
+router.get("/profile", (req, res) => {
   const userId = req.payload._id;
 
   User.findOne({ _id: userId })
@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 // @route   PUT api/profile
 // @desc    Update current profile
 // @access  Public
-router.put("/", (req, res) => {
+router.put("/profile", (req, res) => {
   const userId = req.payload._id;
 
   User.findOneAndUpdate({ _id: userId }, { ...req.body }, { new: true })
@@ -32,7 +32,7 @@ router.put("/", (req, res) => {
 // @route   DELETE api/profile
 // @desc    Delete current profile
 // @access  Public
-router.delete("/", (req, res) => {
+router.delete("/profile", (req, res) => {
   const userId = req.payload._id;
 
   User.findByIdAndDelete(userId)

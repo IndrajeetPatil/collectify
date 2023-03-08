@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   MDBCol,
   MDBContainer,
@@ -11,12 +11,20 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 
+import profileService from "../services/profile";
+
 function ProfilePage() {
+  const [profile, setProfile] = useState([]);
+
+  useEffect(() => {
+    profileService
+      .readProfile()
+      .then((response) => setProfile(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
-    <section
-      className="vh-100"
-      style={{ backgroundColor: "#f4f5f7" }}
-    >
+    <section className="vh-100">
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol
@@ -25,7 +33,7 @@ function ProfilePage() {
           >
             <MDBCard
               className="mb-3"
-              style={{ borderRadius: ".5rem" }}
+              style={{ borderRadius: "0.5rem" }}
             >
               <MDBRow className="g-0">
                 <MDBCol
@@ -40,13 +48,14 @@ function ProfilePage() {
                     style={{ width: "80px" }}
                     fluid
                   />
-                  <MDBTypography tag="h5">Marie Horwitz</MDBTypography>
+                  <MDBTypography tag="h5">{profile.name}</MDBTypography>
                   <MDBCardText>Web Designer</MDBCardText>
                   <MDBIcon
                     far
                     icon="edit mb-5"
                   />
                 </MDBCol>
+
                 <MDBCol md="8">
                   <MDBCardBody className="p-4">
                     <MDBTypography tag="h6">Information</MDBTypography>
