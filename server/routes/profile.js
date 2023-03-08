@@ -15,10 +15,7 @@ router.get("/profile", (req, res) => {
 
   User.findOne({ _id: userId })
     .populate("collections")
-    .then((user) => {
-      console.log(user);
-      return res.json(user);
-    })
+    .then((user) => res.json(user))
     .catch((err) => res.status(404).json({ success: false }));
 });
 

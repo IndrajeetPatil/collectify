@@ -21,17 +21,12 @@ function ProfilePage() {
   useEffect(() => {
     profileService
       .readProfile()
-      .then((response) => {
-        console.log("response is ", response.data);
-        setProfile(response.data);
-      })
+      .then((response) => setProfile(response.data))
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(profile);
-
   return (
-    <section className="vh-100">
+    <section style={{ height: "90vh" }}>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol
@@ -96,7 +91,7 @@ function ProfilePage() {
                         className="mb-3"
                       >
                         <MDBTypography tag="h6">Books</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections.books.length}</MDBCardText>
+                        <MDBCardText className="text-muted">{profile.collections?.books.length}</MDBCardText>
                       </MDBCol>
 
                       <MDBCol
@@ -104,7 +99,7 @@ function ProfilePage() {
                         className="mb-3"
                       >
                         <MDBTypography tag="h6">Movies</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections.movies.length}</MDBCardText>
+                        <MDBCardText className="text-muted">{profile.collections?.movies.length}</MDBCardText>
                       </MDBCol>
 
                       <MDBCol
@@ -112,7 +107,7 @@ function ProfilePage() {
                         className="mb-3"
                       >
                         <MDBTypography tag="h6">Paintings</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections.paintings.length}</MDBCardText>
+                        <MDBCardText className="text-muted">{profile.collections?.paintings.length}</MDBCardText>
                       </MDBCol>
                     </MDBRow>
 
@@ -122,7 +117,7 @@ function ProfilePage() {
                         className="mb-3"
                       >
                         <MDBTypography tag="h6">Photos</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections.photos.length}</MDBCardText>
+                        <MDBCardText className="text-muted">{profile.collections?.photos.length}</MDBCardText>
                       </MDBCol>
 
                       <MDBCol
@@ -130,7 +125,7 @@ function ProfilePage() {
                         className="mb-3"
                       >
                         <MDBTypography tag="h6">Places</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections.places.length}</MDBCardText>
+                        <MDBCardText className="text-muted">{profile.collections?.places.length}</MDBCardText>
                       </MDBCol>
 
                       <MDBCol
@@ -138,7 +133,7 @@ function ProfilePage() {
                         className="mb-3"
                       >
                         <MDBTypography tag="h6">Songs</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections.songs.length}</MDBCardText>
+                        <MDBCardText className="text-muted">{profile.collections?.songs.length}</MDBCardText>
                       </MDBCol>
                     </MDBRow>
                   </MDBCardBody>
