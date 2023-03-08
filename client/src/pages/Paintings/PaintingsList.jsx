@@ -1,30 +1,80 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Image from "react-bootstrap/Image";
+import React, { useState, useEffect } from "react";
+import itemService from "../../services/api";
+
+import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
+
+import Col from "react-bootstrap/esm/Col";
 
 import paintingsImg from "../../assets/images/paintings.jpeg";
+import PaintingCard from "./PaintingCard";
+import CollectionContainer from "../CollectionContainer";
+
+import Fuse from "fuse.js";
 
 function PaintingsList() {
-  return (
-    <Container
+  const [paintings, setPaintings] = useState([]);
+  const [paintingsCopy, setPaintingsCopy] = useState([]);
+
+  useEffect(() => {
+    itemService
+      .readItems("paintings")
+      .then((response) => {
+        setPaintings(response.data);
+        return response;
+      })
+      .then((response) => setPaintingsCopy(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const filterPaintings = (str) => {
+    const fuse = new Fuse(paintingsCopy, {
+      keys: ["title"],
+      isCaseSensitive: false,
+      ignoreLocation: true,
+      threshold: 0.0,
+    });
+
+    const filteredPaintings = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : paintingsCopy;
+
+    setPaintings(filteredPaintings);
+  };
+
+  const handleSearch = (e) => filterPaintings(e.target.value);
+
+  const collectionItemCols = paintings.map((painting) => {
+    return (
+      <Col
+        key={painting._id}
+        className="m-5"
+      >
+        <PaintingCard painting={painting} />
+      </Col>
+    );
+  });
+
+  const collectionItems = (
+    <MDBContainer
       fluid
-      className="text-center"
+      className="my-5"
     >
-      <Row>
-        <Image
-          src={paintingsImg}
-          style={{ height: "30rem", padding: "0rem" }}
-        />
-      </Row>
+      <MDBRow>{collectionItemCols}</MDBRow>
+    </MDBContainer>
+  );
 
-      <Row className="mt-5">
-        <h1 style={{ fontFamily: ["Satisfy", "cursive"] }}>Your Favourite Paintings!</h1>
-      </Row>
+  return (
+    <>
+      <CollectionContainer
+        image={paintingsImg}
+        collection="paintings"
+        category="Art"
+        quote="Painting is just another way of keeping a diary."
+        quoteAuthor="Pablo Picasso"
+        searchbarPlaceholder="Search by painting title"
+        searchHandler={handleSearch}
+      ></CollectionContainer>
 
-      <Row>
-        <hr></hr>
-      </Row>
-    </Container>
+      {collectionItems}
+    </>
   );
 }
 

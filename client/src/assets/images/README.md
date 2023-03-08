@@ -11,7 +11,9 @@
 - `movies.jpeg` Photo by <a href="https://unsplash.com/@myke_simon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Myke Simon</a> on <a href="https://unsplash.com/photos/atsUqIm3wxo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 - `paintings.jpeg` Photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Steve Johnson</a> on <a href="https://unsplash.com/photos/QlBdxJK2-nU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+
+- `painting-placeholder.jpeg` From <https://www.istockphoto.com/de/foto/picture-bilderrahmen-gm534742887-56731478>
+
 - `photos.jpeg` Photo by <a href="https://unsplash.com/@dariuszsankowski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dariusz Sankowski</a> on <a href="https://unsplash.com/photos/mj2NwYH3wBA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 - `poster-placeholder.jpg` from <http://lexingtonvenue.com/media/poster-placeholder.jpg>

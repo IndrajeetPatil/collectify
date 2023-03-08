@@ -5,17 +5,21 @@ const paintingSchema = new Schema(
     title: {
       type: String,
       required: [true, "Title is required."],
-      unique: true,
       trim: true,
+    },
+    year: {
+      type: Number,
+      required: [true, "Year is required."],
     },
     artist: {
       type: String,
       required: [true, "Artist is required."],
       trim: true,
     },
-    year: {
-      type: Number,
-      required: [true, "Year is required."],
+    seenOriginal: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     genre: {
       type: String,
@@ -35,9 +39,16 @@ const paintingSchema = new Schema(
       ],
       required: false,
     },
-    url: {
+    image: {
       type: String,
       required: false,
+      default: "",
+      trim: true,
+    },
+    description: {
+      type: String,
+      required: false,
+      default: "",
       trim: true,
     },
     collections: [

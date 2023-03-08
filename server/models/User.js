@@ -22,6 +22,11 @@ const userSchema = new Schema(
       default: "",
       required: false,
     },
+    feedback: {
+      type: [String],
+      default: [],
+      required: false,
+    },
     collections: {
       type: Schema.Types.ObjectId,
       ref: "Collection",

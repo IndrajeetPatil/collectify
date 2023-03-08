@@ -24,12 +24,16 @@ import MovieDetails from "./pages/Movies/MovieDetails";
 import MovieEdit from "./pages/Movies/MovieEdit";
 import MovieDelete from "./pages/Movies/MovieDelete";
 
+import PaintingsList from "./pages/Paintings/PaintingsList";
+import PaintingCreate from "./pages/Paintings/PaintingCreate";
+import PaintingDelete from "./pages/Paintings/PaintingDelete";
+import PaintingEdit from "./pages/Paintings/PaintingEdit";
+
 import PlacesList from "./pages/Places/PlacesList";
 import PlaceCreate from "./pages/Places/PlaceCreate";
 import PlaceDelete from "./pages/Places/PlaceDelete";
 import PlaceEdit from "./pages/Places/PlaceEdit";
 
-import PaintingList from "./pages/Paintings/PaintingsList";
 import PhotosList from "./pages/Photos/PhotosList";
 
 import SongsList from "./pages/Songs/SongsList";
@@ -61,42 +65,6 @@ function App() {
           element={
             <IsPrivate>
               <CollectionsList />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/collections/paintings"
-          element={
-            <IsPrivate>
-              <PaintingList />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/collections/photos"
-          element={
-            <IsPrivate>
-              <PhotosList />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/collections/places"
-          element={
-            <IsPrivate>
-              <PlacesList />
-            </IsPrivate>
-          }
-        />
-
-        <Route
-          path="/collections/songs"
-          element={
-            <IsPrivate>
-              <SongsList />
             </IsPrivate>
           }
         />
@@ -184,6 +152,43 @@ function App() {
           }
         />
 
+        {/* Protected routes: collections/paintings */}
+        <Route
+          path="/collections/paintings"
+          element={
+            <IsPrivate>
+              <PaintingsList />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/paintings/create"
+          element={
+            <IsPrivate>
+              <PaintingCreate />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/paintings/edit/:paintingId"
+          element={
+            <IsPrivate>
+              <PaintingEdit />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/paintings/delete/:paintingId"
+          element={
+            <IsPrivate>
+              <PaintingDelete />
+            </IsPrivate>
+          }
+        />
+
         {/* Protected routes: collections/places */}
         <Route
           path="/collections/places"
@@ -217,6 +222,26 @@ function App() {
           element={
             <IsPrivate>
               <PlaceDelete />
+            </IsPrivate>
+          }
+        />
+
+        {/* Protected routes: collections/photos */}
+        <Route
+          path="/collections/photos"
+          element={
+            <IsPrivate>
+              <PhotosList />
+            </IsPrivate>
+          }
+        />
+
+        {/* Protected routes: collections/songs */}
+        <Route
+          path="/collections/songs"
+          element={
+            <IsPrivate>
+              <SongsList />
             </IsPrivate>
           }
         />
