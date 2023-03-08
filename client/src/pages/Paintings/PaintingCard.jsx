@@ -57,13 +57,16 @@ function PaintingCard({ painting }) {
 
           <div className="d-flex justify-content-between mb-2">
             <p className="text-muted mb-0">{painting.genre}</p>
-            <div className="ms-auto d-flex justify-content-around">
+            <div className="d-flex flex-row align-content-between">
               <Link to={`/collections/paintings/edit/${painting._id}`}>
                 <OverlayTrigger
                   placement="top"
                   overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
                 >
-                  <Icon.Pencil style={{ color: "green" }} />
+                  <Icon.Pencil
+                    className="me-2"
+                    style={{ color: "green" }}
+                  />
                 </OverlayTrigger>
               </Link>
 
