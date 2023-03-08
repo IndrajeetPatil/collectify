@@ -11,20 +11,19 @@ import Tooltip from "react-bootstrap/Tooltip";
 
 import * as Icon from "react-bootstrap-icons";
 
+import placeholderPhotoImg from "../../assets/images/photo-placeholder.png";
+
 function PhotoCard({ photo }) {
   const [modal, setModal] = useState(false);
 
   return (
     <>
-      <MDBCol
-        lg={4}
-        md={12}
-        className="mb-4 mb-lg-0"
-      >
+      <MDBCol className="mb-4">
         <div className="bg-image hover-overlay ripple shadow-1-strong rounded">
           <img
-            src={photo.image || "https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-1.webp"}
-            className="w-100 mb-3"
+            src={photo.image || placeholderPhotoImg}
+            className="mb-3"
+            style={{ width: "20rem" }}
             alt={photo.title}
           />
 
@@ -77,10 +76,18 @@ function PhotoCard({ photo }) {
           <MDBModalContent>
             <MDBModalBody>
               <img
-                src={photo.image || "https://mdbcdn.b-cdn.net/img/screens/yt/screen-video-1.webp"}
+                src={photo.image || placeholderPhotoImg}
+                className="mb-3"
                 style={{ width: "100%", height: "100%" }}
                 alt={photo.title}
               />
+
+              <p>
+                <strong>Title: </strong>
+                {photo.title}
+              </p>
+
+              <p>{photo.description}</p>
             </MDBModalBody>
 
             <MDBModalFooter>

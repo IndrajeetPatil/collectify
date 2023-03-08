@@ -45,7 +45,7 @@ function PhotosList() {
     return (
       <Col
         key={photo._id}
-        className="m-5"
+        className="ms-5 m-5"
       >
         <PhotoCard photo={photo} />
       </Col>
