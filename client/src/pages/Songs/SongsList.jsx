@@ -7,7 +7,7 @@ import Col from "react-bootstrap/esm/Col";
 
 import songsImg from "../../assets/images/songs.jpeg";
 import SongCard from "./SongCard";
-import CollectionContainer from "../CollectionContainer";
+import CollectionContainer from "../Collections/CollectionContainer";
 
 import Fuse from "fuse.js";
 

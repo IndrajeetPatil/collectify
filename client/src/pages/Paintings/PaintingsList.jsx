@@ -7,7 +7,7 @@ import Col from "react-bootstrap/esm/Col";
 
 import paintingsImg from "../../assets/images/paintings.jpeg";
 import PaintingCard from "./PaintingCard";
-import CollectionContainer from "../CollectionContainer";
+import CollectionContainer from "../Collections/CollectionContainer";
 
 import Fuse from "fuse.js";
 

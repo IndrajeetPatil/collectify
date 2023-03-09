@@ -1,5 +1,5 @@
 import Carousel from "react-bootstrap/Carousel";
-import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
+import capitalizeFirstLetter from "../../../utils/capitalizeFirstLetter";
 
 function HomeCarouselItem(props) {
   return (

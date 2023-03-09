@@ -5,7 +5,7 @@ import Col from "react-bootstrap/esm/Col";
 
 import placesImg from "../../assets/images/places.jpeg";
 import PlaceCard from "./PlaceCard";
-import CollectionContainer from "../CollectionContainer";
+import CollectionContainer from "../Collections/CollectionContainer";
 
 import Fuse from "fuse.js";
 

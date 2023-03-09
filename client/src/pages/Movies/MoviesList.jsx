@@ -5,7 +5,7 @@ import Col from "react-bootstrap/esm/Col";
 
 import moviesImg from "../../assets/images/movies.jpeg";
 import MovieCard from "./MovieCard";
-import CollectionContainer from "../CollectionContainer";
+import CollectionContainer from "../Collections/CollectionContainer";
 
 import Fuse from "fuse.js";
 

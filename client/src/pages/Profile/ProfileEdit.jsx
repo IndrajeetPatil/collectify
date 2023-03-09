@@ -8,7 +8,7 @@ import Button from "react-bootstrap/esm/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import profileService from "../services/profile";
+import profileService from "../../services/profile";
 
 function ProfileEdit() {
   const navigate = useNavigate();

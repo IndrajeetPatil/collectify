@@ -8,8 +8,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
-import pluralToSingular from "../utils/pluralToSingular";
+import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
+import pluralToSingular from "../../utils/pluralToSingular";
 
 function CollectionContainer(props) {
   return (

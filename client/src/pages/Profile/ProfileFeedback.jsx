@@ -15,9 +15,9 @@ import { Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import profileService from "../services/profile";
+import profileService from "../../services/profile";
 
-function Feedback() {
+function ProfileFeedback() {
   const navigate = useNavigate();
 
   const [feedbackRating, setFeedbackRating] = useState("");
@@ -116,4 +116,4 @@ function Feedback() {
   );
 }
 
-export default Feedback;
+export default ProfileFeedback;

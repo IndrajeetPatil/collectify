@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
 
-import profileService from "../services/profile";
+import profileService from "../../services/profile";
 
 function ProfileDelete() {
   const navigate = useNavigate();

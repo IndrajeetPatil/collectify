@@ -2,18 +2,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import HomePage from "./pages/Home/HomePage";
-import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/Home/Home";
+import SignupPage from "./pages/Auth/SignupPage";
+import LoginPage from "./pages/Auth/LoginPage";
 
-import ProfilePage from "./pages/ProfilePage";
-import ProfileEdit from "./pages/ProfileEdit";
-import ProfileDelete from "./pages/ProfileDelete";
-import Feedback from "./pages/Feedback";
+import ProfileList from "./pages/Profile/ProfileList";
+import ProfileEdit from "./pages/Profile/ProfileEdit";
+import ProfileDelete from "./pages/Profile/ProfileDelete";
+import ProfileFeedback from "./pages/Profile/ProfileFeedback";
 
 import NavBar from "./components/NavBar";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
+
+import NotFoundPage from "./pages/NotFoundPage";
 
 import CollectionsList from "./pages/Collections/CollectionsList";
 
@@ -65,7 +67,7 @@ function App() {
           path="/profile"
           element={
             <IsPrivate>
-              <ProfilePage />
+              <ProfileList />
             </IsPrivate>
           }
         />
@@ -92,7 +94,7 @@ function App() {
           path="/feedback"
           element={
             <IsPrivate>
-              <Feedback />
+              <ProfileFeedback />
             </IsPrivate>
           }
         />
@@ -334,6 +336,16 @@ function App() {
           element={
             <IsPrivate>
               <SongDelete />
+            </IsPrivate>
+          }
+        />
+
+        {/* Error route */}
+        <Route
+          path="*"
+          element={
+            <IsPrivate>
+              <NotFoundPage />
             </IsPrivate>
           }
         />

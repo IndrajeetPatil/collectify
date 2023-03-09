@@ -13,11 +13,11 @@ import {
 import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
 
-import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
-import profileService from "../services/profile";
-import placeholderAvatar from "../assets/images/profile-avatar-placeholder.png";
+import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
+import profileService from "../../services/profile";
+import placeholderAvatar from "../../assets/images/profile-avatar-placeholder.png";
 
-function ProfilePage() {
+function ProfileList() {
   const [profile, setProfile] = useState([]);
 
   useEffect(() => {
@@ -174,4 +174,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default ProfileList;

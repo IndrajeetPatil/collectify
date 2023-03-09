@@ -5,7 +5,7 @@ import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 
 import BookTableRow from "./BookTableRow";
 import booksImg from "../../assets/images/books.jpeg";
-import CollectionContainer from "../CollectionContainer";
+import CollectionContainer from "../Collections/CollectionContainer";
 
 import Fuse from "fuse.js";
 
