@@ -28,7 +28,7 @@ function PhotoCard({ photo }) {
 
   return (
     <>
-      <MDBCol className="mb-4">
+      <MDBCol className="d-flex flex-column justify-content-center align-content-center mb-4">
         <div className="bg-image hover-overlay ripple shadow-1-strong rounded">
           <img
             src={photo.image || placeholderPhotoImg}
