@@ -145,8 +145,8 @@ function MovieEdit() {
                 <Form.Group className="mb-2">
                   <Form.Label>Plot</Form.Label>
                   <Form.Control
-                    type="text"
                     as="textarea"
+                    rows={1}
                     value={plot}
                     name="plot"
                     onChange={handlePlot}
