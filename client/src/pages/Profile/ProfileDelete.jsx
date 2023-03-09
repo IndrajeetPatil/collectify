@@ -12,7 +12,7 @@ function ProfileDelete() {
 
     profileService
       .deleteProfile()
-      .then((response) => navigate("/logout"))
+      .then((response) => navigate("/"))
       .catch((error) => console.log(error));
   };
 
