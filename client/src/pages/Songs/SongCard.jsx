@@ -32,7 +32,7 @@ function SongCard({ song }) {
   return (
     <MDBCol className="mb-4">
       <MDBCard style={{ width: "20rem" }}>
-        <div className="d-flex justify-content-between p-3">
+        <div className="d-flex justify-content-between align-content-center p-3">
           <p className="lead mb-0">{song.title}</p>
           <div
             className="d-flex align-items-center justify-content-center shadow-1-strong"
