@@ -77,50 +77,50 @@ function PhotoCard({ photo }) {
             </Link>
           </Container>
         </div>
+
+        <MDBModal
+          show={modal}
+          setShow={setModal}
+        >
+          <MDBModalDialog>
+            <MDBModalContent>
+              <MDBModalBody>
+                <MDBCard style={{ width: "100%" }}>
+                  <MDBCardImage
+                    src={photo.image || placeholderPhotoImg}
+                    className="mb-3"
+                    style={{ width: "100%", height: "100%" }}
+                    alt={photo.title}
+                  />
+
+                  <MDBCardBody>
+                    <div className="text-center mb-3">
+                      <h3>{photo.title}</h3>
+                      <p>
+                        by <strong>{photo.photographer}</strong>
+                        <span className="small"> ({photo.year})</span>
+                      </p>
+                    </div>
+
+                    <div className="d-flex justify-content-center mb-3">
+                      <p>{photo.description}</p>
+                    </div>
+                  </MDBCardBody>
+                </MDBCard>
+              </MDBModalBody>
+
+              <MDBModalFooter>
+                <Button
+                  onClick={() => setModal(false)}
+                  variant="secondary"
+                >
+                  Close
+                </Button>
+              </MDBModalFooter>
+            </MDBModalContent>
+          </MDBModalDialog>
+        </MDBModal>
       </MDBCol>
-
-      <MDBModal
-        show={modal}
-        setShow={setModal}
-      >
-        <MDBModalDialog>
-          <MDBModalContent>
-            <MDBModalBody>
-              <MDBCard style={{ width: "100%" }}>
-                <MDBCardImage
-                  src={photo.image || placeholderPhotoImg}
-                  className="mb-3"
-                  style={{ width: "100%", height: "100%" }}
-                  alt={photo.title}
-                />
-
-                <MDBCardBody>
-                  <div className="text-center mb-3">
-                    <h3>{photo.title}</h3>
-                    <p>
-                      by <strong>{photo.photographer}</strong>
-                      <span className="small"> ({photo.year})</span>
-                    </p>
-                  </div>
-
-                  <div className="d-flex justify-content-center mb-3">
-                    <p>{photo.description}</p>
-                  </div>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBModalBody>
-
-            <MDBModalFooter>
-              <Button
-                onClick={() => setModal(false)}
-                variant="secondary"
-              >
-                Close
-              </Button>
-            </MDBModalFooter>
-          </MDBModalContent>
-        </MDBModalDialog>
-      </MDBModal>
     </>
   );
 }
