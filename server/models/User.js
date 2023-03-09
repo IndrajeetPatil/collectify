@@ -41,7 +41,7 @@ const userSchema = new Schema(
     },
     feedbackTimestamp: {
       type: [Date],
-      default: [Date.now],
+      default: [],
       required: false,
     },
     collections: {
