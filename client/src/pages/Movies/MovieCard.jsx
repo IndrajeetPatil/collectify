@@ -36,7 +36,7 @@ function MovieCard({ movie }) {
   return (
     <Card
       className="text-center shadow"
-      style={{ width: "19rem", height: "30rem" }} // Golden ratio: 1.61
+      style={{ width: "19rem", height: "35rem" }} // Golden ratio: 1.61
     >
       <Card.Img
         variant="top"

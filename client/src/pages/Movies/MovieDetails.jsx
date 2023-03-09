@@ -59,7 +59,14 @@ function MovieDetails() {
                 <strong>Plot</strong>: {movie.plot}
               </p>
               <p>
-                <strong>URL</strong>: {movie.url}
+                <strong>URL</strong>:{" "}
+                <a
+                  href={movie.url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  {movie.url}
+                </a>
               </p>
             </Card.Body>
 
