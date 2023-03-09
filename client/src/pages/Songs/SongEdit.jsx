@@ -10,51 +10,48 @@ import { useNavigate, useParams } from "react-router-dom";
 import itemService from "../../services/api";
 import EditSubmission from "../../components/EditSubmission";
 
-function PaintingEdit() {
+function SongEdit() {
   const navigate = useNavigate();
-  const { paintingId } = useParams();
+  const { songId } = useParams();
 
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
-  const [seenOriginal, setSeenOriginal] = useState(false);
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleYear = (e) => setYear(e.target.value);
   const handleArtist = (e) => setArtist(e.target.value);
   const handleGenre = (e) => setGenre(e.target.value);
-  const handleSeenOriginal = (e) => setSeenOriginal(e.target.checked);
   const handleDescription = (e) => setDescription(e.target.value);
-  const handleImage = (e) => setImage(e.target.value);
+  const handleUrl = (e) => setUrl(e.target.value);
 
   useEffect(() => {
     itemService
-      .readItem(paintingId, "paintings")
+      .readItem(songId, "songs")
       .then((response) => {
         return response.data;
       })
-      .then((painting) => {
-        setTitle(painting.title);
-        setYear(painting.year);
-        setSeenOriginal(painting.status);
-        setArtist(painting.artist);
-        setGenre(painting.genre);
-        setDescription(painting.description);
-        setImage(painting.image);
+      .then((song) => {
+        setTitle(song.title);
+        setYear(song.year);
+        setArtist(song.artist);
+        setGenre(song.genre);
+        setDescription(song.description);
+        setUrl(song.url);
       })
       .catch((error) => console.log(error));
-  }, [paintingId]);
+  }, [songId]);
 
-  const handleCreatePaintingSubmit = (e) => {
+  const handleCreateSongSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, year, artist, genre, seenOriginal, description, image };
+    const requestBody = { title, year, artist, genre, description, url };
     itemService
-      .updateItem(paintingId, requestBody, "paintings")
-      .then((response) => navigate("/collections/paintings"))
+      .updateItem(songId, requestBody, "songs")
+      .then((response) => navigate("/collections/songs"))
       .catch((error) => console.log(error));
   };
 
@@ -75,7 +72,7 @@ function PaintingEdit() {
         >
           <Card className="mb-0 shadow">
             <Card.Body>
-              <Form onSubmit={handleCreatePaintingSubmit}>
+              <Form onSubmit={handleCreateSongSubmit}>
                 {/* title */}
                 <Form.Group className="mb-2">
                   <Form.Label>Title*</Form.Label>
@@ -126,29 +123,27 @@ function PaintingEdit() {
                     onChange={handleGenre}
                   >
                     <option></option>
-                    <option>Abstract</option>
-                    <option>Baroque</option>
-                    <option>Cubism</option>
-                    <option>Expressionism</option>
-                    <option>Impressionism</option>
-                    <option>Minimalism</option>
-                    <option>Modern</option>
-                    <option>Pop Art</option>
-                    <option>Renaissance</option>
-                    <option>Romanticism</option>
-                    <option>Surrealism</option>
+                    <option>Alternative</option>
+                    <option>Blues</option>
+                    <option>Bollywood</option>
+                    <option>Classical</option>
+                    <option>Country</option>
+                    <option>Dance</option>
+                    <option>Electronic</option>
+                    <option>Folk</option>
+                    <option>Hip Hop</option>
+                    <option>Indie</option>
+                    <option>Jazz</option>
+                    <option>Latin</option>
+                    <option>Metal</option>
+                    <option>Pop</option>
+                    <option>Punk</option>
+                    <option>R&B</option>
+                    <option>Reggae</option>
+                    <option>Rock</option>
+                    <option>Soul</option>
+                    <option>World</option>
                   </Form.Select>
-                </Form.Group>
-
-                {/* seenOriginal yet? */}
-                <Form.Group className="mb-2 d-flex flex-row justify-content-evenly">
-                  <Form.Label>Have you seen the original?</Form.Label>
-                  <Form.Check
-                    type="checkbox"
-                    name="seenOriginal"
-                    value={seenOriginal}
-                    onChange={handleSeenOriginal}
-                  />
                 </Form.Group>
 
                 {/* description */}
@@ -164,19 +159,20 @@ function PaintingEdit() {
                   />
                 </Form.Group>
 
-                {/* image */}
+                {/* url */}
                 <Form.Group className="mb-2">
-                  <Form.Label>Image URL</Form.Label>
+                  <Form.Label>URL</Form.Label>
                   <Form.Control
                     type="url"
-                    value={image}
-                    name="image"
-                    onChange={handleImage}
-                    placeholder="Enter URL for painting image"
+                    value={url}
+                    name="url"
+                    onChange={handleUrl}
+                    placeholder="Enter YouTube URL for song"
                   />
                 </Form.Group>
 
-                <EditSubmission collection="paintings" />
+                {/* submit */}
+                <EditSubmission collection="songs" />
               </Form>
             </Card.Body>
             <Card.Footer>
@@ -189,4 +185,4 @@ function PaintingEdit() {
   );
 }
 
-export default PaintingEdit;
+export default SongEdit;

@@ -44,6 +44,9 @@ import PhotoDelete from "./pages/Photos/PhotoDelete";
 import PhotoEdit from "./pages/Photos/PhotoEdit";
 
 import SongsList from "./pages/Songs/SongsList";
+import SongCreate from "./pages/Songs/SongCreate";
+import SongDelete from "./pages/Songs/SongDelete";
+import SongEdit from "./pages/Songs/SongEdit";
 
 function App() {
   return (
@@ -304,6 +307,33 @@ function App() {
           element={
             <IsPrivate>
               <SongsList />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/songs/create"
+          element={
+            <IsPrivate>
+              <SongCreate />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/songs/edit/:songId"
+          element={
+            <IsPrivate>
+              <SongEdit />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/collections/songs/delete/:songId"
+          element={
+            <IsPrivate>
+              <SongDelete />
             </IsPrivate>
           }
         />

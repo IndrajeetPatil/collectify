@@ -26,7 +26,7 @@ function BooksList() {
 
   const filterBooks = (str) => {
     const fuse = new Fuse(booksCopy, {
-      keys: ["title", "description"],
+      keys: ["title", "description", "author", "genre"],
       isCaseSensitive: false,
       ignoreLocation: true,
       threshold: 0.0,

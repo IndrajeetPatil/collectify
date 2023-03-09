@@ -21,6 +21,7 @@ const songSchema = new Schema(
       enum: [
         "Alternative",
         "Blues",
+        "Bollywood",
         "Classical",
         "Country",
         "Dance",
@@ -45,6 +46,7 @@ const songSchema = new Schema(
       type: String,
       required: false,
       trim: true,
+      default: "",
     },
     collections: [
       {
