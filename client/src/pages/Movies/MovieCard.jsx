@@ -2,6 +2,8 @@ import Card from "react-bootstrap/Card";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
+import { MDBBadge } from "mdb-react-ui-kit";
+
 import { Link } from "react-router-dom";
 
 import * as Icon from "react-bootstrap-icons";
@@ -9,7 +11,28 @@ import * as Icon from "react-bootstrap-icons";
 import placeholderPosterImg from "../../assets/images/movie-poster-placeholder.jpg";
 import Container from "react-bootstrap/esm/Container";
 
-function MovieCard(props) {
+function MovieCard({ movie }) {
+  const genreToBadgeColor = (genre) => {
+    switch (genre) {
+      case "Action":
+        return "success";
+      case "Comedy":
+        return "info";
+      case "Drama":
+        return "primary";
+      case "Horror":
+        return "warning";
+      case "Romance":
+        return "danger";
+      case "Thriller":
+        return "secondary";
+      default:
+        return "dark";
+    }
+  };
+
+  const badgeColor = genreToBadgeColor(movie.genre);
+
   return (
     <Card
       className="text-center shadow"
@@ -18,15 +41,22 @@ function MovieCard(props) {
       <Card.Img
         variant="top"
         style={{ height: "15rem" }}
-        src={props.movie.poster || placeholderPosterImg}
+        src={movie.poster || placeholderPosterImg}
         alt="Movie Poster"
       />
 
       <Card.Body>
-        <Card.Title>{props.movie.title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{props.movie.year}</Card.Subtitle>
+        <Card.Title>{movie.title}</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">{movie.year}</Card.Subtitle>
 
-        <Card.Text>{props.movie.genre}</Card.Text>
+        <p className="mb-0">
+          <MDBBadge
+            color={badgeColor}
+            pill
+          >
+            {movie.genre}
+          </MDBBadge>
+        </p>
       </Card.Body>
 
       <Card.Footer>
@@ -34,7 +64,7 @@ function MovieCard(props) {
           fluid
           className="d-flex flex-row align-content-center justify-content-around fs-5"
         >
-          <Link to={`/collections/movies/${props.movie._id}`}>
+          <Link to={`/collections/movies/${movie._id}`}>
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="tooltip-top">See more details</Tooltip>}
@@ -43,7 +73,7 @@ function MovieCard(props) {
             </OverlayTrigger>
           </Link>
 
-          <Link to={`/collections/movies/edit/${props.movie._id}`}>
+          <Link to={`/collections/movies/edit/${movie._id}`}>
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
@@ -52,7 +82,7 @@ function MovieCard(props) {
             </OverlayTrigger>
           </Link>
 
-          <Link to={`/collections/movies/delete/${props.movie._id}`}>
+          <Link to={`/collections/movies/delete/${movie._id}`}>
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip id="tooltip-top">Delete this item</Tooltip>}
