@@ -40,6 +40,7 @@ function PhotoCard({ photo }) {
           <Container
             fluid
             className="d-flex flex-row align-content-center justify-content-around fs-5"
+            style={{ width: "20rem" }}
           >
             <Button
               variant="outline-primary"
