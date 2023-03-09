@@ -37,7 +37,7 @@ function PhotoEdit() {
         setYear(photo.year);
         setPhotographer(photo.photographer);
         setDescription(photo.description);
-        setImage(photo.cover);
+        setImage(photo.image);
       })
       .catch((error) => console.log(error));
   }, [photoId]);
