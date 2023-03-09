@@ -42,9 +42,14 @@ const songSchema = new Schema(
       ],
       required: false,
     },
-    url: {
+    description: {
       type: String,
       required: false,
+      trim: true,
+    },
+    url: {
+      type: String,
+      required: true,
       trim: true,
       default: "",
     },

@@ -20,6 +20,7 @@ function PaintingDelete() {
 
   return (
     <DeleteConfirmationModal
+      itemType="painting"
       handleCancel={handleCancel}
       handleDelete={handleDelete}
     />

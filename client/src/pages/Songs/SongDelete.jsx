@@ -20,6 +20,7 @@ function SongDelete() {
 
   return (
     <DeleteConfirmationModal
+      itemType="song"
       handleCancel={handleCancel}
       handleDelete={handleDelete}
     />

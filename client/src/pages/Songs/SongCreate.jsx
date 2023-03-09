@@ -8,6 +8,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import itemService from "../../services/api";
 
+import watchToEmbedURL from "../../utils/watchToEmbedURL";
+
 import CreateSubmission from "../../components/CreateSubmission";
 
 function SongCreate() {
@@ -36,7 +38,7 @@ function SongCreate() {
       artist,
       genre,
       description,
-      url,
+      url: watchToEmbedURL(url),
     };
     itemService
       .createItem(requestBody, "songs")
@@ -156,6 +158,7 @@ function SongCreate() {
                     value={url}
                     name="url"
                     onChange={handleUrl}
+                    required
                     placeholder="Enter YouTube URL for song"
                   />
                 </Form.Group>

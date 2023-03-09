@@ -20,6 +20,7 @@ function PlaceDelete() {
 
   return (
     <DeleteConfirmationModal
+      itemType="place"
       handleCancel={handleCancel}
       handleDelete={handleDelete}
     />

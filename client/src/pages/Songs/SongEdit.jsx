@@ -7,6 +7,8 @@ import Col from "react-bootstrap/esm/Col";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import watchToEmbedURL from "../../utils/watchToEmbedURL";
+
 import itemService from "../../services/api";
 import EditSubmission from "../../components/EditSubmission";
 
@@ -48,7 +50,7 @@ function SongEdit() {
   const handleCreateSongSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, year, artist, genre, description, url };
+    const requestBody = { title, year, artist, genre, description, url: watchToEmbedURL(url) };
     itemService
       .updateItem(songId, requestBody, "songs")
       .then((response) => navigate("/collections/songs"))
@@ -167,6 +169,7 @@ function SongEdit() {
                     value={url}
                     name="url"
                     onChange={handleUrl}
+                    required
                     placeholder="Enter YouTube URL for song"
                   />
                 </Form.Group>

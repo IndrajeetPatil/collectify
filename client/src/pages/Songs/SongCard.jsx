@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCol, MDBCard, MDBCardBody, MDBCardImage, MDBBadge } from "mdb-react-ui-kit";
+import { MDBCol, MDBCard, MDBCardBody, MDBBadge } from "mdb-react-ui-kit";
 
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
@@ -18,17 +18,17 @@ function SongCard({ song }) {
             style={{ width: "35px", height: "35px" }}
           >
             <p className="fs-2 mb-0">
-              {song.seenOriginal ? (
+              {song.ownAlbum ? (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip id="tooltip-top">I've seen the original song!</Tooltip>}
+                  overlay={<Tooltip id="tooltip-top">I own this album!</Tooltip>}
                 >
                   <Icon.BookmarkCheck />
                 </OverlayTrigger>
               ) : (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip id="tooltip-top">I'm yet to see the original song!</Tooltip>}
+                  overlay={<Tooltip id="tooltip-top">I'd like to own this album!</Tooltip>}
                 >
                   <Icon.BookmarkX />
                 </OverlayTrigger>
@@ -37,11 +37,13 @@ function SongCard({ song }) {
           </div>
         </div>
 
-        <MDBCardImage
-          src={song.image}
-          position="top"
-          alt="Song"
-        />
+        <div className="ratio ratio-16x9">
+          <iframe
+            src={song.url}
+            title="YouTube video"
+            allowfullscreen
+          ></iframe>
+        </div>
 
         <MDBCardBody>
           <div className="d-flex justify-content-between">

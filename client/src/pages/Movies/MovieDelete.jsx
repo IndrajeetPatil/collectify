@@ -20,6 +20,7 @@ function MovieDelete() {
 
   return (
     <DeleteConfirmationModal
+      itemType="movie"
       handleCancel={handleCancel}
       handleDelete={handleDelete}
     />

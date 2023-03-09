@@ -20,6 +20,7 @@ function PhotoDelete() {
 
   return (
     <DeleteConfirmationModal
+      itemType="photo"
       handleCancel={handleCancel}
       handleDelete={handleDelete}
     />
