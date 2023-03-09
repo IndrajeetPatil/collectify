@@ -68,7 +68,9 @@ function SongCard({ song }) {
 
         <MDBCardBody>
           <div className="d-flex justify-content-between">
-            <p>{song.artist}</p>
+            <p>
+              <strong>{song.artist}</strong>
+            </p>
             <p className="small text-muted">{song.year}</p>
           </div>
 
