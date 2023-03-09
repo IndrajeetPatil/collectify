@@ -28,7 +28,7 @@ function PaintingsList() {
 
   const filterPaintings = (str) => {
     const fuse = new Fuse(paintingsCopy, {
-      keys: ["title", "description"],
+      keys: ["title", "description", "artist"],
       isCaseSensitive: false,
       ignoreLocation: true,
       threshold: 0.0,

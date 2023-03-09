@@ -28,7 +28,7 @@ function PhotosList() {
 
   const filterPhotos = (str) => {
     const fuse = new Fuse(photosCopy, {
-      keys: ["title", "description"],
+      keys: ["title", "description", "photographer"],
       isCaseSensitive: false,
       ignoreLocation: true,
       threshold: 0.0,
