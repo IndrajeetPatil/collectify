@@ -10,6 +10,27 @@ import * as Icon from "react-bootstrap-icons";
 import placeholderPosterImg from "../../assets/images/painting-placeholder.jpeg";
 
 function PaintingCard({ painting }) {
+  const genreToBadgeColor = (genre) => {
+    switch (genre) {
+      case "Impressionism":
+        return "success";
+      case "Cubism":
+        return "info";
+      case "Surrealism":
+        return "primary";
+      case "Abstract":
+        return "warning";
+      case "Expressionism":
+        return "danger";
+      case "Realism":
+        return "secondary";
+      default:
+        return "dark";
+    }
+  };
+
+  const badgeColor = genreToBadgeColor(painting.genre);
+
   return (
     <MDBCol className="mb-4">
       <MDBCard style={{ width: "20rem" }}>
@@ -58,7 +79,7 @@ function PaintingCard({ painting }) {
           <div className="d-flex justify-content-between mb-2">
             <p className="mb-0">
               <MDBBadge
-                color={"success"}
+                color={badgeColor}
                 pill
               >
                 {painting.genre}

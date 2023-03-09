@@ -8,6 +8,27 @@ import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
 
 function SongCard({ song }) {
+  function genreToBadgeColor(genre) {
+    switch (genre) {
+      case "Bollywood":
+        return "success";
+      case "Pop":
+        return "info";
+      case "R&B":
+        return "primary";
+      case "Hip Hop":
+        return "warning";
+      case "Country":
+        return "danger";
+      case "Jazz":
+        return "secondary";
+      default:
+        return "dark";
+    }
+  }
+
+  const badgeColor = genreToBadgeColor(song.genre);
+
   return (
     <MDBCol className="mb-4">
       <MDBCard style={{ width: "20rem" }}>
@@ -58,7 +79,7 @@ function SongCard({ song }) {
           <div className="d-flex justify-content-between mb-2">
             <p className="mb-0">
               <MDBBadge
-                color={"success"}
+                color={badgeColor}
                 pill
               >
                 {song.genre}
