@@ -20,6 +20,7 @@ function SongEdit() {
   const [year, setYear] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
+  const [ownAlbum, setOwnAlbum] = useState(false);
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
 
@@ -27,6 +28,7 @@ function SongEdit() {
   const handleYear = (e) => setYear(e.target.value);
   const handleArtist = (e) => setArtist(e.target.value);
   const handleGenre = (e) => setGenre(e.target.value);
+  const handleOwnAlbum = (e) => setOwnAlbum(e.target.checked);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleUrl = (e) => setUrl(e.target.value);
 
@@ -41,6 +43,7 @@ function SongEdit() {
         setYear(song.year);
         setArtist(song.artist);
         setGenre(song.genre);
+        setOwnAlbum(song.ownAlbum);
         setDescription(song.description);
         setUrl(song.url);
       })
@@ -50,7 +53,7 @@ function SongEdit() {
   const handleCreateSongSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, year, artist, genre, description, url: watchToEmbedURL(url) };
+    const requestBody = { title, year, artist, genre, ownAlbum, description, url: watchToEmbedURL(url) };
     itemService
       .updateItem(songId, requestBody, "songs")
       .then((response) => navigate("/collections/songs"))
@@ -146,6 +149,16 @@ function SongEdit() {
                     <option>Soul</option>
                     <option>World</option>
                   </Form.Select>
+                </Form.Group>
+
+                {/* ownAlbum */}
+                <Form.Group className="mb-2">
+                  <Form.Label>Do you own this album?</Form.Label>
+                  <Form.Check
+                    value={ownAlbum}
+                    name="ownAlbum"
+                    onChange={handleOwnAlbum}
+                  />
                 </Form.Group>
 
                 {/* description */}

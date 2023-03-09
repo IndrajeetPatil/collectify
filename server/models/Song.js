@@ -42,6 +42,11 @@ const songSchema = new Schema(
       ],
       required: false,
     },
+    ownAlbum: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     description: {
       type: String,
       required: false,

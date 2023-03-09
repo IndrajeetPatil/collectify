@@ -19,6 +19,7 @@ function SongCreate() {
   const [year, setYear] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
+  const [ownAlbum, setOwnAlbum] = useState(false);
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
 
@@ -26,6 +27,7 @@ function SongCreate() {
   const handleYear = (e) => setYear(e.target.value);
   const handleArtist = (e) => setArtist(e.target.value);
   const handleGenre = (e) => setGenre(e.target.value);
+  const handleOwnAlbum = (e) => setOwnAlbum(e.target.checked);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleUrl = (e) => setUrl(e.target.value);
 
@@ -37,6 +39,7 @@ function SongCreate() {
       year,
       artist,
       genre,
+      ownAlbum,
       description,
       url: watchToEmbedURL(url),
     };
@@ -135,6 +138,16 @@ function SongCreate() {
                     <option>Soul</option>
                     <option>World</option>
                   </Form.Select>
+                </Form.Group>
+
+                {/* ownAlbum */}
+                <Form.Group className="mb-2">
+                  <Form.Label>Do you own this album?</Form.Label>
+                  <Form.Check
+                    value={ownAlbum}
+                    name="ownAlbum"
+                    onChange={handleOwnAlbum}
+                  />
                 </Form.Group>
 
                 {/* description */}

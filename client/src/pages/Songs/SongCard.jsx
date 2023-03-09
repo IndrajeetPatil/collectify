@@ -23,14 +23,14 @@ function SongCard({ song }) {
                   placement="top"
                   overlay={<Tooltip id="tooltip-top">I own this album!</Tooltip>}
                 >
-                  <Icon.BookmarkCheck />
+                  <Icon.DiscFill />
                 </OverlayTrigger>
               ) : (
                 <OverlayTrigger
                   placement="top"
                   overlay={<Tooltip id="tooltip-top">I'd like to own this album!</Tooltip>}
                 >
-                  <Icon.BookmarkX />
+                  <Icon.BagHeartFill />
                 </OverlayTrigger>
               )}
             </p>
@@ -41,7 +41,7 @@ function SongCard({ song }) {
           <iframe
             src={song.url}
             title="YouTube video"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
 
