@@ -36,11 +36,11 @@ function MovieCard({ movie }) {
   return (
     <Card
       className="text-center shadow"
-      style={{ width: "19rem", height: "25rem" }} // Golden ratio: 1.61
+      style={{ width: "19rem", height: "30rem" }} // Golden ratio: 1.61
     >
       <Card.Img
         variant="top"
-        style={{ height: "15rem" }}
+        style={{ height: "25rem" }}
         src={movie.poster || placeholderPosterImg}
         alt="Movie Poster"
       />
