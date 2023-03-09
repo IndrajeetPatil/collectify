@@ -117,7 +117,7 @@ function MovieCreate() {
                 <Form.Group className="mb-2">
                   <Form.Label>Director(s)</Form.Label>
                   <Form.Control
-                    as="text"
+                    type="text"
                     value={director}
                     name="director"
                     onChange={handleDirector}
