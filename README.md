@@ -1,6 +1,6 @@
 # Collectify: Collect your favourite things in one place
 
-[![Build Status](https://travis-ci.org/collectify/collectify.svg?branch=master)](https://travis-ci.org/collectify/collectify)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5bcbb35d-6966-4c5f-b48e-a8b9723b7a42/deploy-status)](https://app.netlify.com/sites/collectify-app/deploys)
 
 ## What is Collectify?
 
