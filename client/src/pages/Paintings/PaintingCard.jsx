@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCol, MDBCard, MDBCardBody, MDBCardImage } from "mdb-react-ui-kit";
+import { MDBCol, MDBCard, MDBCardBody, MDBCardImage, MDBBadge } from "mdb-react-ui-kit";
 
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
@@ -48,7 +48,7 @@ function PaintingCard({ painting }) {
         <MDBCardBody>
           <div className="d-flex justify-content-between">
             <p>{painting.artist}</p>
-            <p className="small text-danger">{painting.year}</p>
+            <p className="small text-muted">{painting.year}</p>
           </div>
 
           <div className="d-flex justify-content-center mb-3">
@@ -56,7 +56,14 @@ function PaintingCard({ painting }) {
           </div>
 
           <div className="d-flex justify-content-between mb-2">
-            <p className="text-muted mb-0">{painting.genre}</p>
+            <p className="mb-0">
+              <MDBBadge
+                color={"success"}
+                pill
+              >
+                {painting.genre}
+              </MDBBadge>
+            </p>
             <div className="d-flex flex-row align-content-between">
               <Link to={`/collections/paintings/edit/${painting._id}`}>
                 <OverlayTrigger
