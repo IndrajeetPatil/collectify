@@ -70,7 +70,6 @@ function SongsList() {
         category="Music"
         quote="Where words fail, music speaks."
         quoteAuthor="Hans Christian Andersen"
-        searchbarPlaceholder="Search by song title"
         searchHandler={handleSearch}
       ></CollectionContainer>
 

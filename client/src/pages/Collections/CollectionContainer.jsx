@@ -65,7 +65,7 @@ function CollectionContainer(props) {
           >
             <Form.Control
               type="search"
-              placeholder={props.searchbarPlaceholder}
+              placeholder={`Search for ${props.collection}`}
               className="me-2"
               aria-label="Search"
               onChange={props.searchHandler}

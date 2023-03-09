@@ -70,7 +70,6 @@ function PaintingsList() {
         category="Art"
         quote="Painting is just another way of keeping a diary."
         quoteAuthor="Pablo Picasso"
-        searchbarPlaceholder="Search by painting title"
         searchHandler={handleSearch}
       ></CollectionContainer>
 

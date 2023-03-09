@@ -57,7 +57,6 @@ function MoviesList() {
       category="Cinema"
       quote="Filmmaking is a chance to live many lifetimes."
       quoteAuthor="Robert Altman"
-      searchbarPlaceholder="Search by movie title"
       searchHandler={handleSearch}
       collectionItems={collectionItems}
     ></CollectionContainer>

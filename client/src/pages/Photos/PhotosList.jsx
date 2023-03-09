@@ -70,7 +70,6 @@ function PhotosList() {
         category="Photography"
         quote="Photography is a love affair with life."
         quoteAuthor="Burk Uzzle"
-        searchbarPlaceholder="Search by photo title"
         searchHandler={handleSearch}
       ></CollectionContainer>
 

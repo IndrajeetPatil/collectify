@@ -76,7 +76,6 @@ function BooksList() {
         category="Reading"
         quote="Books are a uniquely portable magic."
         quoteAuthor="Stephen King"
-        searchbarPlaceholder="Search by book title or description"
         searchHandler={handleSearch}
       ></CollectionContainer>
 

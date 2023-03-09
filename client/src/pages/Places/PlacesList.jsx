@@ -58,7 +58,6 @@ function PlacesList() {
       category="Travel"
       quote="Not all those who wander are lost."
       quoteAuthor="J.R.R. Tolkien"
-      searchbarPlaceholder="Search by place name or description"
       searchHandler={handleSearch}
       collectionItems={collectionItems}
     ></CollectionContainer>
