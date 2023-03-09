@@ -26,7 +26,7 @@ function MoviesList() {
 
   const filterMovies = (str) => {
     const fuse = new Fuse(moviesCopy, {
-      keys: ["title"],
+      keys: ["title", "plot", "director"],
       isCaseSensitive: false,
       ignoreLocation: true,
       threshold: 0.0,
