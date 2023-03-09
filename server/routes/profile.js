@@ -50,7 +50,17 @@ router.delete("/profile", (req, res) => {
 router.post("/profile/feedback", (req, res) => {
   const userId = req.payload._id;
 
-  User.findOneAndUpdate({ _id: userId }, { ...req.body }, { new: true })
+  User.findOneAndUpdate(
+    { _id: userId },
+    {
+      $push: {
+        feedbackRating: req.body.feedbackRating,
+        feedbackText: req.body.feedbackText,
+        feedbackTimestamp: req.body.feedbackTimestamp,
+      },
+    },
+    { new: true },
+  )
     .then((updatedUser) => res.json(updatedUser))
     .catch((err) => res.status(404).json({ success: false }));
 });

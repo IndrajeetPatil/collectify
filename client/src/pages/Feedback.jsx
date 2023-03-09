@@ -6,12 +6,11 @@ import {
   MDBCol,
   MDBContainer,
   MDBIcon,
-  MDBRadio,
   MDBRow,
   MDBTextArea,
 } from "mdb-react-ui-kit";
 
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +29,8 @@ function Feedback() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { feedbackRating, feedbackText };
+    const feedbackTimestamp = new Date().toISOString();
+    const requestBody = { feedbackRating, feedbackText, feedbackTimestamp };
     profileService
       .uploadFeedback(requestBody)
       .then((response) => navigate("/profile"))
@@ -65,54 +65,29 @@ function Feedback() {
 
               <hr />
 
-              <form
+              <Form
                 className="px-4"
                 action=""
               >
-                <p className="text-center">
-                  <strong>Your rating:</strong>
-                </p>
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  label="Very good"
-                  value={feedbackRating}
-                  onChange={handleFeedbackRating}
-                  className="mb-2"
-                  defaultChecked
-                />
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault2"
-                  label="Good"
-                  value={feedbackRating}
-                  onChange={handleFeedbackRating}
-                  className="mb-2"
-                />
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault3"
-                  label="Medicore"
-                  value={feedbackRating}
-                  onChange={handleFeedbackRating}
-                  className="mb-2"
-                />
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault4"
-                  label="Bad"
-                  value={feedbackRating}
-                  onChange={handleFeedbackRating}
-                  className="mb-2"
-                />
-                <MDBRadio
-                  name="flexRadioDefault"
-                  id="flexRadioDefault5"
-                  label="Very bad"
-                  value={feedbackRating}
-                  onChange={handleFeedbackRating}
-                  className="mb-2"
-                />
+                <Form.Group className="mb-2 text-center">
+                  <Form.Label className="mb-3">
+                    <strong>Your rating</strong>
+                  </Form.Label>
+
+                  <Form.Select
+                    value={feedbackRating}
+                    name="rating"
+                    required
+                    onChange={handleFeedbackRating}
+                  >
+                    <option></option>
+                    <option>Very good</option>
+                    <option>Good</option>
+                    <option>Mediocre</option>
+                    <option>Bad</option>
+                    <option>Very bad</option>
+                  </Form.Select>
+                </Form.Group>
 
                 <p className="text-center mt-3">
                   <strong>What could we improve?</strong>
@@ -126,7 +101,7 @@ function Feedback() {
                   value={feedbackText}
                   onChange={handleFeedbackText}
                 />
-              </form>
+              </Form>
             </MDBCardBody>
 
             <MDBCardFooter>

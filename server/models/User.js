@@ -39,6 +39,11 @@ const userSchema = new Schema(
       default: [],
       required: false,
     },
+    feedbackTimestamp: {
+      type: [Date],
+      default: [Date.now],
+      required: false,
+    },
     collections: {
       type: Schema.Types.ObjectId,
       ref: "Collection",
