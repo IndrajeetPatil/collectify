@@ -28,7 +28,13 @@ const userSchema = new Schema(
       default: "",
       required: false,
     },
-    feedback: {
+    feedbackRating: {
+      type: [String],
+      enum: ["Very Bad", "Bad", "Medicore", "Good", "Very Good"],
+      default: [],
+      required: false,
+    },
+    feedbackText: {
       type: [String],
       default: [],
       required: false,

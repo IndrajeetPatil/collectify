@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  MDBBtn,
   MDBCard,
   MDBCardBody,
   MDBCardFooter,
@@ -12,7 +11,32 @@ import {
   MDBTextArea,
 } from "mdb-react-ui-kit";
 
+import { Button } from "react-bootstrap";
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import profileService from "../services/profile";
+
 function Feedback() {
+  const navigate = useNavigate();
+
+  const [feedbackRating, setFeedbackRating] = useState("");
+  const [feedbackText, setFeedbackText] = useState("");
+
+  const handleFeedbackRating = (e) => setFeedbackRating(e.target.value);
+  const handleFeedbackText = (e) => setFeedbackText(e.target.value);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const requestBody = { feedbackRating, feedbackText };
+    profileService
+      .uploadFeedback(requestBody)
+      .then((response) => navigate("/profile"))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <MDBContainer>
       <MDBRow className="justify-content-center mb-5 mt-5">
@@ -52,6 +76,8 @@ function Feedback() {
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
                   label="Very good"
+                  value={feedbackRating}
+                  onChange={handleFeedbackRating}
                   className="mb-2"
                   defaultChecked
                 />
@@ -59,24 +85,32 @@ function Feedback() {
                   name="flexRadioDefault"
                   id="flexRadioDefault2"
                   label="Good"
+                  value={feedbackRating}
+                  onChange={handleFeedbackRating}
                   className="mb-2"
                 />
                 <MDBRadio
                   name="flexRadioDefault"
                   id="flexRadioDefault3"
                   label="Medicore"
+                  value={feedbackRating}
+                  onChange={handleFeedbackRating}
                   className="mb-2"
                 />
                 <MDBRadio
                   name="flexRadioDefault"
                   id="flexRadioDefault4"
                   label="Bad"
+                  value={feedbackRating}
+                  onChange={handleFeedbackRating}
                   className="mb-2"
                 />
                 <MDBRadio
                   name="flexRadioDefault"
                   id="flexRadioDefault5"
                   label="Very bad"
+                  value={feedbackRating}
+                  onChange={handleFeedbackRating}
                   className="mb-2"
                 />
 
@@ -88,12 +122,16 @@ function Feedback() {
                   className="mb-4"
                   id="textAreaExample"
                   rows={4}
+                  placeholder="Your feedback"
+                  value={feedbackText}
+                  onChange={handleFeedbackText}
                 />
               </form>
             </MDBCardBody>
+
             <MDBCardFooter>
               <div className="text-center">
-                <MDBBtn>Submit</MDBBtn>
+                <Button onClick={handleSubmit}>Submit</Button>
               </div>
             </MDBCardFooter>
           </MDBCard>

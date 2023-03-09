@@ -44,6 +44,17 @@ router.delete("/profile", (req, res) => {
     .catch((err) => res.status(404).json({ success: false }));
 });
 
+// @route   POST api/profile/feedback
+// @desc    Add feedback to current profile
+// @access  Public
+router.post("/profile/feedback", (req, res) => {
+  const userId = req.payload._id;
+
+  User.findOneAndUpdate({ _id: userId }, { ...req.body }, { new: true })
+    .then((updatedUser) => res.json(updatedUser))
+    .catch((err) => res.status(404).json({ success: false }));
+});
+
 router.post("/upload", uploader.single("image"), (req, res, next) => {
   if (!req.file) {
     return next(new Error("No file uploaded!"));

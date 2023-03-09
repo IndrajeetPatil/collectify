@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
 
+import capitalizeFirstLetter from "../utils/capitalizeFirstLetter";
 import profileService from "../services/profile";
 import placeholderAvatar from "../assets/images/profile-avatar-placeholder.png";
 
@@ -103,7 +104,9 @@ function ProfilePage() {
                         className="mb-3"
                       >
                         <MDBTypography tag="h6">Sex</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.sex}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                          {profile.sex && capitalizeFirstLetter(profile.sex)}
+                        </MDBCardText>
                       </MDBCol>
                     </MDBRow>
 

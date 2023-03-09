@@ -9,23 +9,23 @@ import * as Icon from "react-bootstrap-icons";
 
 import Tooltip from "react-bootstrap/Tooltip";
 
-function PlaceCard(props) {
+function PlaceCard({ place }) {
   const defaultProps = {
     center: {
-      lat: props.place.latitude,
-      lng: props.place.longitude,
+      lat: place.latitude,
+      lng: place.longitude,
     },
     zoom: 11,
   };
 
   const renderMarkers = (map, maps) => {
     let marker = new maps.Marker({
-      position: { lat: props.place.latitude, lng: props.place.longitude },
+      position: { lat: place.latitude, lng: place.longitude },
       map,
       draggable: false,
       animation: maps.Animation.DROP,
-      background: props.place.visited ? "green" : "red",
-      text: props.place.visited ? "I have visited this place!" : "I would love to visit this place!",
+      background: place.visited ? "green" : "red",
+      text: place.visited ? "I have visited this place!" : "I would love to visit this place!",
     });
 
     return marker;
@@ -37,7 +37,7 @@ function PlaceCard(props) {
       className="shadow"
     >
       <Accordion.Item eventKey="0">
-        <Accordion.Header>{props.place.name}</Accordion.Header>
+        <Accordion.Header>{place.name}</Accordion.Header>
         <Accordion.Body>
           <div
             className="mb-3"
@@ -52,16 +52,16 @@ function PlaceCard(props) {
             ></GoogleMapReact>
           </div>
 
-          {props.place.description && (
+          {place.description && (
             <div className="p-1 rounded">
-              <p>{props.place.description}</p>
+              <p>{place.description}</p>
             </div>
           )}
 
-          {props.place.image && (
+          {place.image && (
             <div className="d-flex row justify-content-center align-content-center mb-3">
               <img
-                src={props.place.image}
+                src={place.image}
                 alt="A memory from this place"
               />
             </div>
@@ -71,7 +71,7 @@ function PlaceCard(props) {
             fluid
             className="d-flex flex-row align-content-center justify-content-end fs-5"
           >
-            <Link to={`/collections/places/edit/${props.place._id}`}>
+            <Link to={`/collections/places/edit/${place._id}`}>
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
@@ -83,7 +83,7 @@ function PlaceCard(props) {
               </OverlayTrigger>
             </Link>
 
-            <Link to={`/collections/places/delete/${props.place._id}`}>
+            <Link to={`/collections/places/delete/${place._id}`}>
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip id="tooltip-top">Delete this item</Tooltip>}

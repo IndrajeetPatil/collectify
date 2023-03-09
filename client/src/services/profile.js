@@ -5,6 +5,7 @@ class ProfileService extends Service {
   readProfile = () => this.api.get("/api/profile");
   updateProfile = (profile) => this.api.put("/api/profile", profile);
   deleteProfile = () => this.api.delete("/api/profile");
+  uploadFeedback = (feedback) => this.api.post("/api/profile/feedback", feedback);
   uploadImage = (image) => this.api.post("/api/upload", image);
 }
 
