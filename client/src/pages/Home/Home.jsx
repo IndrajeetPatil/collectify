@@ -15,13 +15,12 @@ function HomePage() {
   return (
     <Container
       fluid
-      className="text-center d-flex flex-column"
-      style={{ width: "100vw", height: "90vh" }}
+      style={{ width: "100vw" }}
+      className="d-flex flex-column justify-content-center align-items-center"
     >
-      {/* FIXME: mt-5 here vertically de-aligns this content, but removing it causes problems for the mobile view  */}
-      <Row className="mt-auto mb-auto">
+      <Row className="text-center mt-5">
         <Col
-          className="mt-auto mb-auto"
+          className="mt-5 mb-5 d-flex flex-column justify-content-center align-items-center"
           sm={4}
         >
           <h1>About Collectify</h1>
@@ -38,7 +37,10 @@ function HomePage() {
           )}
         </Col>
 
-        <Col sm={8}>
+        <Col
+          className="mt-5 mb-5"
+          sm={8}
+        >
           <HomeCarousel />
         </Col>
       </Row>
