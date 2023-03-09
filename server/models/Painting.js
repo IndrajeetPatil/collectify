@@ -36,6 +36,7 @@ const paintingSchema = new Schema(
         "Renaissance",
         "Romanticism",
         "Surrealism",
+        "Other",
       ],
       required: false,
     },

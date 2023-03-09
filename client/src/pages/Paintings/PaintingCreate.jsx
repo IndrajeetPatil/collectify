@@ -126,6 +126,7 @@ function PaintingCreate() {
                     <option>Renaissance</option>
                     <option>Romanticism</option>
                     <option>Surrealism</option>
+                    <option>Other</option>
                   </Form.Select>
                 </Form.Group>
 
