@@ -126,7 +126,7 @@ function BookEdit() {
                     <option>Adventure</option>
                     <option>Animation</option>
                     <option>Comedy</option>
-                    <option>Documentary</option>
+                    <option>Non-Fiction</option>
                     <option>Drama</option>
                     <option>Fantasy</option>
                     <option>Horror</option>

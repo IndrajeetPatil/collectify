@@ -24,7 +24,7 @@ const bookSchema = new Schema(
         "Adventure",
         "Animation",
         "Comedy",
-        "Documentary",
+        "Non-Fiction",
         "Drama",
         "Fantasy",
         "Horror",
