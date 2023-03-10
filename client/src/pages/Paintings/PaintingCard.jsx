@@ -68,7 +68,9 @@ function PaintingCard({ painting }) {
 
         <MDBCardBody>
           <div className="d-flex justify-content-between">
-            <p>{painting.artist}</p>
+            <p>
+              <strong>{painting.artist}</strong>
+            </p>
             <p className="small text-muted">{painting.year}</p>
           </div>
 
