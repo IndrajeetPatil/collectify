@@ -11,7 +11,6 @@ import ProfileEdit from "./pages/Profile/ProfileEdit";
 import ProfileDelete from "./pages/Profile/ProfileDelete";
 import ProfileFeedback from "./pages/Profile/ProfileFeedback";
 
-// import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
@@ -58,10 +57,7 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route
-          path="/"
-          element={<HomePage />}
-        />
+        <Route path="/" element={<HomePage />} />
 
         {/* Protected routes: profile */}
         <Route
