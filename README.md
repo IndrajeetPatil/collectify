@@ -10,34 +10,40 @@ Collectify is a platform for individuals to create a personalized collection of 
 
 ### Prerequisites
 
-* [Node.js](https://nodejs.org/en/) (v6.9.1 or higher)
-* [MongoDB](https://www.mongodb.com/) (v3.2.10 or higher)
+- [Node.js](https://nodejs.org/en/) (v6.9.1 or higher)
+- [MongoDB](https://www.mongodb.com/) (v3.2.10 or higher)
 
 ### Installation
 
 1. Clone the repository:
 
-    ```bash
-    git clone
-    ```
+   ```bash
+   git clone
+   ```
 
 2. Install dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-3. Run the application:
+3. To update to the latest package versions:
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm update
+   ```
 
-4. Open the application in your browser:
+4. Run the application:
 
-    ```bash
-    http://localhost:3000
-    ```
+   ```bash
+   npm start
+   ```
+
+5. Open the application in your browser:
+
+   ```bash
+   http://localhost:3000
+   ```
 
 <!-- 5. Run tests:
 
