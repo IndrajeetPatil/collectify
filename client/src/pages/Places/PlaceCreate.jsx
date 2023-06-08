@@ -18,6 +18,8 @@ function PlaceCreate() {
   const [visited, setVisited] = useState(false);
   const [image, setImage] = useState("");
   const [imageName, setImageName] = useState("");
+  // wait for cloudinary to upload image before enabling submit button
+  const [imageUploaded, setImageUploaded] = useState(false);
 
   const navigate = useNavigate();
 
@@ -34,6 +36,7 @@ function PlaceCreate() {
     itemService
       .uploadImage(uploadData)
       .then((response) => {
+        setImageUploaded(true);
         setImage(response.data.fileUrl);
         setImageName(response.data.fileName);
       })
@@ -46,8 +49,8 @@ function PlaceCreate() {
     const requestBody = {
       name,
       location,
-      latitude: location.geometry.location.lat(),
-      longitude: location.geometry.location.lng(),
+      latitude: location?.geometry?.location?.lat(),
+      longitude: location?.geometry?.location?.lng(),
       visited,
       description,
       image,
@@ -59,20 +62,12 @@ function PlaceCreate() {
   };
 
   return (
-    <Container
-      fluid
-      className="mt-5"
-    >
+    <Container fluid className="mt-5">
       <Row
         className="text-center justify-content-center align-content-center"
         style={{ width: "100vw", height: "80vh" }}
       >
-        <Col
-          xs={12}
-          sm={8}
-          md={6}
-          lg={4}
-        >
+        <Col xs={12} sm={8} md={6} lg={4}>
           <Card className="mb-0 shadow">
             <Card.Body>
               <Form onSubmit={handleCreatePlaceSubmit}>
@@ -91,14 +86,15 @@ function PlaceCreate() {
 
                 {/* location */}
                 <Form.Group className="mb-3">
-                  <Form.Label>Location*</Form.Label>
+                  <Form.Label>Location</Form.Label>
                   <Autocomplete
                     apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
                     style={{ width: "100%" }}
                     className="form-control pac-target-input"
                     placeholder="Enter location"
                     name="location"
-                    required
+                    // TODO: turn it on once Google API key is working; need to pay for it
+                    // required
                     onPlaceSelected={handleLocation}
                   />
                 </Form.Group>
@@ -139,7 +135,10 @@ function PlaceCreate() {
                 </Form.Group>
 
                 {/* submit */}
-                <CreateSubmission collection="places" />
+                <CreateSubmission
+                  imageUploaded={imageUploaded}
+                  collection="places"
+                />
               </Form>
             </Card.Body>
 

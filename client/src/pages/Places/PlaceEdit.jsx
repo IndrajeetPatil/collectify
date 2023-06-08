@@ -64,8 +64,8 @@ function PlaceEdit() {
     const requestBody = {
       name,
       location,
-      latitude: location.geometry.location.lat(),
-      longitude: location.geometry.location.lng(),
+      latitude: location?.geometry?.location?.lat(),
+      longitude: location?.geometry?.location?.lng(),
       visited,
       description,
       image,
@@ -77,20 +77,12 @@ function PlaceEdit() {
   };
 
   return (
-    <Container
-      fluid
-      className="mt-5"
-    >
+    <Container fluid className="mt-5">
       <Row
         className="text-center justify-content-center align-content-center"
         style={{ width: "100vw", height: "80vh" }}
       >
-        <Col
-          xs={12}
-          sm={8}
-          md={6}
-          lg={4}
-        >
+        <Col xs={12} sm={8} md={6} lg={4}>
           <Card className="mb-0 shadow">
             <Card.Body>
               <Form onSubmit={handleCreatePlaceSubmit}>
@@ -108,7 +100,7 @@ function PlaceEdit() {
 
                 {/* location */}
                 <Form.Group className="mb-3">
-                  <Form.Label>Location*</Form.Label>
+                  <Form.Label>Location</Form.Label>
                   <Autocomplete
                     apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
                     style={{ width: "100%" }}
