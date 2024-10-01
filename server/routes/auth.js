@@ -15,8 +15,15 @@ router.post("/signup", (req, res, next) => {
 
   // Although these fields are required in the HTML form, we still need to check here
   // in case the user manipulates the HTML and removes the required attribute
-  if (email === "" || password === "" || name === "") {
-    return res.status(400).json({ message: "Provide email, password and name" });
+  const isEmailEmpty = email === "";
+  const isPasswordEmpty = password === "";
+  const isNameEmpty = name === "";
+  const isAnyCredentialEmpty = isEmailEmpty || isPasswordEmpty || isNameEmpty;
+
+  if (isAnyCredentialEmpty) {
+    return res
+      .status(400)
+      .json({ message: "Provide email, password and name" });
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -71,7 +78,10 @@ router.post("/login", (req, res, next) => {
         return res.status(401).json({ message: "User not found." });
       }
 
-      const isPasswordCorrect = bcrypt.compareSync(password, foundUser.password);
+      const isPasswordCorrect = bcrypt.compareSync(
+        password,
+        foundUser.password,
+      );
 
       if (isPasswordCorrect) {
         const { _id, email, name } = foundUser;

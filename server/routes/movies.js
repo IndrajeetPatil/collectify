@@ -24,15 +24,17 @@ router.post("/collections/movies", (req, res) => {
 
   Movie.create({ ...req.body })
     .then((newMovie) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $push: { movies: newMovie._id } }, { new: true }).then(
-        (updatedCollection) => {
-          return Movie.findOneAndUpdate(
-            { _id: newMovie._id },
-            { $push: { collections: updatedCollection._id } },
-            { new: true },
-          );
-        },
-      );
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $push: { movies: newMovie._id } },
+        { new: true },
+      ).then((updatedCollection) => {
+        return Movie.findOneAndUpdate(
+          { _id: newMovie._id },
+          { $push: { collections: updatedCollection._id } },
+          { new: true },
+        );
+      });
     })
     .then((updatedMovie) => res.json(updatedMovie))
     .catch((err) => res.status(400).json({ success: false }));
@@ -69,7 +71,11 @@ router.delete("/collections/movies/:id", (req, res) => {
 
   Movie.findByIdAndDelete(movieId)
     .then((deletedMovie) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $pull: { movies: movieId } }, { new: true });
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $pull: { movies: movieId } },
+        { new: true },
+      );
     })
     .then((updatedCollection) => res.json(updatedCollection))
     .catch((err) => res.status(404).json({ success: false }));

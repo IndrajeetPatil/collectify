@@ -24,15 +24,17 @@ router.post("/collections/songs", (req, res) => {
 
   Song.create({ ...req.body })
     .then((newSong) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $push: { songs: newSong._id } }, { new: true }).then(
-        (updatedCollection) => {
-          return Song.findOneAndUpdate(
-            { _id: newSong._id },
-            { $push: { collections: updatedCollection._id } },
-            { new: true },
-          );
-        },
-      );
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $push: { songs: newSong._id } },
+        { new: true },
+      ).then((updatedCollection) => {
+        return Song.findOneAndUpdate(
+          { _id: newSong._id },
+          { $push: { collections: updatedCollection._id } },
+          { new: true },
+        );
+      });
     })
     .then((updatedSong) => res.json(updatedSong))
     .catch((err) => res.status(400).json({ success: false }));
@@ -69,7 +71,11 @@ router.delete("/collections/songs/:id", (req, res) => {
 
   Song.findByIdAndDelete(songId)
     .then((deletedSong) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $pull: { songs: songId } }, { new: true });
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $pull: { songs: songId } },
+        { new: true },
+      );
     })
     .then((updatedCollection) => res.json(updatedCollection))
     .catch((err) => res.status(404).json({ success: false }));

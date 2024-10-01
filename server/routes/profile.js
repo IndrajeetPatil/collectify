@@ -37,9 +37,11 @@ router.delete("/profile", (req, res) => {
 
   User.findByIdAndDelete(userId)
     .then((deletedUser) => {
-      Collection.findOneAndDelete({ user: userId }).then((deletedCollection) => {
-        return res.json(deletedCollection);
-      });
+      Collection.findOneAndDelete({ user: userId }).then(
+        (deletedCollection) => {
+          return res.json(deletedCollection);
+        },
+      );
     })
     .catch((err) => res.status(404).json({ success: false }));
 });

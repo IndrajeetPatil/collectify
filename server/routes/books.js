@@ -24,15 +24,17 @@ router.post("/collections/books", (req, res) => {
 
   Book.create({ ...req.body })
     .then((newBook) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $push: { books: newBook._id } }, { new: true }).then(
-        (updatedCollection) => {
-          return Book.findOneAndUpdate(
-            { _id: newBook._id },
-            { $push: { collections: updatedCollection._id } },
-            { new: true },
-          );
-        },
-      );
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $push: { books: newBook._id } },
+        { new: true },
+      ).then((updatedCollection) => {
+        return Book.findOneAndUpdate(
+          { _id: newBook._id },
+          { $push: { collections: updatedCollection._id } },
+          { new: true },
+        );
+      });
     })
     .then((updatedBook) => res.json(updatedBook))
     .catch((err) => res.status(400).json({ success: false }));
@@ -69,7 +71,11 @@ router.delete("/collections/books/:id", (req, res) => {
 
   Book.findByIdAndDelete(bookId)
     .then((deletedBook) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $pull: { books: bookId } }, { new: true });
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $pull: { books: bookId } },
+        { new: true },
+      );
     })
     .then((updatedCollection) => res.json(updatedCollection))
     .catch((err) => res.status(404).json({ success: false }));

@@ -26,15 +26,17 @@ router.post("/collections/places", (req, res) => {
 
   Place.create({ ...req.body })
     .then((newPlace) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $push: { places: newPlace._id } }, { new: true }).then(
-        (updatedCollection) => {
-          return Place.findOneAndUpdate(
-            { _id: newPlace._id },
-            { $push: { collections: updatedCollection._id } },
-            { new: true },
-          );
-        },
-      );
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $push: { places: newPlace._id } },
+        { new: true },
+      ).then((updatedCollection) => {
+        return Place.findOneAndUpdate(
+          { _id: newPlace._id },
+          { $push: { collections: updatedCollection._id } },
+          { new: true },
+        );
+      });
     })
     .then((updatedPlace) => res.json(updatedPlace))
     .catch((err) => res.status(400).json({ success: false }));
@@ -71,7 +73,11 @@ router.delete("/collections/places/:id", (req, res) => {
 
   Place.findByIdAndDelete(placeId)
     .then((deletedPlace) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $pull: { places: placeId } }, { new: true });
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $pull: { places: placeId } },
+        { new: true },
+      );
     })
     .then((updatedCollection) => res.json(updatedCollection))
     .catch((err) => res.status(404).json({ success: false }));

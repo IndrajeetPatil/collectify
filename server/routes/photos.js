@@ -24,15 +24,17 @@ router.post("/collections/photos", (req, res) => {
 
   Photo.create({ ...req.body })
     .then((newPhoto) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $push: { photos: newPhoto._id } }, { new: true }).then(
-        (updatedCollection) => {
-          return Photo.findOneAndUpdate(
-            { _id: newPhoto._id },
-            { $push: { collections: updatedCollection._id } },
-            { new: true },
-          );
-        },
-      );
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $push: { photos: newPhoto._id } },
+        { new: true },
+      ).then((updatedCollection) => {
+        return Photo.findOneAndUpdate(
+          { _id: newPhoto._id },
+          { $push: { collections: updatedCollection._id } },
+          { new: true },
+        );
+      });
     })
     .then((updatedPhoto) => res.json(updatedPhoto))
     .catch((err) => res.status(400).json({ success: false }));
@@ -69,7 +71,11 @@ router.delete("/collections/photos/:id", (req, res) => {
 
   Photo.findByIdAndDelete(photoId)
     .then((deletedPhoto) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $pull: { photos: photoId } }, { new: true });
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $pull: { photos: photoId } },
+        { new: true },
+      );
     })
     .then((updatedCollection) => res.json(updatedCollection))
     .catch((err) => res.status(404).json({ success: false }));

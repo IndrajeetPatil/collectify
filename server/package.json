@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -22,6 +25,8 @@
     "multer-storage-cloudinary": "^4.0.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "eslint": "^9.11.1",
+    "prettier": "^3.3.3"
   }
 }

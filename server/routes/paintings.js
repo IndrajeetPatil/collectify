@@ -71,7 +71,11 @@ router.delete("/collections/paintings/:id", (req, res) => {
 
   Painting.findByIdAndDelete(paintingId)
     .then((deletedPainting) => {
-      return Collection.findOneAndUpdate({ user: userId }, { $pull: { paintings: paintingId } }, { new: true });
+      return Collection.findOneAndUpdate(
+        { user: userId },
+        { $pull: { paintings: paintingId } },
+        { new: true },
+      );
     })
     .then((updatedCollection) => res.json(updatedCollection))
     .catch((err) => res.status(404).json({ success: false }));
