@@ -1,5 +1,13 @@
 import React from "react";
-import { MDBCard, MDBCardBody, MDBCardFooter, MDBCardHeader, MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardFooter,
+  MDBCardHeader,
+  MDBCol,
+  MDBContainer,
+  MDBRow,
+} from "mdb-react-ui-kit";
 
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -10,12 +18,7 @@ function NotFoundPage() {
   return (
     <MDBContainer>
       <MDBRow className="justify-content-center mb-5 mt-5">
-        <MDBCol
-          xs={12}
-          sm={8}
-          md={6}
-          lg={4}
-        >
+        <MDBCol xs={12} sm={8} md={6} lg={4}>
           <MDBCard>
             <MDBCardHeader>
               <div className="text-center mt-3 mb-3">
@@ -23,10 +26,7 @@ function NotFoundPage() {
               </div>
             </MDBCardHeader>
 
-            <img
-              src={grumpyCat}
-              alt="A grumpy cat"
-            />
+            <img src={grumpyCat} alt="A grumpy cat" />
 
             <MDBCardBody>
               <div className="text-center">

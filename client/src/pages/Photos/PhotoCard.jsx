@@ -42,10 +42,7 @@ function PhotoCard({ photo }) {
             className="d-flex flex-row align-content-center justify-content-around fs-5"
             style={{ width: "20rem" }}
           >
-            <Button
-              variant="outline-primary"
-              onClick={() => setModal(true)}
-            >
+            <Button variant="outline-primary" onClick={() => setModal(true)}>
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip id="tooltip-top">Enlarge the image</Tooltip>}
@@ -78,10 +75,7 @@ function PhotoCard({ photo }) {
           </Container>
         </div>
 
-        <MDBModal
-          show={modal}
-          setShow={setModal}
-        >
+        <MDBModal show={modal} setShow={setModal}>
           <MDBModalDialog>
             <MDBModalContent>
               <MDBModalBody>
@@ -110,10 +104,7 @@ function PhotoCard({ photo }) {
               </MDBModalBody>
 
               <MDBModalFooter>
-                <Button
-                  onClick={() => setModal(false)}
-                  variant="secondary"
-                >
+                <Button onClick={() => setModal(false)} variant="secondary">
                   Close
                 </Button>
               </MDBModalFooter>

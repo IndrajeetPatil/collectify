@@ -34,7 +34,15 @@ function MovieCreate() {
   const handleCreateMovieSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, year, genre, director: extractCommaSeparatedItems(director), plot, url, poster };
+    const requestBody = {
+      title,
+      year,
+      genre,
+      director: extractCommaSeparatedItems(director),
+      plot,
+      url,
+      poster,
+    };
     itemService
       .createItem(requestBody, "movies")
       .then((response) => navigate("/collections/movies"))
@@ -42,20 +50,12 @@ function MovieCreate() {
   };
 
   return (
-    <Container
-      fluid
-      className="mt-5"
-    >
+    <Container fluid className="mt-5">
       <Row
         className="text-center justify-content-center align-content-center"
         style={{ width: "100vw", height: "80vh" }}
       >
-        <Col
-          xs={12}
-          sm={8}
-          md={6}
-          lg={4}
-        >
+        <Col xs={12} sm={8} md={6} lg={4}>
           <Card className="mb-0">
             <Card.Body>
               <Form onSubmit={handleCreateMovieSubmit}>

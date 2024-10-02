@@ -40,12 +40,11 @@ function MovieDetails() {
           ></img>
         </Col>
         <Col>
-          <Card
-            className="shadow"
-            style={{ width: "50vw", height: "70vh" }}
-          >
+          <Card className="shadow" style={{ width: "50vw", height: "70vh" }}>
             <Card.Body>
-              <Card.Title className="fs-2 text-center">{movie.title}</Card.Title>
+              <Card.Title className="fs-2 text-center">
+                {movie.title}
+              </Card.Title>
               <p>
                 <strong>Year</strong>: {movie.year}
               </p>
@@ -60,11 +59,7 @@ function MovieDetails() {
               </p>
               <p>
                 <strong>URL</strong>:{" "}
-                <a
-                  href={movie.url}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
+                <a href={movie.url} target="_blank" rel="noreferrer noopener">
                   {movie.url}
                 </a>
               </p>
@@ -87,7 +82,9 @@ function MovieDetails() {
                 <Link to={`/collections/movies/delete/${movie._id}`}>
                   <OverlayTrigger
                     placement="top"
-                    overlay={<Tooltip id="tooltip-top">Delete this item</Tooltip>}
+                    overlay={
+                      <Tooltip id="tooltip-top">Delete this item</Tooltip>
+                    }
                   >
                     <Icon.Trash style={{ color: "red" }} />
                   </OverlayTrigger>

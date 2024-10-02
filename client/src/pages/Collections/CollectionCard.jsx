@@ -13,11 +13,7 @@ function CollectionCard(props) {
         className="shadow"
         style={{ width: "20rem", height: "25rem", backgroundColor: "#F7F1E5" }}
       >
-        <Card.Img
-          variant="top"
-          src={props.image}
-          style={{ height: "15rem" }}
-        />
+        <Card.Img variant="top" src={props.image} style={{ height: "15rem" }} />
         <Card.Body>
           <Card.Title>
             {props.icon} {props.category}

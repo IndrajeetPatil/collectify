@@ -32,7 +32,9 @@ function MoviesList() {
       threshold: 0.0,
     });
 
-    const filteredMovies = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : moviesCopy;
+    const filteredMovies = str
+      ? fuse.search(str).map((fuseObj) => fuseObj.item)
+      : moviesCopy;
 
     setMovies(filteredMovies);
   };
@@ -41,10 +43,7 @@ function MoviesList() {
 
   const collectionItems = movies.map((movie) => {
     return (
-      <Col
-        key={movie._id}
-        className="m-5"
-      >
+      <Col key={movie._id} className="m-5">
         <MovieCard movie={movie} />
       </Col>
     );

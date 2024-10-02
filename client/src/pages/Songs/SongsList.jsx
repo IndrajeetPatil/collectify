@@ -34,7 +34,9 @@ function SongsList() {
       threshold: 0.0,
     });
 
-    const filteredSongs = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : songsCopy;
+    const filteredSongs = str
+      ? fuse.search(str).map((fuseObj) => fuseObj.item)
+      : songsCopy;
 
     setSongs(filteredSongs);
   };
@@ -43,10 +45,7 @@ function SongsList() {
 
   const collectionItemCols = songs.map((song) => {
     return (
-      <Col
-        key={song._id}
-        className="m-5"
-      >
+      <Col key={song._id} className="m-5">
         <SongCard song={song} />
       </Col>
     );

@@ -10,19 +10,12 @@ function EditSubmission(props) {
       className="d-flex flex-row align-content-center justify-content-around fs-5"
     >
       <Link to={`/collections/${props.collection}`}>
-        <Button
-          variant="secondary"
-          className="mb-0"
-        >
+        <Button variant="secondary" className="mb-0">
           Cancel
         </Button>
       </Link>
 
-      <Button
-        variant="primary"
-        type="submit"
-        className="mb-0"
-      >
+      <Button variant="primary" type="submit" className="mb-0">
         Save Changes
       </Button>
     </Container>

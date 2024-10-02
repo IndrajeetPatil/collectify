@@ -29,22 +29,17 @@ function ProfileDelete() {
         <Modal.Body>
           <p>Are you sure you would like to delete your profile?</p>
           <p>
-            This will delete all your collections. <strong>This action cannot be undone.</strong>
+            This will delete all your collections.{" "}
+            <strong>This action cannot be undone.</strong>
           </p>
         </Modal.Body>
 
         <Modal.Footer className="justify-content-evenly">
-          <Button
-            variant="secondary"
-            onClick={handleCancel}
-          >
+          <Button variant="secondary" onClick={handleCancel}>
             Cancel
           </Button>
 
-          <Button
-            variant="danger"
-            onClick={handleDelete}
-          >
+          <Button variant="danger" onClick={handleDelete}>
             Delete
           </Button>
         </Modal.Footer>

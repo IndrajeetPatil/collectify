@@ -25,8 +25,9 @@ function HomePage() {
         >
           <h1>About Collectify</h1>
           <p className="lead">
-            <em>Collectify</em> is a platform for individuals to create a personalized collection of their favourite
-            things, including books, movies, photos, and more,{" "}
+            <em>Collectify</em> is a platform for individuals to create a
+            personalized collection of their favourite things, including books,
+            movies, photos, and more,{" "}
             <strong>in one place and without the fear of judgment</strong>.
           </p>
 
@@ -37,10 +38,7 @@ function HomePage() {
           )}
         </Col>
 
-        <Col
-          className="mt-5 mb-5"
-          sm={8}
-        >
+        <Col className="mt-5 mb-5" sm={8}>
           <HomeCarousel />
         </Col>
       </Row>

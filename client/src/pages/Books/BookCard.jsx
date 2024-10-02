@@ -24,7 +24,9 @@ function BookCard(props) {
 
       <Card.Body>
         <Card.Title>{props.book.title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{props.book.year}</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">
+          {props.book.year}
+        </Card.Subtitle>
 
         <Card.Text>{props.book.genre}</Card.Text>
       </Card.Body>

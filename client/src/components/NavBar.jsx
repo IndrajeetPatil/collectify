@@ -11,19 +11,10 @@ function NavBar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
-    <Navbar
-      bg="light"
-      style={{ width: "100vw" }}
-    >
-      <Container
-        fluid
-        expand="lg"
-      >
+    <Navbar bg="light" style={{ width: "100vw" }}>
+      <Container fluid expand="lg">
         {/* Brand */}
-        <Navbar.Brand
-          as={Link}
-          to="/"
-        >
+        <Navbar.Brand as={Link} to="/">
           Collectify
         </Navbar.Brand>
 
@@ -31,47 +22,26 @@ function NavBar() {
           <Nav>
             {/* Dropdown for collections */}
             <NavDropdown title="Collections">
-              <NavDropdown.Item
-                as={Link}
-                to="/collections"
-              >
+              <NavDropdown.Item as={Link} to="/collections">
                 All Collections
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                as={Link}
-                to="/collections/books"
-              >
+              <NavDropdown.Item as={Link} to="/collections/books">
                 Books
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/collections/movies"
-              >
+              <NavDropdown.Item as={Link} to="/collections/movies">
                 Movies
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/collections/paintings"
-              >
+              <NavDropdown.Item as={Link} to="/collections/paintings">
                 Paintings
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/collections/photos"
-              >
+              <NavDropdown.Item as={Link} to="/collections/photos">
                 Photos
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/collections/places"
-              >
+              <NavDropdown.Item as={Link} to="/collections/places">
                 Places
               </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                to="/collections/songs"
-              >
+              <NavDropdown.Item as={Link} to="/collections/songs">
                 Songs
               </NavDropdown.Item>
             </NavDropdown>
@@ -90,16 +60,10 @@ function NavBar() {
           {isLoggedIn && (
             <Nav>
               <NavDropdown title={user && user.name}>
-                <NavDropdown.Item
-                  as={Link}
-                  to="/profile"
-                >
+                <NavDropdown.Item as={Link} to="/profile">
                   Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={Link}
-                  to="/profile/edit"
-                >
+                <NavDropdown.Item as={Link} to="/profile/edit">
                   Edit Profile
                 </NavDropdown.Item>
                 {/* <NavDropdown.Item
@@ -108,17 +72,11 @@ function NavBar() {
                 >
                   Edit Settings
                 </NavDropdown.Item> */}
-                <NavDropdown.Item
-                  as={Link}
-                  to="/profile/delete"
-                >
+                <NavDropdown.Item as={Link} to="/profile/delete">
                   Delete Account
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item
-                  as={Link}
-                  onClick={logOutUser}
-                >
+                <NavDropdown.Item as={Link} onClick={logOutUser}>
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>

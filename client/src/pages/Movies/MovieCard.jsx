@@ -50,10 +50,7 @@ function MovieCard({ movie }) {
         <Card.Subtitle className="mb-2 text-muted">{movie.year}</Card.Subtitle>
 
         <p className="mb-0">
-          <MDBBadge
-            color={badgeColor}
-            pill
-          >
+          <MDBBadge color={badgeColor} pill>
             {movie.genre}
           </MDBBadge>
         </p>

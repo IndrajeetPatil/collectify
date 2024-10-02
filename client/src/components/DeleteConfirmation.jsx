@@ -17,17 +17,11 @@ function DeleteConfirmationModal(props) {
         </Modal.Body>
 
         <Modal.Footer className="justify-content-evenly">
-          <Button
-            variant="secondary"
-            onClick={props.handleCancel}
-          >
+          <Button variant="secondary" onClick={props.handleCancel}>
             Cancel
           </Button>
 
-          <Button
-            variant="danger"
-            onClick={props.handleDelete}
-          >
+          <Button variant="danger" onClick={props.handleDelete}>
             Delete
           </Button>
         </Modal.Footer>

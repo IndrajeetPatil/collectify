@@ -32,7 +32,9 @@ function PlacesList() {
       threshold: 0.0,
     });
 
-    const filteredPlaces = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : placesCopy;
+    const filteredPlaces = str
+      ? fuse.search(str).map((fuseObj) => fuseObj.item)
+      : placesCopy;
 
     setPlaces(filteredPlaces);
   };
@@ -41,11 +43,7 @@ function PlacesList() {
 
   const collectionItems = places.map((place, index) => {
     return (
-      <Col
-        key={place._id}
-        index={index}
-        className="m-5"
-      >
+      <Col key={place._id} index={index} className="m-5">
         <PlaceCard place={place} />
       </Col>
     );

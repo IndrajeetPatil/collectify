@@ -34,7 +34,9 @@ function PhotosList() {
       threshold: 0.0,
     });
 
-    const filteredPhotos = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : photosCopy;
+    const filteredPhotos = str
+      ? fuse.search(str).map((fuseObj) => fuseObj.item)
+      : photosCopy;
 
     setPhotos(filteredPhotos);
   };
@@ -43,10 +45,7 @@ function PhotosList() {
 
   const collectionItemCols = photos.map((photo) => {
     return (
-      <Col
-        key={photo._id}
-        className="ms-5 m-5"
-      >
+      <Col key={photo._id} className="ms-5 m-5">
         <PhotoCard photo={photo} />
       </Col>
     );

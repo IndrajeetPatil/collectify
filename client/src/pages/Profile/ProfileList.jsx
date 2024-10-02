@@ -31,19 +31,16 @@ function ProfileList() {
     <section style={{ height: "90vh" }}>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol
-            lg="6"
-            className="mb-4 mb-lg-0"
-          >
-            <MDBCard
-              className="mb-3"
-              style={{ borderRadius: "0.5rem" }}
-            >
+          <MDBCol lg="6" className="mb-4 mb-lg-0">
+            <MDBCard className="mb-3" style={{ borderRadius: "0.5rem" }}>
               <MDBRow className="g-0">
                 <MDBCol
                   md="4"
                   className="gradient-custom text-center text-white bg-dark"
-                  style={{ borderTopLeftRadius: ".5rem", borderBottomLeftRadius: ".5rem" }}
+                  style={{
+                    borderTopLeftRadius: ".5rem",
+                    borderBottomLeftRadius: ".5rem",
+                  }}
                 >
                   <MDBCardImage
                     src={profile.image || placeholderAvatar}
@@ -91,18 +88,14 @@ function ProfileList() {
                     <hr className="mt-0 mb-4" />
 
                     <MDBRow className="pt-1">
-                      <MDBCol
-                        size="9"
-                        className="mb-3"
-                      >
+                      <MDBCol size="9" className="mb-3">
                         <MDBTypography tag="h6">Email</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.email}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                          {profile.email}
+                        </MDBCardText>
                       </MDBCol>
 
-                      <MDBCol
-                        size="3"
-                        className="mb-3"
-                      >
+                      <MDBCol size="3" className="mb-3">
                         <MDBTypography tag="h6">Sex</MDBTypography>
                         <MDBCardText className="text-muted">
                           {profile.sex && capitalizeFirstLetter(profile.sex)}
@@ -113,54 +106,48 @@ function ProfileList() {
                     <MDBTypography tag="h6">Account Summary</MDBTypography>
                     <hr className="mt-0 mb-4" />
                     <MDBRow className="pt-1">
-                      <MDBCol
-                        size="4"
-                        className="mb-3"
-                      >
+                      <MDBCol size="4" className="mb-3">
                         <MDBTypography tag="h6">Books</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections?.books.length}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                          {profile.collections?.books.length}
+                        </MDBCardText>
                       </MDBCol>
 
-                      <MDBCol
-                        size="4"
-                        className="mb-3"
-                      >
+                      <MDBCol size="4" className="mb-3">
                         <MDBTypography tag="h6">Movies</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections?.movies.length}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                          {profile.collections?.movies.length}
+                        </MDBCardText>
                       </MDBCol>
 
-                      <MDBCol
-                        size="4"
-                        className="mb-3"
-                      >
+                      <MDBCol size="4" className="mb-3">
                         <MDBTypography tag="h6">Paintings</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections?.paintings.length}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                          {profile.collections?.paintings.length}
+                        </MDBCardText>
                       </MDBCol>
                     </MDBRow>
 
                     <MDBRow className="pt-1">
-                      <MDBCol
-                        size="4"
-                        className="mb-3"
-                      >
+                      <MDBCol size="4" className="mb-3">
                         <MDBTypography tag="h6">Photos</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections?.photos.length}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                          {profile.collections?.photos.length}
+                        </MDBCardText>
                       </MDBCol>
 
-                      <MDBCol
-                        size="4"
-                        className="mb-3"
-                      >
+                      <MDBCol size="4" className="mb-3">
                         <MDBTypography tag="h6">Places</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections?.places.length}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                          {profile.collections?.places.length}
+                        </MDBCardText>
                       </MDBCol>
 
-                      <MDBCol
-                        size="4"
-                        className="mb-3"
-                      >
+                      <MDBCol size="4" className="mb-3">
                         <MDBTypography tag="h6">Songs</MDBTypography>
-                        <MDBCardText className="text-muted">{profile.collections?.songs.length}</MDBCardText>
+                        <MDBCardText className="text-muted">
+                          {profile.collections?.songs.length}
+                        </MDBCardText>
                       </MDBCol>
                     </MDBRow>
                   </MDBCardBody>

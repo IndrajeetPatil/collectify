@@ -50,20 +50,12 @@ function SongCreate() {
   };
 
   return (
-    <Container
-      fluid
-      className="mt-5"
-    >
+    <Container fluid className="mt-5">
       <Row
         className="text-center justify-content-center align-content-center"
         style={{ width: "100vw", height: "80vh" }}
       >
-        <Col
-          xs={12}
-          sm={8}
-          md={6}
-          lg={4}
-        >
+        <Col xs={12} sm={8} md={6} lg={4}>
           <Card className="mb-0 shadow">
             <Card.Body>
               <Form onSubmit={handleCreateSongSubmit}>

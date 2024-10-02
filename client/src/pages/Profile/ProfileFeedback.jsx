@@ -40,20 +40,11 @@ function ProfileFeedback() {
   return (
     <MDBContainer>
       <MDBRow className="justify-content-center mb-5 mt-5">
-        <MDBCol
-          xs={12}
-          sm={8}
-          md={6}
-          lg={4}
-        >
+        <MDBCol xs={12} sm={8} md={6} lg={4}>
           <MDBCard>
             <MDBCardBody>
               <div className="text-center">
-                <MDBIcon
-                  far
-                  icon="file-alt mb-3 text-primary"
-                  size="4x"
-                />
+                <MDBIcon far icon="file-alt mb-3 text-primary" size="4x" />
                 <p>
                   <strong>Your opinion matters!</strong>
                 </p>
@@ -65,10 +56,7 @@ function ProfileFeedback() {
 
               <hr />
 
-              <Form
-                className="px-4"
-                action=""
-              >
+              <Form className="px-4" action="">
                 <Form.Group className="mb-2 text-center">
                   <Form.Label className="mb-3">
                     <strong>Your rating</strong>

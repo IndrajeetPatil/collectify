@@ -25,24 +25,20 @@ function PlaceCard({ place }) {
       draggable: false,
       animation: maps.Animation.DROP,
       background: place.visited ? "green" : "red",
-      text: place.visited ? "I have visited this place!" : "I would love to visit this place!",
+      text: place.visited
+        ? "I have visited this place!"
+        : "I would love to visit this place!",
     });
 
     return marker;
   };
 
   return (
-    <Accordion
-      style={{ width: "90vw" }}
-      className="shadow"
-    >
+    <Accordion style={{ width: "90vw" }} className="shadow">
       <Accordion.Item eventKey="0">
         <Accordion.Header>{place.name}</Accordion.Header>
         <Accordion.Body>
-          <div
-            className="mb-3"
-            style={{ height: "30vh", width: "100%" }}
-          >
+          <div className="mb-3" style={{ height: "30vh", width: "100%" }}>
             <GoogleMapReact
               bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY }}
               defaultCenter={defaultProps.center}
@@ -60,10 +56,7 @@ function PlaceCard({ place }) {
 
           {place.image && (
             <div className="d-flex row justify-content-center align-content-center mb-3">
-              <img
-                src={place.image}
-                alt="A memory from this place"
-              />
+              <img src={place.image} alt="A memory from this place" />
             </div>
           )}
 
@@ -76,10 +69,7 @@ function PlaceCard({ place }) {
                 placement="top"
                 overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
               >
-                <Icon.Pencil
-                  className="me-3"
-                  style={{ color: "green" }}
-                />
+                <Icon.Pencil className="me-3" style={{ color: "green" }} />
               </OverlayTrigger>
             </Link>
 

@@ -42,14 +42,20 @@ function SongCard({ song }) {
               {song.ownAlbum ? (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip id="tooltip-top">I own this album!</Tooltip>}
+                  overlay={
+                    <Tooltip id="tooltip-top">I own this album!</Tooltip>
+                  }
                 >
                   <Icon.DiscFill />
                 </OverlayTrigger>
               ) : (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip id="tooltip-top">I'd like to own this album!</Tooltip>}
+                  overlay={
+                    <Tooltip id="tooltip-top">
+                      I'd like to own this album!
+                    </Tooltip>
+                  }
                 >
                   <Icon.BagHeartFill />
                 </OverlayTrigger>
@@ -59,11 +65,7 @@ function SongCard({ song }) {
         </div>
 
         <div className="ratio ratio-16x9">
-          <iframe
-            src={song.url}
-            title="YouTube video"
-            allowFullScreen
-          ></iframe>
+          <iframe src={song.url} title="YouTube video" allowFullScreen></iframe>
         </div>
 
         <MDBCardBody>
@@ -80,10 +82,7 @@ function SongCard({ song }) {
 
           <div className="d-flex justify-content-between mb-2">
             <p className="mb-0">
-              <MDBBadge
-                color={badgeColor}
-                pill
-              >
+              <MDBBadge color={badgeColor} pill>
                 {song.genre}
               </MDBBadge>
             </p>
@@ -93,10 +92,7 @@ function SongCard({ song }) {
                   placement="top"
                   overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
                 >
-                  <Icon.Pencil
-                    className="me-2"
-                    style={{ color: "green" }}
-                  />
+                  <Icon.Pencil className="me-2" style={{ color: "green" }} />
                 </OverlayTrigger>
               </Link>
 

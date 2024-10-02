@@ -12,10 +12,7 @@ function Footer() {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
         &copy; {new Date().getFullYear()} Copyright:{" "}
-        <a
-          className="text-dark"
-          href="https://github.com/IndrajeetPatil"
-        >
+        <a className="text-dark" href="https://github.com/IndrajeetPatil">
           Indrajeet Patil
         </a>
       </div>

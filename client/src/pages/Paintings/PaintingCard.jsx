@@ -1,5 +1,11 @@
 import React from "react";
-import { MDBCol, MDBCard, MDBCardBody, MDBCardImage, MDBBadge } from "mdb-react-ui-kit";
+import {
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBBadge,
+} from "mdb-react-ui-kit";
 
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
@@ -44,14 +50,22 @@ function PaintingCard({ painting }) {
               {painting.seenOriginal ? (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip id="tooltip-top">I've seen the original painting!</Tooltip>}
+                  overlay={
+                    <Tooltip id="tooltip-top">
+                      I've seen the original painting!
+                    </Tooltip>
+                  }
                 >
                   <Icon.BookmarkCheck />
                 </OverlayTrigger>
               ) : (
                 <OverlayTrigger
                   placement="top"
-                  overlay={<Tooltip id="tooltip-top">I'm yet to see the original painting!</Tooltip>}
+                  overlay={
+                    <Tooltip id="tooltip-top">
+                      I'm yet to see the original painting!
+                    </Tooltip>
+                  }
                 >
                   <Icon.BookmarkX />
                 </OverlayTrigger>
@@ -80,10 +94,7 @@ function PaintingCard({ painting }) {
 
           <div className="d-flex justify-content-between mb-2">
             <p className="mb-0">
-              <MDBBadge
-                color={badgeColor}
-                pill
-              >
+              <MDBBadge color={badgeColor} pill>
                 {painting.genre}
               </MDBBadge>
             </p>
@@ -93,10 +104,7 @@ function PaintingCard({ painting }) {
                   placement="top"
                   overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
                 >
-                  <Icon.Pencil
-                    className="me-2"
-                    style={{ color: "green" }}
-                  />
+                  <Icon.Pencil className="me-2" style={{ color: "green" }} />
                 </OverlayTrigger>
               </Link>
 

@@ -34,7 +34,9 @@ function PaintingsList() {
       threshold: 0.0,
     });
 
-    const filteredPaintings = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : paintingsCopy;
+    const filteredPaintings = str
+      ? fuse.search(str).map((fuseObj) => fuseObj.item)
+      : paintingsCopy;
 
     setPaintings(filteredPaintings);
   };
@@ -43,10 +45,7 @@ function PaintingsList() {
 
   const collectionItemCols = paintings.map((painting) => {
     return (
-      <Col
-        key={painting._id}
-        className="m-5"
-      >
+      <Col key={painting._id} className="m-5">
         <PaintingCard painting={painting} />
       </Col>
     );

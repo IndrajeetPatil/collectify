@@ -60,20 +60,12 @@ function ProfileEdit() {
   };
 
   return (
-    <Container
-      fluid
-      className="mt-5"
-    >
+    <Container fluid className="mt-5">
       <Row
         className="text-center justify-content-center align-content-center"
         style={{ width: "100vw", height: "80vh" }}
       >
-        <Col
-          xs={12}
-          sm={8}
-          md={6}
-          lg={4}
-        >
+        <Col xs={12} sm={8} md={6} lg={4}>
           <Card className="mt-5 mb-0 shadow">
             <Card.Body>
               <Form onSubmit={handleCreateProfileSubmit}>
@@ -92,11 +84,7 @@ function ProfileEdit() {
                 {/* sex */}
                 <Form.Group className="mb-2">
                   <Form.Label>Sex*</Form.Label>
-                  <Form.Select
-                    value={sex}
-                    name="sex"
-                    onChange={handleSex}
-                  >
+                  <Form.Select value={sex} name="sex" onChange={handleSex}>
                     <option></option>
                     <option>male</option>
                     <option>female</option>
@@ -120,19 +108,12 @@ function ProfileEdit() {
                   className="d-flex flex-row align-content-center justify-content-around fs-5"
                 >
                   <Link to={"/profile"}>
-                    <Button
-                      variant="secondary"
-                      className="mb-0"
-                    >
+                    <Button variant="secondary" className="mb-0">
                       Cancel
                     </Button>
                   </Link>
 
-                  <Button
-                    variant="primary"
-                    type="submit"
-                    className="mb-0"
-                  >
+                  <Button variant="primary" type="submit" className="mb-0">
                     Save Changes
                   </Button>
                 </Container>

@@ -38,7 +38,11 @@ function BookTableRow({ book }) {
           />
           <OverlayTrigger
             placement="top"
-            overlay={<Tooltip id="tooltip-top">{book.description || "No book description available."}</Tooltip>}
+            overlay={
+              <Tooltip id="tooltip-top">
+                {book.description || "No book description available."}
+              </Tooltip>
+            }
           >
             <div className="ms-3">
               <p className="fw-bold mb-1">{book.title}</p>
@@ -50,7 +54,9 @@ function BookTableRow({ book }) {
 
       {/* Author */}
       <td>
-        <p className="fw-normal mb-1">{collapseToCommaSeparatedString(book.author)}</p>
+        <p className="fw-normal mb-1">
+          {collapseToCommaSeparatedString(book.author)}
+        </p>
       </td>
 
       {/* Genre */}
@@ -58,10 +64,7 @@ function BookTableRow({ book }) {
 
       {/* Status */}
       <td>
-        <MDBBadge
-          color={selectBadgeColor(book.status)}
-          pill
-        >
+        <MDBBadge color={selectBadgeColor(book.status)} pill>
           {book.status}
         </MDBBadge>
       </td>
@@ -74,10 +77,7 @@ function BookTableRow({ book }) {
               placement="top"
               overlay={<Tooltip id="tooltip-top">Edit details</Tooltip>}
             >
-              <Icon.Pencil
-                className="me-3"
-                style={{ color: "green" }}
-              />
+              <Icon.Pencil className="me-3" style={{ color: "green" }} />
             </OverlayTrigger>
           </Link>
 

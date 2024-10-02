@@ -32,7 +32,9 @@ function BooksList() {
       threshold: 0.0,
     });
 
-    const filteredBooks = str ? fuse.search(str).map((fuseObj) => fuseObj.item) : booksCopy;
+    const filteredBooks = str
+      ? fuse.search(str).map((fuseObj) => fuseObj.item)
+      : booksCopy;
 
     setBooks(filteredBooks);
   };

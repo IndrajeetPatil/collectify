@@ -42,22 +42,11 @@ function LoginPage() {
         className="text-center justify-content-center align-content-center"
         style={{ width: "100vw", height: "80vh" }}
       >
-        <Col
-          xs={12}
-          sm={8}
-          md={6}
-          lg={4}
-        >
+        <Col xs={12} sm={8} md={6} lg={4}>
           <Card className="mb-0 shadow">
             <Card.Body>
-              <Form
-                className="mb-3"
-                onSubmit={handleLoginSubmit}
-              >
-                <Form.Group
-                  className="mb-3"
-                  controlId="formBasicEmail"
-                >
+              <Form className="mb-3" onSubmit={handleLoginSubmit}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Control
                     type="email"
                     placeholder="Email address"
@@ -69,10 +58,7 @@ function LoginPage() {
                   />
                 </Form.Group>
 
-                <Form.Group
-                  className="mb-3"
-                  controlId="formBasicPassword"
-                >
+                <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Control
                     type="password"
                     placeholder="Password"
@@ -94,21 +80,13 @@ function LoginPage() {
                       />
                     </Form.Group> */}
 
-                <Button
-                  className="mb-0"
-                  variant="primary"
-                  type="submit"
-                >
+                <Button className="mb-0" variant="primary" type="submit">
                   Login
                 </Button>
               </Form>
 
               <Link to={"/forgot-password"}>
-                <Button
-                  className="mb-0"
-                  variant="link"
-                  type="submit"
-                >
+                <Button className="mb-0" variant="link" type="submit">
                   Forgot password?
                 </Button>
               </Link>
@@ -116,11 +94,7 @@ function LoginPage() {
               <hr />
 
               <Link to={"/signup"}>
-                <Button
-                  className="mb-0"
-                  variant="success"
-                  type="submit"
-                >
+                <Button className="mb-0" variant="success" type="submit">
                   Create new account
                 </Button>
               </Link>
@@ -128,10 +102,7 @@ function LoginPage() {
 
             {errorMessage && (
               <Card.Footer className="text-muted text-center mb-0">
-                <div
-                  className="alert alert-danger"
-                  role="alert"
-                >
+                <div className="alert alert-danger" role="alert">
                   {errorMessage}
                 </div>
               </Card.Footer>

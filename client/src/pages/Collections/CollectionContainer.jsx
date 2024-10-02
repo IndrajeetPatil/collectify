@@ -37,10 +37,7 @@ function CollectionContainer(props) {
 
       <Row className="mt-5">
         <Col>
-          <Card
-            style={{ width: "50vw" }}
-            className="shadow"
-          >
+          <Card style={{ width: "50vw" }} className="shadow">
             <Card.Header>Collection: {props.category}</Card.Header>
 
             <Card.Body className="text-center">
@@ -50,7 +47,9 @@ function CollectionContainer(props) {
               <Card.Text>- {props.quoteAuthor}</Card.Text>
 
               <Link to={`/collections/${props.collection}/create`}>
-                <Button variant="primary">Add a {pluralToSingular(props.collection)}</Button>
+                <Button variant="primary">
+                  Add a {pluralToSingular(props.collection)}
+                </Button>
               </Link>
             </Card.Body>
           </Card>
@@ -59,10 +58,7 @@ function CollectionContainer(props) {
 
       <Row className="mt-5">
         <Col>
-          <Form
-            style={{ width: "50vw" }}
-            className="d-flex text-center"
-          >
+          <Form style={{ width: "50vw" }} className="d-flex text-center">
             <Form.Control
               type="search"
               placeholder={`Search for ${props.collection}`}
@@ -74,7 +70,9 @@ function CollectionContainer(props) {
         </Col>
       </Row>
 
-      {props.collectionItems && <Row className="mt-5">{props.collectionItems}</Row>}
+      {props.collectionItems && (
+        <Row className="mt-5">{props.collectionItems}</Row>
+      )}
     </Container>
   );
 }
